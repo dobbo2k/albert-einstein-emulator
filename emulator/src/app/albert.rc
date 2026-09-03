@@ -1,0 +1,13 @@
+// Albert -- Win32 resources.
+//
+// Resource ID 1 is load-bearing twice over. The shell shows the lowest-
+// numbered icon in an executable as the file's icon, and SDL3 does the same
+// thing for the window class: with no SDL_HINT_WINDOWS_INTRESOURCE_ICON set it
+// enumerates RT_GROUP_ICON and takes the first, "like in the Explorer"
+// (SDL_windowsevents.c, WIN_RegisterApp). So this one entry covers Explorer,
+// the taskbar and the title bar, and nothing in the C++ has to ask for it.
+//
+// albert.ico is generated, not hand-drawn -- see tools/make_icon.py, which
+// lays the caricature out in a unit square and cuts every size from 16 to 256
+// out of it. Re-run that script rather than editing the .ico.
+1 ICON "albert.ico"

@@ -1,0 +1,14 @@
+Einstein MOS: Excellent commented disassemblies by Ric Hohne.
+
+Hi Chris,
+
+They are soft copies which I generated back in 86/7. I think I identified
+all the data areas. Suitable comments were added at the time, including info
+on the MCAL calls.
+
+I started to put together some info on the IO registers, but never got
+round to finishing it.
+Transfered the files onto the PC a couple of years ago to check that the
+compiled output was the same as the original and they were.
+
+Regards Ric

@@ -1,0 +1,92 @@
+Albert -- an emulator for the Tatung Einstein TC-01 (Z80, 1984)
+================================================================
+
+Run albert.exe. That is the whole installation.
+
+
+What is in here
+---------------
+
+  albert.exe            the emulator
+  SDL3.dll              window, input and audio; must stay beside the exe
+  roms\                 the firmware, and the commented sources the
+                        debugger reads
+
+If the roms folder is empty, Albert will start but has no machine to be: it
+needs an Einstein MOS ROM -- the 8 KB MOS 1.2 image is the one everything here
+is written against.
+
+Put one in roms\ and it will be found. Call it einstein.rom and it is loaded
+first; failing that, any file in there ending .rom is checked and the first one
+that really is an Einstein ROM is used. The name does not matter, because the
+contents are hashed to identify it. You can also pass a path on the command
+line, or use File > Open.
+
+Nothing else is required. There is no installer, no registry use, and no
+Visual C++ runtime to install -- the C runtime is linked in.
+
+
+Getting something running
+-------------------------
+
+  albert.exe --disk mygame.dsk
+
+Some discs boot straight into the game. Others boot XtalDOS to a "0:" prompt,
+where you type the program's name -- DIR will list what is on the disc.
+
+To insert a disc while running, use Media > Drive 0 > Insert, or just drop
+the file on the window.
+
+
+Keys
+----
+
+  Caps Lock   ALPHA          Pause   BREAK
+  Alt         GRAPH          Ctrl    CONTROL
+
+To boot a disc you put in after starting, use Machine > Boot disc. A disc that
+was already in the drive when Albert started boots on its own.
+
+Ctrl+Pause, which is what a real Einstein wants, does not work on Windows and
+cannot be made to: holding Ctrl turns Pause into a different key, and the
+keystroke never reaches the program at all. Ctrl+End does the same job.
+
+  F9    run / pause
+  F11   full screen
+  F12   show or hide the debugger
+
+The menu is mouse-driven and Alt does not open it. That is forced rather than
+chosen: Alt is the Einstein's GRAPH key, and the arrows, Enter, Space and
+Escape are all keys on its keyboard, so they belong to the machine.
+
+
+Joysticks
+---------
+
+Options > Joysticks. Joystick 1 defaults to the numeric keypad -- the one part
+of the host keyboard the Einstein's own keyboard does not use, so it costs the
+machine no keys.
+
+Two joystick interfaces exist and software uses one or the other, so Albert
+drives both at once: the analogue sticks read through the ADC, and a digital
+stick on the PIO. You should not have to care which a game wants.
+
+
+Settings
+--------
+
+albert.cfg and albert-layout-v3.ini are written next to the executable on
+first run. Delete them to go back to defaults.
+
+
+ROMs and disc images
+--------------------
+
+The Einstein firmware is Tatung's copyright, and commercial disc images belong
+to their publishers. Whatever is in roms\ here was put there by whoever built
+this copy; the emulator itself is separate from it.
+
+The commented disassembly of MOS 1.2 in roms\disassembled is Ric Hohne's work
+(1986-87). It is what lets the debugger single-step against named, annotated
+source instead of raw mnemonics, and it is the reason this emulator could be
+written at all.

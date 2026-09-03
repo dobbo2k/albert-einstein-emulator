@@ -1,0 +1,491 @@
+;***********************************************************************
+;*******		DEFAULT MOS 1.2 LOCATIONS               ********
+;*******	R.H0HNE				08-DEC-86	********
+;***********************************************************************
+;tab spacing=8
+;
+;HARDWARE DEPENDANT ADDRESSES
+SFTRST	EQU	00H		; RESET PORT,FDC/PSG
+;
+PSG	EQU	00H		;PSG	00-07 	AY-3-8910
+PSG_SEL	EQU 02H	;LATCH ADDRESS
+PSG_RD	EQU 02H	;READ FROM PSG
+PSG_WR	EQU 03H	;WRITE TO PSG
+;
+VDP	EQU	08H		;VDP	08-0F	TMS9129
+VDP_VRAM	EQU 08H	; VRAM READ/WRITE
+VDP_REG	EQU 09H	;
+VDP_STAT EQU 09H	;READ VDP STATUS
+;
+PCI	EQU	10H		;PCI	10-17	8251
+;
+FDC	EQU	18H		;FDC	18-1F	FD1770
+FDC_CMD	EQU	18H
+FDC_STATUS	EQU	18H
+FDC_TRACK	EQU	19H
+FDC_SECTOR	EQU	1AH
+FDC_DATA	EQU	1BH
+;
+KBDMSK	EQU	20H		;KEYBOARD INTERRUPT MASK
+ADCMSK	EQU	21H		;ADC INTERRUPT MASK
+ALPHA	EQU	22H		;TOGGLES ALPHA LED
+DRVSEL	EQU	23H		;DRIVE SELECT
+RAMROM	EQU	24H		;SELECT RAM/ROM
+FIREMSK	EQU	25H		;FIRE INTERRUPT MASK
+CTC	EQU	28H		;CTC	28-2F	Z80A CTC
+PIA	EQU	30H		;PIA	30-37	Z80A PIA
+ADC_PT	EQU	38H		;ADC	38-3F	ACD0844
+OP80	EQU	40H		; 40 THRO' 47H ARE VIDE0 (80-COL) RAM
+RG6845	EQU	48H		; 6845 REGISTER ADDRESS PORT.
+DT6845	EQU	49H		; 6845 REGISTER DATA PORT.
+IP80	EQU	4CH		; 80 - COL. INPUT PORT
+;
+;**********************************************
+; MOS	EQUATES FOR EINSTEIN 
+;**********************************************
+;
+; CALL THESE WITH     RST 8
+;		      DEFB <MCAL>
+; Note: In general, HL,DE,BC and AF destroyed.
+;
+; MCAL'S - Einstein ROM calls
+MCAL	EQU	0CFH
+;
+ARITH:	EQU	80H	; ARITH COMMAND
+BAUD:	EQU	81H	; BAUD RATE
+COPY:	EQU	82H	; COPY COMMAND
+DECIML:	EQU	83H	; DECIMAL
+EXEC:	EQU	84H	; EXECUTE
+MFILL:	EQU	85H	; FILL
+GOTO:	EQU	86H	; GOTO PC
+HEX:	EQU	87H	; HEXADECIMAL 
+MODIFY:	EQU	8CH	; MODIFY
+;
+RDBLOK:	EQU	91H	; READ 2K FROM DISC
+TBLATE:	EQU	93H	; TABULATE
+WRBLOK:	EQU	96H	; WRITE 2K TO DISC
+COLD:	EQU	97H	; "X" COLD START
+WARM:	EQU	98H	; "Y" WARM START
+REGSTR:	EQU	99H	; "Z" REGISTER EXAMINE
+;
+ZINIT:	EQU	9AH	; RE-ENTRY TO MOS
+ZRSCAN:	EQU	9BH	; REPEAT KEY SCAN
+ZKEYIN:	EQU	9CH	; WAIT FOR KEY I/P
+ZGETLN:	EQU	9DH	; ENTER TEXT FROM (DE)
+ZOUTC:	EQU	9EH	; INVERSE OF ZKEYIN
+ZPOUT:	EQU	9FH	; O/P CHR. TO PLL PRINTER
+ZSLOUT:	EQU	0A0H	; O/P A TO SERIAL PORT
+ZSRLIN:	EQU	0A1H	; INP FROM SERIAL PORT TO A
+;
+ZRSECT:	EQU	0A2H	; READ 200H BYTES INTO BUFFER
+ZWSECT:	EQU	0A3H	; WRITE 200H BYTES FROM BUFFER
+ZRBLK:	EQU	0A4H	; READ BLOCK INTO MEMORY
+ZWBLK:	EQU	0A5H	; WRITE BLOCK FROM MEMORY
+;
+ZCRLF:	EQU	0A6H	; O/P CR(0DH) AND LF(0AH)
+ZCRLFZ:	EQU	0A7H	; O/P CRLF IF CURSOR NOT AT COL. ZERO
+ZSPACE:	EQU	0A8H	; O/P 1 SPACE
+;
+ZPR4HX:	EQU	0A9H	; O/P (HL) AS HEX DIGITS TEXT
+ZP2HXZ:	EQU	0AAH	; O/P (A) AS HEX + 1 SPACE
+ZPR2HX:	EQU	0ABH	; AS ZP2HXZ BUT NO SPACE
+ZFC4HX:	EQU	0ACH	; GET HEX NO FROM [DE] INTO HL
+ZFCZHX:	EQU	0ADH	; GET HEX NO FROM [DE] INTO A 
+;
+ZDCMD:	EQU	0AEH	; O/P (A) COMMAND TO FDC
+ZHMDSC:	EQU	0AFH	; HOME DISC (A) TO TK 0
+;
+ZIGBLK:	EQU	0B0H	; RETURN RAM [DE] IN A 
+ZRDMEM:	EQU	0B1H	; RET. RAM [HL] IN A
+ZRCPYU:	EQU	0B2H	; DO LDIR, SW. OUT ROM
+ZRCPYD:	EQU	0B3H	; DO LDDR, SW. OUT ROM
+;
+ZMOUT:	EQU	0B4H	; O/P (B) TO PSG [C]
+ZKSCAN:	EQU	0B5H	; GET KEY IN A (RPT)
+;
+; CALLS 0B6H TO 0BBH ARE DOS CALLS.
+;
+ZSLDSC:	EQU	0B6H	; SELECT DRIVE
+ZSETRK:	EQU	0B7H	; SELECT TRACK
+ZSETSC:	EQU	0B8H	; SET SECTOR
+ZSETBF:	EQU	0B9H	; SET BUFFER
+ZRD128:	EQU	0BAH	; READ RECORD
+ZWR128:	EQU	0BBH	; WRITE RECORD	
+;
+ZZTIME:	EQU	0BCH	; SET UP CTC CH. 2&3 FOR 1SEC. TICK
+ZFRDST:	EQU	0BDH	; RESET FDC AFTER ERROR
+ZSYSRS:	EQU	0BEH	; CLEAR 40-COL
+ZLOGO:	EQU	0BFH	; O/P '***EINSTEIN***' LOGO
+ZPINIT:	EQU	0C0H	; SET PSG 7 TO 7FH,REST TO 0
+;
+ZSREG:	EQU	0C1H	; SEND ADDR. IN BC TO VDP (DATA P8)
+ZVRIN:	EQU	0C2H	; VALUE FROM VRAM IN A,PTR [BC]
+ZVROUT:	EQU	0C3H	; WRITE (A) TO VRAM [BC]
+ZPLOT:	EQU	0C4H	; PLOT/UNPLOT A PIXEL
+ZPLTXY:	EQU	0C5H	; PLOT A POINT
+ZPOINT:	EQU	0C6H	; GET PIXEL STATUS
+ZPNTXY:	EQU	0C7H	; GET PIXEL STATUS
+ZDRWTO:	EQU	0C8H	; DRAW LINE
+ZPOLYG:	EQU	0C9H	; DRAW POLYGON
+ZORGCO:	EQU	0CAH	; CHANGE ORIGIN
+ZCALAD:	EQU	0CBH	; GET VRAM ADDRESS
+ZSETCL:	EQU	0CCH	; WRITE TO PATTERN GENERATOR TABLE
+ZFILL:	EQU	0CDH	; FILL IN AREA ON SCREEN
+ZIMULT:	EQU	0CEH	; FORM [DEHL] FROM [DE]*[BC]
+ZPRM:	EQU	0CFH	; O/P MESSG TO SCRN, (TERM. W. +80H)
+ZVOUT:	EQU	0D0H	; O/P A TO CURENT CURSOR POSN.
+ZSCURS:	EQU	0D1H	; RET. VRAM (CURS) IN BC
+ZROM:	EQU	0D2H	; START EXEC. FROM 4004H 2ND. ROM
+;
+ZIN80:	EQU	0D3H	; INIT. 80 - COL. CARD
+ZST80:	EQU	0D4H	; PROG. STATUS LINE FROM [DE]
+;
+;INTERRUPT VECTORS
+ICTC0	EQU     0FB00H          ;CTC0
+ICTC1	EQU     0FB02H          ;CTC1
+ICTC2	EQU     0FB04H          ;CTC2
+ICTC3	EQU     0FB06H          ;CTC3  REAL TIME CLOCK
+IKBD	EQU     0FB08H          ;KEYBOARD
+IADC	EQU     0FB0AH          ;ANALOGUE TO DIGITAL CONVERTER
+IFIRE	EQU     0FB0CH          ;FIRE BUTTON
+IUSER	EQU     0FB0EH          ;EXTERNAL INTERRUPT SUPPLIED BY USER
+IPRT	EQU     0FB10H          ;PIA_A  PRINTER
+IPIA	EQU     0FB12H          ;PIA_B
+;	
+;CALLS MADE TO THESE ADDRESSES FROM INSIDE MOS
+_ZRDMEM	EQU	0FB14H
+_LFB17	EQU	0FB17H
+_ZRCPYU	EQU	0FB1AH
+_ZRCPYD	EQU	0FB21H
+;
+BRKVCT	EQU     0FB30H          ;BREAK VECTOR			*BREAK*
+CLDVCT	EQU     0FB32H	 	;COLD START VECTOR		*COLD*
+WRMVCT	EQU     0FB34H		;WARM START VECTOR		*WARM*
+;
+VMODE	EQU     0FB36H          ;VDP MODE - DEPENDANT ON SCREEN SIZE
+TCOLR	EQU     0FB38H          ;TEXT COLOUR 	- <0:3>BACK,<4:7>FOREGROUND
+GCOLR	EQU     0FB39H          ;GRAPHICS COLOUR 	- DITTO
+;
+MOSITP	EQU     0FB3AH          ;LOCATION OF MOS VECTORS
+MOSLOW	EQU     0FB3CH          ;MOS COMMAND OUT OF RANGE - TOO LOW
+KFLAG	EQU     0FB3EH          ;KEY FLAGS
+		;<0>				<4>
+		;<1>				<5>GRAPH,L
+		;<2>				<6>CONTROL,L
+		;<3>				<7>SHIFT,L
+GRAPH	EQU	5
+CONTRL	EQU	6
+SHIFT	EQU	7
+CUSCDE	EQU     0FB3FH		;CURSOR CHR. CODE		*CURS*
+PROMPT	EQU     0FB40H          ;PROMPT CODE
+BLINK	EQU     0FB41H          ;BLINK RATE
+KDEL	EQU     0FB42H          ;KEYBOARD REPEAT DELAY
+KSCAN	EQU     0FB43H          ;KEYBOARD SCAN RATE
+SCTSIZ	EQU     0FB44H          ;SECTOR SIZE IN 256 BYTE BLOCKS
+PCFLGS	EQU     0FB45H          ;HARDWARE FLAGS
+                ;<0> CURSOR ON                <4> CHANGE LINE/COL
+                ;<1> PRINTER ON               <5>
+                ;<2> 80 COLUMN                <6>
+                ;<3> CHANGE CURSOR POSITION   <7> REVERSE VIDEO
+CURSON	EQU	0
+PRTON	EQU	1
+COL80	EQU	2
+CHCURS	EQU	3
+CHLINE	EQU	4
+REVID	EQU	7
+LKEY	EQU     0FB46H          ;LAST KEY PRESSED
+CCODE	EQU     0FB47H          ;CHARACTER CODE AT CURSOR
+KEY	EQU     0FB48H		;KEY PRESSED
+PARAS	EQU     0FB49H		;NUMBER OF PARAMETERS TO GET ?
+;
+;SCREEN PARAMETERS
+CUSCOL	EQU     0FB4AH		;SCREEN COLUMN			*COL*
+CUSROW	EQU     0FB4BH		;SCREEN ROW			*ROW*
+LENGTH	EQU     0FB4CH		;SREEN LENGTH IN 32/40 MODE
+LFB4D	EQU     0FB4DH		; ?????????
+LFB4E	EQU     0FB4EH
+WIDTH	EQU     0FB4FH		;SCREEN WIDTH
+;
+; MOS working parameters
+HSTDSC	EQU     0FB50H		;CURRENT DRIVE (0-3)		*DRIVE*
+HSTTRK	EQU     0FB51H		;CURRENT TRACK (0-39 or 0-79)	*TRACK*
+HSTSEC	EQU     0FB52H		;CURRENT SECTOR (0-9 or 0-19)	*SECTOR*
+HSTDMA	EQU     0FB53H		;DRIVE BUFFER ADDRESS		*DRVDMA*
+RWFLAG	EQU     0FB55H		;READ/WRITE STATUS		*DSTAT*
+DERROR	EQU     0FB56H		;DRIVE ERROR CODE
+DTRYS	EQU     0FB57H		;NUMBER OF RETRYS
+HEAD0	EQU     0FB58H		;CURRENT HEAD POSITION 	- DRIVE 0
+HEAD1	EQU     0FB59H		;                	- DRIVE 1
+HEAD2	EQU     0FB5AH		;               	- DRIVE 2
+HEAD3	EQU     0FB5BH		;               	- DRIVE 3
+;
+BPCODE	EQU     0FB5CH          ;CODE AT BREAKPOINT
+BPADD	EQU     0FB5DH          ;BREAKPOINT ADDRESS
+VSTAT	EQU     0FB5FH          ;VDP STATUS
+;
+;REGISTER STORAGE AREA FOR PROGRAM WHEN MCAL ENTERED
+USERI	EQU     0FB60H          ;INTERRUPT VECTOR		*REGI*
+USERIX	EQU     0FB61H		;IX				*REGIX*
+USERIY	EQU     0FB63H		;IY				*REGIY*
+USERSP	EQU     0FB65H		;SP				*REGSP*
+MOSAF	EQU     0FB67H		;AF'				*AREGAF*
+MOSBC	EQU     0FB69H		;BC'				*AREGBC*
+MOSDE	EQU     0FB6BH		;DE'				*AREGDE*
+MOSHL	EQU     0FB6DH		;HL'				*AREGHL*
+USERAF	EQU     0FB6FH		;AF				*REGAF*
+USERBC	EQU     0FB71H          ;BC				*REGBC*
+USERDE	EQU     0FB73H          ;DE				*REGDE*
+USERHL	EQU     0FB75H          ;HL				*REGHL*
+USERPC	EQU     0FB77H          ;PC				*REGPC*
+TEMPHL	EQU     0FB79H          ;TEMPORARY STORAGE OF HL
+TEMPPC	EQU     0FB7BH		;TEMPORARY STORAGE OF PC
+;
+;DRIVE INFORMATION (CPM)
+CPMDRV	EQU     0FB7DH          ;DRIVE NUMBER
+CPMTRK	EQU     0FB7EH          ;DRIVE TRACK
+CPMSEC	EQU     0FB7FH    	;DRIVE SECTOR 0-3
+CPMADD	EQU     0FB80H		;DESTINATIOM ADDRESS
+; 10 LOCATIONS USED BY DRIVE (CPM)
+LFB82	EQU	0FB82H
+LFB83	EQU	0FB83H
+LFB85	EQU	0FB85H
+LFB86	EQU	0FB86H
+LFB87	EQU	0FB87H
+LFB88	EQU	0FB88H
+LFB89	EQU	0FB89H
+LFB8A	EQU	0FB8AH
+LFB8B	EQU	0FB8BH
+;
+TIME	EQU	0FB8CH
+RTCH	EQU     TIME		;RTC	- HOURS
+RTCM	EQU     0FB8EH          ;       - MINUTES
+RTCS	EQU     0FB90H		;       - SECONDS
+;
+IFLAG	EQU     0FB92H          ;INTERRUPT FLAG
+FKEY	EQU     0FB93H          ;FUNCTION KEY
+FVRAM	EQU     0FB94H          ;FUNCTION KEY POINTER IN VIDEO RAM
+;
+;GRAPHIC LOCATIONS
+X1	EQU     0FB96H          ;DESTINATION ADDRESS OF DRAW TO X
+Y1	EQU     0FB98H          ;DESTINATION ADDRESS OF DRAW TO Y
+ORGX	EQU     0FB9AH          ;X ORIGIN
+ORGY	EQU     0FB9CH          ;Y ORIGIN
+POLYX	EQU     0FB9EH          ;POLYGON CENTER
+POLYY	EQU     0FBA0H		;POLYGON CENTER
+RADX	EQU     0FBA2H		;ELLIPSE RADIUS
+RADY	EQU     0FBA4H          ;ELLIPSE RADIUS
+CINC	EQU     0FBA6H          ;NUMBER OF POLYGON SIDES
+DOTON	EQU     0FBA8H
+DOTOFF	EQU     0FBA9H
+DOTON2	EQU     0FBAAH
+DOTOF2	EQU     0FBABH
+DOTCNT	EQU     0FBACH
+FILL	EQU     0FBADH        	;FILL MODE 0FBA=BACK,FF=FOREGROUND
+FILLSP	EQU     0FBAEH          ;FILL SP
+;
+;DRIVE DESCRIPTIONS
+DFLAG	EQU     0FBB0H          ;DRIVE STEPPING RATE		*DSTEP*
+DTYPE	EQU     0FBB1H          ;DRIVE TYPE <0:3> DS/SS  <4:7> 80/40
+				;    bit number 76543210
+				;         drive 32103210
+				;        tracks XXXX....  where X=0 for 40, X=1 for 80
+				;        sides  ....XXXX  where X=0 for single, X=1 for double
+KEYBUF	EQU	0FBB2H		;40 BYTES RESERVED FOR KEYBOARD INPUT
+				;FIRST CHARACTER IS PROMPT
+VDPBUF	EQU	0FBE0H		;32 BYTES USED BY VRAM CHARACTER GENERATION
+				;CORRESPONDS TO 4 BYTES CHARACTERS WORTH
+;
+BASE	EQU	0
+REBOOT	EQU	BASE+0000H
+IOBYTE	EQU	BASE+0003H
+DEFDRV	EQU	BASE+0004H
+BDOS	EQU	BASE+0005H	; location to call to process CPM functions
+TFCB	EQU	BASE+005CH	; address of 1st FCB provided on command line
+TBUFF	EQU	BASE+0080H	; DMA buffer used when reading/writing files
+TPA	EQU	BASE+0100H
+;
+BS	EQU	08H
+TAB	EQU	09H
+CR	EQU	0DH
+LF	EQU	0AH
+;
+;***********************************************************************
+;*******			OFFSETS INTO FCB		********
+;***********************************************************************
+FDRV	EQU	0		;DRV...DRIVE NUMBER IN B0-4, USER IN B5-7
+FNAM	EQU	1		;NAM...NAME UP TO 8 BYTES
+FTYP	EQU	9		;TYP...NAME EXTENSION
+FEXT	EQU	12		;EXT...EXTENT
+FS1	EQU	13		;S1....
+FS2	EQU	14		;S2....B7 SET IF NOT WRITTEN TO
+				;      B0-6 ACTUAL EXTENT OPEN
+FRC	EQU	15		;RC....RECORD COUNT (=128 IF EXTENT FULL)
+FBLKS	EQU	16		;BLKS..16 BYTES OF BLOCK INFO
+;	ITEMS BELOW DO NOT APPEAR ON DISC
+FCR	EQU	32		;CR....CURRENT RECORD
+FRRC	EQU	33		;RRC...RANDOM RECORD COUNT (3 BYTES)
+;
+FRO	EQU	FTYP		;MSB SET IF READ ONLY
+FSYS	EQU	FTYP+1		;MSB SET IF SYSTEM FILE
+;***********************************************************************
+;
+ZZROM	EQU	4004H		;ADDRESS OF SECOND ROM
+;
+RAMSEC	EQU	0FE00H		;DEFAULT AREA FOR 512 BYTE SECTOR
+DBPPTR	EQU	0FBB3H		;DISC PARAMETER BLOCK POINTER	*LFBB3*
+LFBB5	EQU	0FBB5H
+LFBB8	EQU	0FBB8H
+MOSSP	EQU	0FCFFH
+LFE08	EQU	0FE08H
+;
+;VIDEO PROCESSOR DEFAULT VALUES
+VPGTBL	EQU	0		;PATTERN GENERATOR TABLE
+VSPTBL	EQU	1800H		;SPRITE/TEXT PATTERN TABLE
+VPCTBL	EQU	2000H		;PATTERN COLOUR TABLE
+VPNTBL	EQU	3800H		;PATTERN NAME TABLE
+VSATBL	EQU	3B00H		;SPRITE ATTRIBUTE TABLE
+VFKTBL	EQU	3B80H		;FUNCTION KEYS
+VTTBL	EQU	3C00H		;TEXT POSITION TABLE
+;
+;
+;***********************************************************************
+; KEYBOARD MATRIX
+;___________________________________________________________________________
+;VALUE  |							      |    |
+;PASSED |  01	02	04	08	10	20	40	80    |	   |
+;IN 'E' |							      |    |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  BRK		F0	F7	AL	ENT	SP	ESC   |    |
+;NORM   |  							      | 01 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  I	O	P	1/4	POUND	VT	1/2	@     |    |
+;NORM   |  i	o	p	LEFT	_	LF	||	0     |	02 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  K	L	+	*	3/4	BS	)	F5    |    |
+;NORM   |  k	l	;	:	RIGHT	HT	9	      |	04 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  <	>	?	(	INS	-	DIV	F4    |    |
+;NORM   |  ,	.	/	8	DEL	=	UP	      |	08 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  '	&	%	$	HASH	"	!	F3    |    |
+;NORM   |  7	6	5	4	3	2	1	      |	10 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  U	Y	T	R	E	W	Q	F2    |    |
+;NORM   |  u	y	t	r	e	w	q	      |	20 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  J	H	G	F	D	S	A	F1    |    |
+;NORM   |  j	h	g	f	d	s	a	      |	40 |
+;_______|_____________________________________________________________|____|
+;SHIFT  |  M	N	B	V	C	X	Z	F6    |    |
+;NORM   |  m	n	b	v	c	x	z	      |	80 |
+;_______|_____________________________________________________________|____|
+;
+;***********************************************************************
+;
+;Port 23 (74LS273)
+;
+;D0	Drive Selset 0
+;D1	Drive Selset 1
+;D2	Drive Selset 2
+;D3	Drive Selset 3
+;D4	Side Select
+
+;***********************************************************************
+;FLOPPY DISC CONTROLLER COMMANDS
+; DDEN - TIED TO GROUND
+; INTRQ - NOT USED
+; DRQ - NOT USED
+;  TYPE	| COMMAND	| 7  6  5  4  3  2  1  0    |BASE CODE
+;   1  	|RESTORE	| 0  0  0  0  h  V r1 r0    |	00
+;   1  	|SEEK           | 0  0  0  1  h  V r1 r0    |	10
+;   1  	|STEP           | 0  0  1  u  h  V r1 r0    |	20
+;   1  	|STEP-IN        | 0  1  0  u  h  V r1 r0    |	40
+;   1  	|STEP-OUT       | 0  1  1  u  h  V r1 r0    |	60
+;   2  	|READ SECTOR    | 1  0  0  m  h  E  0  0    |	80
+;   2  	|WRITE SECTOR   | 1  0  1  m  h  E  P a0    |	A0
+;   2  	|READ ADDRESS   | 1  1  0  0  h  E  0  0    |	C0
+;   3  	|READ TRACK     | 1  1  1  0  h  E  0  0    |	E0
+;   3  	|WRITE TRACK    | 1  1  1  1  h  E  P  0    |	F0
+;   4  	|FORCE INTERRUPT| 1  1  0  1 I3 I2 I1 I0    |	D0
+;
+;TYPE 1 COMMANDS
+;h = MOTOR ON FLAG			
+;h = 0,enable spin up sequence  	h = 1,disable spin up sequence
+;
+;V = VERIFY FLAG                  
+;V = 0,no verify			V = 1,verify on destination track
+;
+;r1,r0 = STEPPING RATE
+;0 = 6ms		1 = 12ms	2 = 20ms	3 = 30msecs
+;
+;u = UPDATE FLAG
+;u = 0,no update			u = 1,update track register
+;
+;TYPE 2&3 COMMANDS
+;m = MULTIPLE SECTOR FLAG
+;m = 0,single sector			m = 1,multiple sector
+;
+;a0 = DATA ADDRESS MARK
+;a0 = 0,write normal data address mark	a0 = 1,write deleted data address mark
+;
+;E = 30MS SETTLING TIME
+;E = 0,no delay				E = 1,add 30ms delay
+;
+;P = WRITE PRECOMPENSATION
+;P = 0,enable write precompensation	P = 1,disable write precompensation
+;
+;TYPE 4 COMMANDS
+;I3-I0 = INTERRUPT CONDITION
+;I0 = 1,don't care			I1 = 1,don't care
+;I2 = 1,interrupt on index pulse	I3 = 1,immediate interrupt
+;I3-I0 = 0,terminate without interrupt
+;
+;STATUS WORD
+;BIT | | BIT NAME	 |COMMENTS	
+; 7  | |MOTOR ON         |1=motor on
+; 6  | |WRITE PROTECT    |1=write protect (write only)
+; 5  | |RECORD TYPE      |0=data mark , 1=deleted data mark
+; 5  |1|SPIN UP          |1=6 revs completed
+; 4  | |RECORD NOT FOUND |1=track/sector/side not found
+; 3  | |CRC ERROR        |1=error in data field
+; 2  | |LOST DATA        |1=cpu didn't respond to DRQ
+; 2  |1|TRACK 0          |1=track zero
+; 1  | |DATA REQUEST     |1=byte ready to be read/written
+; 1  |1|INDEX            |1=index
+; 0  | |BUSY             |1=command in operation
+;
+;   Bit |      Type I      |    Type II    |   Type III    | Comments
+;   ----+------------------+---------------+---------------+-------------------
+;    7  |    Motor on      | ---------- Motor on --------- | / If bit 3 is
+;    6  |    Not used.     | -- Disk is write protected. - | | set then:
+;    5  |  Motor spin-up   |    Data type : 0 = normal.    | | If bit 4 is
+;       |    completed.    |                1 = deleted.   | | set, the error
+;    4  | Record not found | ----- Record not found ------ | / is in the ID
+;    3  |    CRC error.    | --------- CRC error --------- |<  field. If bit 4
+;    2  |   Not track 0    | ------ Lost data / byte ----- | \ is clear, the
+;    1  |   Data Request   | -------- Data request ------- | | error is in
+;    0  |       Busy       | ------------ Busy ----------- | \ the data field.
+;
+;***********************************************************************
+;
+;8251A PROGRAMMABLE COMMUNICATION INTERFACE
+;BIT	STATUS WORD		BIT	COMMAND INSTRUCTION     
+; 7	DATA SET READY           7	ENTER HUNT MODE         
+; 6		                 6	INTERNAL RESET          
+; 5	FRAMING ERROR            5	REQUEST TO SEND         
+; 4	OVERRUN ERROR            4	ERROR REST              
+; 3	PARITY ERROR             3	SEND BREAK CHARACTER    
+; 2		                 2	RECEIVE ENABLE          
+; 1	Rx READY                 1	DATA TERMINAL READY     
+; 0	Tx READY                 0	TRANSMIT ENABLE		
+;
+; 7  6  5  4  3  2  1  0
+;S2 S1 EP PEN L2 L1 B2 B1
+;				0	1	0	1
+;				0	0	1	1
+;				SYNC	X1	X16	X64
+;				MODE
+;
+;
+;
+

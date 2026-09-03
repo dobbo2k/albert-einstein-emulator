@@ -1,0 +1,5803 @@
+; Disassembly of the file "A:\rom.bin"
+; 
+; CPU Type: Z80
+; 
+; Created with dZ80 1.50
+; 
+; on Tuesday, 14 of August 2001 at 01:46 AM
+; 
+        ORG     &0000
+
+L0000:  LD      HL,&8000
+        LD      DE,&8001
+        JR      L0040                   ; (+&38)
+L0008:  JP      L0FC2
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L0010:  JP      L0F1A
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L0018:  EX      (SP),HL
+L0019:  CALL    L0F3F
+        JR      Z,L0019                 ; (-&05)
+        EX      (SP),HL
+        RET     
+
+L0020:  PUSH    AF
+        LD      A,C
+        OUT     (&09),A
+        LD      A,B
+        JP      L0C98
+L0028:  CALL    L0C8D
+        IN      A,(&08)
+        RET     
+
+        NOP     
+        NOP     
+L0030:  RST     &20
+        OUT     (&08),A
+        RET     
+
+        LD      BC,&0402
+        EX      AF,AF'
+L0038:  NOP     
+        NOP     
+        JP      L0204
+        LD      H,D
+        NOP     
+        NOP     
+L0040:  LD      BC,&7FFF
+        LD      (HL),C
+        LDIR    
+        LD      HL,&8000
+        LD      B,H
+        LDIR    
+        LD      HL,&FB00
+        LD      DE,&FB01
+        INC     (HL)
+        LD      BC,&04FF
+        LDIR    
+        LD      HL,&0FF0
+        LD      DE,&FB00
+        LD      C,&46
+        LDIR    
+        LD      HL,&1036
+        LD      DE,L0000
+        LD      C,&0B
+        LDIR    
+        LD      DE,&FC09
+        LD      C,&84
+        LDIR    
+        LD      HL,&FB8C
+        LD      B,&06
+L0078:  LD      (HL),&30
+        INC     HL
+        DJNZ    L0078                   ; (-&05)
+        LD      SP,&FCFF
+        LD      A,&FB
+        LD      I,A
+        LD      (&FB60),A
+        LD      (&FB65),SP
+        LD      A,&01
+        LD      (&FBB0),A
+        IM      2
+        XOR     A
+        OUT     (&28),A
+        RST     &08
+        CP      H
+        LD      A,&CE
+        OUT     (&11),A
+        LD      A,&27
+        OUT     (&11),A
+        LD      HL,L0008
+        LD      D,H
+        LD      E,H
+        RST     &08
+        ADD     A,C
+        LD      A,&10
+        OUT     (&31),A
+        LD      A,&12
+        OUT     (&33),A
+        LD      A,&0F
+        OUT     (&31),A
+        LD      A,&87
+        OUT     (&31),A
+        LD      A,&08
+        LD      B,&80
+        LD      HL,&0FE8
+L00BD:  LD      C,(HL)
+        CALL    L0C8D
+        INC     HL
+        INC     B
+        DEC     A
+        JR      NZ,L00BD                ; (-&09)
+        LD      BC,&3B80
+        RST     &20
+        LD      BC,&0080
+        LD      E,C
+        CALL    L0CA6
+        RST     &08
+        CP      (HL)
+        RST     &08
+        OUT     (&CF),A
+        CP      A
+        EI      
+        LD      A,(&4000)
+        OR      A
+        CALL    Z,L4001
+        LD      A,&01
+        OUT     (&23),A
+        RST     &08
+        XOR     A
+        JP      Z,L0250
+        RST     &08
+        CP      L
+        RST     &18
+        DEC     C
+        LD      A,(BC)
+        JR      NZ,L010F                ; (+&20)
+        JR      NZ,L0111                ; (+&20)
+        JR      NZ,L0113                ; (+&20)
+        JR      NZ,L013E                ; (+&49)
+        LD      L,(HL)
+        LD      (HL),E
+        LD      H,L
+        LD      (HL),D
+        LD      (HL),H
+        JR      NZ,L0160                ; (+&64)
+        LD      L,C
+        LD      (HL),E
+        LD      H,E
+        JR      NZ,L016A                ; (+&69)
+        LD      L,(HL)
+        JR      NZ,L0168                ; (+&64)
+        LD      (HL),D
+        LD      L,C
+        HALT    
+        LD      H,L
+        JR      NZ,L013A                ; (+&30)
+        JR      NZ,L016D                ; (+&61)
+        LD      L,(HL)
+        LD      H,H
+        DEC     C
+L010F:  LD      A,(BC)
+        JR      NZ,L0132                ; (+&20)
+        JR      NZ,L0134                ; (+&20)
+        JR      NZ,L0136                ; (+&20)
+        JR      NZ,L0138                ; (+&20)
+        LD      (HL),B
+        LD      (HL),D
+        LD      H,L
+        LD      (HL),E
+        LD      (HL),E
+        JR      NZ,L0162                ; (+&43)
+        LD      (HL),H
+        LD      (HL),D
+        LD      L,H
+        DEC     L
+        LD      B,D
+        LD      D,D
+        LD      B,L
+        LD      B,C
+        LD      C,E
+        JR      NZ,L019E                ; (+&74)
+        LD      L,A
+        JR      NZ,L0199                ; (+&6c)
+        LD      L,A
+        LD      H,C
+        LD      H,H
+        DEC     C
+        LD      A,(BC)
+L0132:  LD      A,(BC)
+        LD      D,H
+L0134:  LD      B,C
+        LD      D,H
+L0136:  LD      D,L
+        LD      C,(HL)
+L0138:  LD      B,A
+        CPL     
+L013A:  LD      E,B
+        LD      (HL),H
+        LD      H,C
+        LD      L,H
+L013E:  JR      NZ,L018D                ; (+&4d)
+        LD      C,A
+        LD      D,E
+        JR      NZ,L0175                ; (+&31)
+        LD      L,&32
+        JR      NZ,L0168                ; (+&20)
+        JR      NZ,L016A                ; (+&20)
+        JR      NZ,L016C                ; (+&20)
+        JR      NZ,L016E                ; (+&20)
+        JR      Z,L0193                 ; (+&43)
+        ADD     HL,HL
+        JR      NZ,L0184                ; (+&31)
+        ADD     HL,SP
+        JR      C,L0189                 ; (+&33)
+        JR      NZ,L0189                ; (+&31)
+        ADD     HL,SP
+        JR      C,L010F                 ; (-&4c)
+        JR      L0167                   ; (+&0a)
+        RST     &18
+        DEC     C
+        LD      A,(BC)
+L0160:  LD      C,L
+        LD      C,A
+L0162:  LD      D,E
+        JR      NZ,L0196                ; (+&31)
+        LD      L,&B2
+L0167:  RST     &18
+L0168:  DEC     C
+        LD      A,(BC)
+L016A:  LD      D,D
+        LD      H,L
+L016C:  LD      H,C
+L016D:  LD      H,H
+L016E:  LD      A,C
+        DEC     C
+        ADC     A,D
+L0171:  LD      SP,&FCFF
+        EI      
+L0175:  RST     &08
+        AND     A
+L0177:  LD      A,(&FB40)
+        RST     &10
+        LD      DE,&FBB8
+        RST     &08
+        SBC     A,L
+        LD      A,(DE)
+        OR      A
+        JR      Z,L0177                 ; (-&0d)
+L0184:  CALL    L01DC
+        INC     DE
+        AND     &5F
+        SUB     &41
+        JR      C,L01F5                 ; (+&67)
+        LD      HL,&0282
+        ADD     A,A
+        LD      C,A
+L0193:  LD      B,&00
+        ADD     HL,BC
+L0196:  LD      B,(HL)
+        INC     HL
+        LD      H,(HL)
+L0199:  LD      L,B
+        LD      BC,&0434
+        SBC     HL,BC
+        ADD     HL,BC
+        JR      NZ,L01A7                ; (+&05)
+        LD      BC,&01F2
+        PUSH    BC
+        JP      (HL)
+L01A7:  PUSH    HL
+        EXX     
+        LD      HL,L0000
+        LD      D,H
+        LD      E,L
+        LD      B,H
+        LD      C,L
+        EXX     
+        LD      A,&03
+L01B3:  LD      (&FB49),A
+        RST     &08
+        OR      B
+        JR      Z,L01D4                 ; (+&1a)
+        RST     &08
+        XOR     H
+        PUSH    HL
+        EXX     
+        LD      A,(&FB49)
+        CP      &03
+        JR      NZ,L01C6                ; (+&01)
+        POP     HL
+L01C6:  CP      &02
+        JR      NZ,L01CB                ; (+&01)
+        POP     DE
+L01CB:  CP      &01
+        JR      NZ,L01D0                ; (+&01)
+        POP     BC
+L01D0:  EXX     
+        DEC     A
+        JR      NZ,L01B3                ; (-&21)
+L01D4:  OR      A
+        LD      HL,&01F2
+        EX      (SP),HL
+        PUSH    HL
+        EXX     
+        RET     
+
+L01DC:  PUSH    AF
+        LD      HL,&FB45
+        BIT     2,(HL)
+        JR      Z,L01F0                 ; (+&0c)
+        LD      B,&50
+        LD      HL,&FBB8
+L01E9:  LD      A,&7F
+        AND     (HL)
+        LD      (HL),A
+        INC     HL
+        DJNZ    L01E9                   ; (-&07)
+L01F0:  POP     AF
+        RET     
+
+        JP      NC,L0171
+L01F5:  RST     &18
+        JR      NZ,L023D                ; (+&45)
+        LD      (HL),D
+        LD      (HL),D
+        LD      L,A
+        JP      P,L21DF
+        RLCA    
+        DEC     C
+        ADC     A,D
+        JP      L0171
+L0204:  LD      (&FB65),SP
+        DI      
+        LD      SP,&FB77
+        PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        PUSH    AF
+        LD      HL,(&FB65)
+        RST     &08
+        OR      C
+        LD      E,A
+        INC     HL
+        RST     &08
+        OR      C
+        LD      D,A
+        INC     HL
+        LD      (&FB65),HL
+        DEC     DE
+        LD      (&FB77),DE
+        EXX     
+        EX      AF,AF'
+        PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        PUSH    AF
+        LD      SP,&FB65
+        PUSH    IY
+        PUSH    IX
+        LD      HL,(&FB5F)
+        LD      A,I
+        PUSH    AF
+        LD      A,L
+        LD      (&FB5F),A
+        LD      SP,&FCFF
+L023D:  LD      HL,(&FB5D)
+        LD      A,H
+        OR      L
+        LD      A,(&FB5C)
+        JR      Z,L0248                 ; (+&01)
+        LD      (HL),A
+L0248:  LD      HL,L0000
+        RST     &08
+        SBC     A,C
+        JP      L0171
+L0250:  LD      SP,&FCFF
+        XOR     A
+        LD      H,A
+        LD      L,A
+        LD      (&FB50),A
+        LD      (&FB51),HL
+        LD      HL,&FE00
+        LD      (&FB53),HL
+        PUSH    HL
+        RST     &08
+        AND     D
+        POP     HL
+        LD      E,(HL)
+        INC     HL
+        LD      D,(HL)
+        INC     HL
+        PUSH    DE
+        LD      E,(HL)
+        INC     HL
+        LD      D,(HL)
+        INC     HL
+        LD      C,(HL)
+        INC     HL
+        LD      B,(HL)
+        INC     HL
+        LD      A,(HL)
+        LD      (&FBB1),A
+        POP     HL
+        PUSH    BC
+        XOR     A
+        LD      B,A
+        LD      C,A
+        CALL    L048C
+        JP      LFB17
+        INC     L
+        INC     BC
+        LD      C,C
+        INC     BC
+        SBC     A,L
+        INC     BC
+        CP      C
+        INC     BC
+        LD      (BC),A
+        INC     B
+        CALL    PE,LFE03
+        INC     BC
+        INC     (HL)
+        INC     B
+        PUSH    AF
+        LD      BC,L01F5
+        PUSH    AF
+        LD      BC,L01F5
+        LD      E,H
+        INC     B
+        PUSH    AF
+        LD      BC,L01F5
+        PUSH    AF
+        LD      BC,L01F5
+        ADC     A,C
+        INC     B
+        PUSH    AF
+        LD      BC,&054D
+        PUSH    AF
+        LD      BC,L01F5
+        SUB     C
+        INC     B
+        ADD     A,A
+        DEC     B
+        ADC     A,H
+        DEC     B
+        SUB     E
+        DEC     B
+        LD      E,L
+        LD      BC,&06D7
+        LD      E,(HL)
+        LD      B,&14
+        LD      B,&1A
+        RRCA    
+        LD      E,H
+        RRCA    
+        LD      C,B
+        RRCA    
+        LD      D,D
+        RRCA    
+        EX      DE,HL
+        INC     E
+        XOR     &1C
+        RET     PE
+
+        INC     B
+        RET     M
+
+        INC     B
+        INC     D
+        RRCA    
+        RRCA    
+        RRCA    
+        JR      L02E3                   ; (+&0f)
+        SBC     A,L
+        LD      C,&A1
+        LD      C,&A5
+        LD      C,&E4
+        LD      C,&D1
+        LD      C,&1B
+        LD      E,&DC
+        DEC     E
+        LD      C,&14
+        EI      
+        LD      A,(DE)
+        EI      
+        LD      HL,&6AFB
+        RRCA    
+        LD      L,A
+        RLCA    
+        ADC     A,L
+        LD      E,&A2
+        LD      E,&A7
+        LD      E,&AC
+        LD      E,&B1
+        LD      E,&CD
+        LD      E,&AE
+        RRCA    
+        LD      (HL),D
+        LD      E,&C7
+        DEC     C
+        LD      A,E
+        LD      C,&92
+        RRCA    
+        JR      NZ,L0306                ; (+&00)
+L0306:  POP     HL
+        DEC     BC
+        JR      NC,L030A                ; (+&00)
+L030A:  SUB     E
+        JR      L037A                   ; (+&6d)
+        JR      L0319                   ; (+&0a)
+        ADD     HL,DE
+        INC     B
+        ADD     HL,DE
+        ADD     HL,DE
+        ADD     HL,DE
+        LD      A,(DE)
+        DEC     DE
+        OR      &18
+        CP      D
+L0319:  JR      L0360                   ; (+&45)
+        LD      A,(DE)
+        OR      (HL)
+        ADD     HL,DE
+        LD      H,B
+        LD      C,&26
+        RRCA    
+        ADC     A,&0A
+        LD      B,L
+        INC     C
+        INC     B
+        LD      B,B
+        DEC     BC
+        LD      C,&41
+        DEC     C
+        EX      DE,HL
+        PUSH    HL
+        ADD     HL,DE
+        RST     &08
+        XOR     C
+        POP     HL
+        OR      A
+        SBC     HL,DE
+        RST     &08
+        XOR     C
+        DEC     HL
+        DEC     HL
+        LD      A,H
+        RLC     L
+        ADC     A,&00
+        JR      NZ,L0345                ; (+&05)
+        LD      A,L
+        RRCA    
+        JP      L0EA5
+L0345:  RST     &18
+        DEC     L
+        XOR     L
+        RET     
+
+        LD      A,L
+        PUSH    AF
+        AND     &0F
+        LD      L,A
+        LD      H,A
+        POP     AF
+        AND     &F0
+        JR      Z,L0359                 ; (+&05)
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+        LD      H,A
+L0359:  PUSH    HL
+        LD      A,L
+        LD      C,&28
+        CALL    L0377
+L0360:  POP     HL
+        RET     C
+
+        LD      A,H
+        LD      C,&29
+        CALL    L0377
+        RET     C
+
+        LD      A,D
+        OR      E
+        RET     Z
+
+        LD      A,&40
+        OUT     (&11),A
+        LD      A,D
+        OUT     (&11),A
+        LD      A,E
+        OUT     (&11),A
+        RET     
+
+L0377:  CP      &09
+        CCF     
+L037A:  RET     C
+
+        LD      HL,&038B
+        ADD     A,A
+        ADD     A,L
+        LD      L,A
+        JR      NC,L0385                ; (+&02)
+        OR      A
+        INC     H
+L0385:  LD      B,(HL)
+        INC     HL
+        LD      A,(HL)
+        JP      L0FBC
+        RET     NC
+
+        DEC     E
+        ADC     A,(HL)
+        DEC     E
+        LD      L,B
+        DEC     E
+        INC     (HL)
+        DEC     E
+        LD      A,(DE)
+        DEC     E
+        LD      L,B
+        LD      E,L
+        INC     (HL)
+        LD      E,L
+        LD      A,(DE)
+        LD      E,L
+        DEC     C
+        LD      E,L
+        EX      DE,HL
+        OR      A
+        SBC     HL,DE
+        RET     C
+
+        PUSH    BC
+        EX      (SP),HL
+        POP     BC
+        EX      DE,HL
+        INC     BC
+        OR      A
+        SBC     HL,DE
+        ADD     HL,DE
+        JR      C,L03B0                 ; (+&03)
+L03AD:  RST     &08
+        OR      D
+        RET     
+
+L03B0:  EX      DE,HL
+        ADD     HL,BC
+        EX      DE,HL
+        ADD     HL,BC
+        DEC     HL
+        DEC     DE
+        RST     &08
+        OR      E
+        RET     
+
+        LD      E,&00
+        LD      BC,&2710
+        CALL    L03D6
+        LD      BC,&03E8
+        CALL    L03D6
+        LD      BC,&0064
+        CALL    L03D6
+        LD      BC,&000A
+        CALL    L03D6
+        LD      A,L
+        JR      L03E6                   ; (+&10)
+L03D6:  LD      A,&FF
+L03D8:  OR      A
+        SBC     HL,BC
+        INC     A
+        JR      NC,L03D8                ; (-&06)
+        ADD     HL,BC
+        INC     E
+        DEC     E
+        JR      NZ,L03E6                ; (+&03)
+        INC     A
+        DEC     A
+        RET     Z
+
+L03E6:  ADD     A,&30
+        LD      E,&01
+        RST     &10
+        RET     
+
+        EX      DE,HL
+        OR      A
+        SBC     HL,DE
+        RET     C
+
+        LD      A,C
+        JR      NZ,L03F6                ; (+&02)
+        LD      (DE),A
+        RET     
+
+L03F6:  LD      B,H
+        LD      C,L
+        LD      H,D
+        LD      L,E
+        INC     DE
+        LD      (HL),A
+        JR      L03AD                   ; (-&51)
+        LD      (&FB77),HL
+        EX      DE,HL
+        DI      
+        LD      A,H
+        OR      L
+        JR      Z,L0411                 ; (+&0a)
+        RST     &08
+        OR      C
+        LD      (&FB5D),HL
+        LD      (&FB5C),A
+        LD      (HL),&FF
+L0411:  LD      SP,&FB5F
+        POP     AF
+        LD      I,A
+        POP     IX
+        POP     IY
+        POP     AF
+        POP     AF
+        POP     BC
+        POP     DE
+        POP     HL
+        EXX     
+        EX      AF,AF'
+        POP     AF
+        POP     BC
+        POP     DE
+        LD      SP,(&FB65)
+        LD      HL,(&FB77)
+        PUSH    HL
+        LD      HL,(&FB75)
+        EI      
+        JP      LFB17
+        RST     &08
+        OR      B
+        LD      HL,L0000
+L0439:  LD      A,(DE)
+        OR      A
+        JR      Z,L0459                 ; (+&1c)
+        INC     DE
+        SUB     &30
+        CP      &0A
+        CCF     
+        RET     C
+
+        LD      BC,&199A
+        SBC     HL,BC
+        ADD     HL,BC
+        CCF     
+        RET     C
+
+        ADD     HL,HL
+        LD      B,H
+        LD      C,L
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,BC
+        LD      C,A
+        LD      B,&00
+        ADD     HL,BC
+        JR      NC,L0439                ; (-&1f)
+        RET     
+
+L0459:  RST     &08
+        XOR     C
+        RET     
+
+L045C:  RST     &08
+        XOR     C
+        RST     &08
+        OR      C
+        RST     &08
+        XOR     E
+        RST     &18
+        EX      AF,AF'
+        ADC     A,B
+        LD      DE,&FBB8
+        RST     &08
+        SBC     A,L
+        PUSH    HL
+        CALL    L01DC
+        RST     &08
+        XOR     H
+        JR      C,L0482                 ; (+&10)
+        POP     BC
+L0473:  RST     &08
+        OR      B
+        JR      Z,L045C                 ; (-&1b)
+        CP      &2E
+        RET     Z
+
+        RST     &08
+        XOR     L
+        JR      C,L0483                 ; (+&05)
+        LD      (HL),A
+        INC     HL
+        JR      L0473                   ; (-&0f)
+L0482:  POP     HL
+L0483:  RST     &18
+        CCF     
+        DEC     C
+        ADC     A,D
+        JR      L045C                   ; (-&2d)
+        CALL    L0536
+L048C:  RST     &08
+        AND     H
+        RET     Z
+
+        JR      L0497                   ; (+&06)
+        CALL    L0536
+        RST     &08
+        AND     L
+        RET     Z
+
+L0497:  RST     &18
+        LD      B,H
+        LD      L,C
+        LD      (HL),E
+        LD      H,E
+        LD      A,(&3AA0)
+        LD      D,(HL)
+        EI      
+        DEC     A
+        JR      Z,L04C4                 ; (+&20)
+        DEC     A
+        JR      Z,L04CF                 ; (+&28)
+        DEC     A
+        JR      Z,L04DB                 ; (+&31)
+        DEC     A
+        JR      Z,L04B8                 ; (+&0b)
+        RST     &18
+        LD      C,(HL)
+        LD      L,A
+        JR      NZ,L04F6                ; (+&44)
+        LD      (HL),D
+        LD      L,C
+        HALT    
+        PUSH    HL
+        JR      L04E5                   ; (+&2d)
+L04B8:  RST     &18
+        LD      C,(HL)
+        LD      L,A
+        LD      (HL),H
+        JR      NZ,L0510                ; (+&52)
+        LD      H,L
+        LD      H,C
+        LD      H,H
+        LD      SP,HL
+        JR      L04E5                   ; (+&21)
+L04C4:  RST     &18
+        LD      B,D
+        LD      H,C
+        LD      H,H
+        JR      NZ,L050E                ; (+&44)
+        LD      H,C
+        LD      (HL),H
+        POP     HL
+        JR      L04E5                   ; (+&16)
+L04CF:  RST     &18
+        LD      D,B
+        LD      (HL),D
+        LD      L,A
+        LD      (HL),H
+        LD      H,L
+        LD      H,E
+        LD      (HL),H
+        LD      H,L
+        CALL    PO,L0A18
+L04DB:  RST     &18
+        LD      C,(HL)
+        LD      L,A
+        JR      NZ,L0533                ; (+&53)
+        LD      H,L
+        LD      H,E
+        LD      (HL),H
+        LD      L,A
+        JP      P,LFCC3
+        LD      BC,&42CD
+        DEC     B
+L04EB:  PUSH    DE
+        RST     &08
+        AND     D
+        POP     DE
+        JR      NZ,L0506                ; (+&15)
+        CALL    L050B
+        JR      C,L04EB                 ; (-&0b)
+L04F6:  JR      L0506                   ; (+&0e)
+        CALL    L0542
+L04FB:  PUSH    DE
+        RST     &08
+        AND     E
+        POP     DE
+        JR      NZ,L0506                ; (+&05)
+        CALL    L050B
+        JR      C,L04FB                 ; (-&0b)
+L0506:  LD      A,(&FB56)
+        OR      A
+        RET     
+
+L050B:  LD      HL,&FB52
+L050E:  INC     (HL)
+        CALL    L1DBE
+        LD      C,A
+        LD      A,(HL)
+        CP      C
+        JR      C,L0525                 ; (+&0e)
+        LD      (HL),&00
+        DEC     HL
+        INC     (HL)
+        LD      A,(HL)
+        CP      &28
+        JR      C,L0525                 ; (+&05)
+        POP     HL
+        LD      A,&03
+        JR      L0532                   ; (+&0d)
+L0525:  LD      HL,(&FB53)
+        LD      BC,&0200
+        ADD     HL,BC
+        LD      (&FB53),HL
+        XOR     A
+        SBC     HL,DE
+L0532:  LD      (&FB56),A
+        RET     
+
+L0536:  EXX     
+        RST     &08
+        OR      B
+        RST     &08
+        XOR     H
+        LD      A,L
+        EXX     
+        CP      &04
+        RET     C
+
+        JR      L04E5                   ; (-&5d)
+L0542:  LD      (&FB50),A
+        LD      (&FB53),HL
+        LD      (&FB51),BC
+        RET     
+
+        LD      A,C
+        OR      A
+        JR      NZ,L0553                ; (+&02)
+        LD      A,&08
+L0553:  LD      C,A
+L0554:  RST     &08
+        SBC     A,E
+        CP      &1B
+        RET     Z
+
+        RST     &08
+        XOR     C
+        LD      B,C
+        PUSH    HL
+L055D:  RST     &08
+        OR      C
+        RST     &08
+        XOR     D
+        OR      A
+        SBC     HL,DE
+        ADD     HL,DE
+        INC     HL
+        JR      NC,L056A                ; (+&02)
+        DJNZ    L055D                   ; (-&0d)
+L056A:  POP     HL
+        LD      B,C
+L056C:  RST     &08
+        OR      C
+        AND     &7F
+        CP      &20
+        JR      C,L0578                 ; (+&04)
+        CP      &7F
+        JR      NZ,L057A                ; (+&02)
+L0578:  LD      A,&2E
+L057A:  RST     &10
+        OR      A
+        SBC     HL,DE
+        ADD     HL,DE
+        INC     HL
+        RET     NC
+
+        DJNZ    L056C                   ; (-&17)
+        RST     &08
+        AND     (HL)
+        JR      L0554                   ; (-&33)
+        LD      HL,(&FB32)
+        JR      L058F                   ; (+&03)
+        LD      HL,(&FB34)
+L058F:  PUSH    HL
+        JP      LFB17
+        LD      A,L
+        CP      &02
+        JR      Z,L05E3                 ; (+&4b)
+        CCF     
+        RET     C
+
+        OR      A
+        LD      DE,&FB6F
+        LD      A,&20
+        JR      Z,L05A7                 ; (+&05)
+        LD      DE,&FB67
+        LD      A,&27
+L05A7:  PUSH    AF
+        RST     &08
+        AND     A
+        POP     AF
+        RST     &10
+        PUSH    AF
+        RST     &18
+        LD      B,C
+        JR      NZ,L05D1                ; (+&20)
+        LD      B,D
+        LD      B,E
+        JR      NZ,L05D5                ; (+&20)
+        JR      NZ,L05FB                ; (+&44)
+        LD      B,L
+        JR      NZ,L05DA                ; (+&20)
+        JR      NZ,L0604                ; (+&48)
+        LD      C,H
+        JR      NZ,L05DF                ; (+&20)
+        JR      NZ,L0611                ; (+&50)
+        LD      B,E
+        JR      NZ,L05E4                ; (+&20)
+        LD      D,E
+        LD      E,D
+        DEC     L
+        LD      C,B
+        DEC     L
+        LD      D,B
+        LD      C,(HL)
+        JP      LD7F1
+        RST     &08
+        AND     (HL)
+        PUSH    DE
+L05D1:  CALL    L05FE
+        POP     HL
+L05D5:  LD      C,(HL)
+        LD      B,&08
+        LD      A,&18
+L05DA:  RLC     C
+        RLA     
+        RST     &10
+        RRA     
+L05DF:  DJNZ    L05DA                   ; (-&07)
+        OR      A
+        RET     
+
+L05E3:  LD      DE,&FB5F
+        RST     &18
+        JR      NZ,L0632                ; (+&49)
+        JR      NZ,L060B                ; (+&20)
+        LD      C,C
+        LD      E,B
+        JR      NZ,L060F                ; (+&20)
+        JR      NZ,L063A                ; (+&49)
+        LD      E,C
+        JR      NZ,L0614                ; (+&20)
+        JR      NZ,L0649                ; (+&53)
+        LD      D,B
+        JR      NZ,L0619                ; (+&20)
+        JR      NZ,L064B                ; (+&50)
+L05FB:  LD      B,E
+        DEC     C
+        ADC     A,D
+L05FE:  CALL    L0F08
+        LD      A,H
+        RST     &08
+        XOR     D
+L0604:  LD      B,&03
+L0606:  CALL    L0F08
+        RST     &08
+        XOR     C
+L060B:  DJNZ    L0606                   ; (-&07)
+        LD      HL,(&FB77)
+        RST     &08
+L0611:  XOR     C
+        OR      A
+        RET     
+
+L0614:  RST     &08
+        SBC     A,H
+        RST     &10
+        CP      &0D
+L0619:  JR      NZ,L0614                ; (-&07)
+        PUSH    BC
+        PUSH    HL
+        PUSH    DE
+        XOR     A
+        RST     &08
+        POP     DE
+        POP     HL
+        PUSH    HL
+        LD      A,(&FB45)
+        BIT     2,A
+        LD      A,(&FB4F)
+        LD      E,A
+        LD      D,A
+        JR      NZ,L0638                ; (+&09)
+L062F:  RST     &28
+        LD      (HL),A
+        INC     HL
+L0632:  INC     BC
+        DEC     E
+        JR      NZ,L062F                ; (-&07)
+        JR      L0643                   ; (+&0b)
+L0638:  CALL    L0BE9
+        LD      (HL),A
+        INC     HL
+        CALL    L0BCF
+        DEC     E
+        JR      NZ,L0638                ; (-&0b)
+L0643:  LD      (HL),&00
+        DEC     D
+        JR      Z,L064E                 ; (+&06)
+        DEC     HL
+L0649:  LD      A,(HL)
+        CP      &20
+        JR      Z,L0643                 ; (-&0b)
+L064E:  POP     DE
+        LD      HL,&FB40
+        LD      A,(DE)
+        AND     &7F
+        CP      (HL)
+        JR      NZ,L0659                ; (+&01)
+        INC     DE
+L0659:  RST     &18
+        ADC     A,D
+        POP     HL
+        POP     BC
+        RET     
+
+        LD      A,(&FB93)
+        OR      A
+        JR      Z,L067F                 ; (+&1b)
+        PUSH    BC
+        LD      BC,(&FB94)
+        RST     &28
+        INC     C
+        BIT     7,A
+        RES     7,A
+        LD      (&FB94),BC
+        POP     BC
+        RET     Z
+
+        PUSH    AF
+        XOR     A
+        LD      (&FB93),A
+        LD      (&FBB2),A
+        POP     AF
+        RET     
+
+L067F:  PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        LD      A,(&FBB2)
+        OR      A
+        PUSH    AF
+        JR      NZ,L06BB                ; (+&32)
+        POP     AF
+        RST     &08
+        POP     DE
+L068C:  RST     &08
+        JP      NZ,L4732
+        EI      
+L0691:  CALL    L0AB3
+        CALL    L06C4
+        JR      NZ,L06A1                ; (+&08)
+        CALL    L0AA8
+        CALL    L06C4
+        JR      Z,L068C                 ; (-&15)
+L06A1:  CALL    L0AB3
+        RST     &08
+        SBC     A,E
+        JR      NZ,L06B7                ; (+&0f)
+        LD      A,(&FB45)
+        BIT     2,A
+        JR      Z,L0691                 ; (-&1e)
+        LD      B,&00
+L06B1:  PUSH    HL
+        POP     HL
+        DJNZ    L06B1                   ; (-&04)
+        JR      L0691                   ; (-&26)
+L06B7:  PUSH    AF
+        CALL    L0AA8
+L06BB:  XOR     A
+        LD      (&FBB2),A
+        POP     AF
+        POP     BC
+        POP     DE
+        POP     HL
+        RET     
+
+L06C4:  LD      A,(&FB41)
+        LD      D,A
+        LD      E,&00
+L06CA:  CALL    L0763
+        RET     NZ
+
+        DEC     DE
+        LD      A,D
+        OR      E
+        JR      NZ,L06CA                ; (-&09)
+        LD      HL,&FB3E
+        RET     
+
+        PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        CALL    L0763
+        JP      Z,L0754
+        RST     &08
+        OR      L
+        INC     (HL)
+        DEC     (HL)
+        JR      Z,L06FE                 ; (+&18)
+        OR      A
+        JR      NZ,L06F5                ; (+&0c)
+        LD      HL,&FB3E
+        BIT     3,(HL)
+        LD      HL,&FB46
+        JR      NZ,L0754                ; (+&61)
+        JR      L06FE                   ; (+&09)
+L06F5:  PUSH    BC
+        LD      B,A
+        SUB     (HL)
+        AND     &0F
+        LD      A,B
+        POP     BC
+        JR      Z,L0708                 ; (+&0a)
+L06FE:  PUSH    AF
+        LD      A,(&FB42)
+        LD      (&FBB5),A
+        POP     AF
+        JR      L0724                   ; (+&1c)
+L0708:  LD      HL,&FBB5
+        DEC     (HL)
+        JR      NZ,L071C                ; (+&0e)
+        XOR     A
+        LD      (&FB46),A
+        LD      A,(&FB43)
+        LD      (&FBB5),A
+        RST     &08
+        OR      L
+        JR      NZ,L0724                ; (+&08)
+L071C:  LD      HL,&FB3E
+        RES     0,(HL)
+        XOR     A
+        JR      L0754                   ; (+&30)
+L0724:  LD      (HL),A
+        LD      HL,&FB3E
+        BIT     1,(HL)
+        JR      Z,L0754                 ; (+&28)
+        LD      E,A
+        RES     7,E
+        LD      BC,&3B80
+        INC     E
+L0733:  DEC     E
+        JR      Z,L0743                 ; (+&0d)
+L0736:  XOR     A
+        INC     C
+        DEC     C
+        JR      Z,L0754                 ; (+&19)
+        RST     &28
+        INC     C
+        BIT     7,A
+        JR      Z,L0736                 ; (-&0b)
+        JR      L0733                   ; (-&10)
+L0743:  RST     &28
+        INC     C
+        BIT     7,A
+        RES     7,A
+        LD      (&FB94),BC
+        JR      NZ,L0754                ; (+&05)
+        LD      HL,&FB93
+        LD      (HL),&01
+L0754:  OR      A
+        LD      HL,&FB3E
+        BIT     0,(HL)
+        RES     0,(HL)
+        LD      (&FBB2),A
+        POP     BC
+        POP     DE
+        POP     HL
+        RET     
+
+L0763:  PUSH    DE
+        LD      E,&FF
+        CALL    L0FA2
+        POP     DE
+        RET     NZ
+
+        LD      (&FB46),A
+        RET     
+
+        LD      A,(&FB3E)
+        AND     &80
+        LD      (&FB3E),A
+        LD      E,&01
+        CALL    L0FA2
+        RRA     
+        LD      B,A
+        JR      NC,L079D                ; (+&1d)
+L0780:  CALL    L0FA5
+        RRA     
+        JR      C,L0780                 ; (-&06)
+        CALL    L0AA8
+        IN      A,(&20)
+        RLCA    
+        JR      C,L0797                 ; (+&09)
+        POP     AF
+        LD      DE,(&FB30)
+        PUSH    DE
+        JP      LFB17
+L0797:  RLCA    
+        JP      NC,L0250
+        JR      L07DC                   ; (+&3f)
+L079D:  LD      HL,&FB3E
+        IN      A,(&20)
+        CPL     
+        AND     &E0
+        RRCA    
+        OR      (HL)
+        LD      (HL),A
+        LD      A,B
+        SRL     A
+        JR      Z,L07DC                 ; (+&2f)
+        RRA     
+        JR      NC,L07B2                ; (+&02)
+        LD      B,&80
+L07B2:  RRA     
+        JR      NC,L07B7                ; (+&02)
+        LD      B,&87
+L07B7:  RRA     
+        JR      NC,L07C9                ; (+&0f)
+        LD      A,(HL)
+        XOR     &80
+        LD      (HL),A
+        IN      A,(&22)
+L07C0:  CALL    L0FA5
+        BIT     4,A
+        JR      NZ,L07C0                ; (-&07)
+        JR      L07DC                   ; (+&13)
+L07C9:  RRA     
+        JR      NC,L07CE                ; (+&02)
+        LD      B,&0D
+L07CE:  RRCA    
+        JR      NC,L07D3                ; (+&02)
+        LD      B,&20
+L07D3:  RRA     
+        JR      NC,L07D8                ; (+&02)
+        LD      B,&1B
+L07D8:  SET     0,(HL)
+        SET     3,(HL)
+L07DC:  LD      DE,&0001
+L07DF:  LD      C,&FF
+        RLC     E
+        CALL    L0FA2
+        JR      Z,L0860                 ; (+&78)
+L07E8:  INC     C
+        RRCA    
+        LD      (&FB48),A
+        JR      NC,L0858                ; (+&69)
+        LD      HL,&FB3E
+        BIT     3,(HL)
+        JP      NZ,L0883
+        PUSH    BC
+        LD      A,D
+        ADD     A,A
+        ADD     A,A
+        ADD     A,A
+        LD      B,A
+        ADD     A,A
+        ADD     A,B
+        LD      B,&00
+        LD      HL,&10C5
+        ADD     HL,BC
+        LD      C,A
+        ADD     HL,BC
+        LD      A,(&FB3E)
+        BIT     7,A
+        JR      Z,L0824                 ; (+&16)
+        BIT     4,A
+L0810:  JR      NZ,L0824                ; (+&12)
+        LD      A,(HL)
+        CP      &61
+        JR      C,L0824                 ; (+&0d)
+        CP      &7B
+        JR      NC,L0824                ; (+&09)
+        PUSH    HL
+        LD      HL,&FB3E
+        SET     2,(HL)
+        POP     HL
+        JR      L082B                   ; (+&07)
+L0824:  LD      A,(&FB3E)
+        BIT     6,A
+        JR      Z,L082F                 ; (+&04)
+L082B:  LD      BC,L0008
+        ADD     HL,BC
+L082F:  POP     BC
+        LD      A,(&FB3E)
+        BIT     5,A
+        JR      Z,L0852                 ; (+&1b)
+        BIT     6,A
+        JR      NZ,L0883                ; (+&48)
+        PUSH    BC
+        LD      BC,L0008
+        ADD     HL,BC
+        LD      A,(&FB3E)
+        BIT     2,A
+        LD      A,(&FB48)
+        JR      NZ,L084B                ; (+&01)
+        ADD     HL,BC
+L084B:  POP     BC
+        LD      (&FB48),A
+        LD      A,(&FB3E)
+L0852:  OR      &09
+        LD      (&FB3E),A
+        LD      B,(HL)
+L0858:  LD      A,C
+        CP      &07
+        LD      A,(&FB48)
+        JR      NZ,L07E8                ; (-&78)
+L0860:  INC     D
+        LD      A,D
+        CP      &07
+        JP      NZ,L07DF
+        CALL    L0F97
+        LD      HL,&FB3E
+        BIT     7,B
+        JR      Z,L087B                 ; (+&0a)
+        SET     1,(HL)
+        BIT     6,(HL)
+        JR      Z,L088D                 ; (+&16)
+        SET     3,B
+        JR      L088D                   ; (+&12)
+L087B:  BIT     4,(HL)
+        JR      Z,L088D                 ; (+&0e)
+        SET     7,B
+        JR      L088D                   ; (+&0a)
+L0883:  LD      HL,&FB3E
+        RES     0,(HL)
+        CALL    L0F97
+        XOR     A
+        LD      B,A
+L088D:  BIT     0,(HL)
+        LD      HL,&FB46
+        RET     Z
+
+        LD      A,B
+        CP      (HL)
+        RET     
+
+L0896:  LD      HL,&FB45
+        BIT     3,(HL)
+        JP      NZ,L0A4E
+        BIT     1,(HL)
+        CALL    NZ,L0F5C
+        CP      &20
+        JR      C,L08BC                 ; (+&15)
+        LD      HL,&FB45
+        BIT     2,(HL)
+        JR      Z,L08B4                 ; (+&06)
+        BIT     7,(HL)
+        JR      Z,L08B4                 ; (+&02)
+        XOR     &80
+L08B4:  LD      HL,&FB4B
+        CALL    L0ACE
+        JR      L08CF                   ; (+&13)
+L08BC:  ADD     A,A
+        LD      L,A
+        LD      H,&00
+        LD      DE,&0A68
+        ADD     HL,DE
+        CALL    L0F09
+        PUSH    HL
+        LD      HL,&FB4B
+        LD      A,(&FB45)
+        RET     
+
+L08CF:  DEC     HL
+        INC     (HL)
+        LD      A,(&FB4F)
+        CP      (HL)
+        RET     NZ
+
+        LD      (HL),&00
+        INC     HL
+        LD      A,&18
+        DEC     A
+        CP      (HL)
+        JP      Z,L0CB3
+        INC     (HL)
+        RET     
+
+        LD      A,(HL)
+        OR      A
+        RET     Z
+
+L08E5:  DEC     (HL)
+        RET     
+
+        DEC     HL
+        LD      A,(HL)
+        OR      A
+        JR      NZ,L08E5                ; (-&07)
+        LD      A,(&FB4F)
+        DEC     A
+        LD      (HL),A
+        INC     HL
+        DEC     (HL)
+        RET     P
+
+L08F4:  LD      (HL),&00
+        DEC     HL
+        LD      (HL),&00
+        RET     
+
+        LD      E,A
+        CALL    L0E31
+        RET     NZ
+
+        LD      A,E
+        LD      C,&50
+        LD      DE,L0000
+        SET     2,A
+        LD      HL,&10A0
+        JR      L0920                   ; (+&14)
+        LD      C,&28
+        LD      DE,&0398
+        LD      HL,&10A0
+        JR      L091E                   ; (+&08)
+        LD      C,&20
+        LD      DE,&02E0
+        LD      HL,&1CA8
+L091E:  RES     2,A
+L0920:  RES     7,A
+        LD      (&FB45),A
+        LD      (&FB42),HL
+        LD      HL,&FB4F
+        LD      (HL),C
+        LD      (&FB4C),DE
+        BIT     2,A
+        JR      NZ,L0952                ; (+&1e)
+        LD      BC,&3C00
+        RST     &20
+        LD      BC,&03C0
+        LD      E,&20
+        CALL    L0CA6
+        RST     &20
+        LD      B,&18
+        CALL    L0CAF
+        LD      B,&20
+        RST     &20
+        CALL    L0C9F
+        XOR     A
+        CALL    L0DB0
+        JR      L0967                   ; (+&15)
+L0952:  LD      BC,L0040
+L0955:  LD      A,&20
+L0957:  OUT     (C),A
+        DJNZ    L0957                   ; (-&04)
+        INC     C
+        LD      A,&48
+        CP      C
+        JR      NZ,L0955                ; (-&0c)
+        LD      HL,L0000
+        CALL    L0D30
+L0967:  LD      HL,&FB4B
+        JR      L08F4                   ; (-&78)
+        DEC     HL
+        LD      (HL),&00
+        INC     HL
+        DEC     HL
+L0971:  PUSH    HL
+        LD      HL,(&FB4A)
+        EX      (SP),HL
+L0976:  LD      A,&20
+        CALL    L0ACE
+        LD      A,(&FB4F)
+        INC     (HL)
+        CP      (HL)
+        JR      NZ,L0976                ; (-&0c)
+L0982:  POP     HL
+        LD      (&FB4A),HL
+        RET     
+
+        DEC     HL
+        PUSH    HL
+        CALL    L0971
+        EX      (SP),HL
+        LD      (HL),&00
+L098F:  LD      A,&18
+        INC     HL
+        INC     (HL)
+        SUB     (HL)
+        JR      Z,L0982                 ; (-&14)
+        DEC     HL
+        PUSH    HL
+        CALL    L0971
+        POP     HL
+        JR      L098F                   ; (-&0f)
+        LD      A,(HL)
+        DEC     HL
+        OR      (HL)
+        RET     Z
+
+        LD      A,&08
+        RST     &10
+        INC     HL
+        DEC     HL
+        PUSH    HL
+        RST     &08
+        POP     DE
+        LD      HL,(&FB4A)
+        EX      (SP),HL
+L09AE:  LD      A,(&FB4F)
+        DEC     A
+        CP      (HL)
+        JR      Z,L09C9                 ; (+&14)
+        INC     BC
+        LD      A,(&FB45)
+        BIT     2,A
+        JR      Z,L09C1                 ; (+&04)
+        DEC     BC
+        CALL    L0BCF
+L09C1:  RST     &08
+        JP      NZ,LCECD
+        LD      A,(BC)
+        INC     (HL)
+        JR      L09AE                   ; (-&1b)
+L09C9:  LD      A,&20
+        CALL    L0ACE
+        JR      L0982                   ; (-&4e)
+        DEC     HL
+        PUSH    HL
+        RST     &08
+        POP     DE
+        LD      HL,(&FB4A)
+        EX      (SP),HL
+        LD      E,&20
+L09DA:  RST     &08
+        JP      NZ,LF503
+        LD      A,(&FB45)
+        BIT     2,A
+        JR      Z,L09E9                 ; (+&04)
+        DEC     BC
+        CALL    L0BCF
+L09E9:  LD      A,(&FB4F)
+        CP      (HL)
+        JR      Z,L09F8                 ; (+&09)
+        LD      A,E
+        CALL    L0ACE
+        INC     (HL)
+        POP     AF
+        LD      E,A
+        JR      L09DA                   ; (-&1e)
+L09F8:  POP     AF
+        JR      L0982                   ; (-&79)
+        LD      HL,(&FB4A)
+        PUSH    HL
+        XOR     A
+        LD      B,A
+        LD      C,A
+L0A02:  CALL    L0A27
+L0A05:  LD      (&FB4A),BC
+        PUSH    BC
+        RST     &08
+        POP     DE
+        RST     &08
+        JP      NZ,L9FCF
+        POP     BC
+        LD      DE,(&FB4F)
+        LD      D,&18
+        INC     C
+L0A18:  LD      A,C
+        CP      E
+        JR      NZ,L0A05                ; (-&17)
+        LD      C,&00
+        INC     B
+        LD      A,B
+        CP      D
+        JR      NZ,L0A02                ; (-&21)
+        POP     HL
+        LD      (&FB4A),HL
+L0A27:  PUSH    AF
+        LD      A,&0D
+        RST     &08
+        SBC     A,A
+        LD      A,&0A
+        RST     &08
+        SBC     A,A
+        POP     AF
+        RET     
+
+        XOR     &80
+        JR      L0A44                   ; (+&0e)
+        SET     1,A
+        JR      L0A44                   ; (+&0a)
+        RES     0,A
+        JR      L0A44                   ; (+&06)
+        SET     0,A
+        JR      L0A44                   ; (+&02)
+        RES     1,A
+L0A44:  LD      (&FB45),A
+        RET     
+
+        LD      HL,&FB45
+        SET     3,(HL)
+        RET     
+
+L0A4E:  BIT     4,(HL)
+        JR      NZ,L0A5D                ; (+&0b)
+        SET     4,(HL)
+        LD      HL,&FB4F
+        CP      (HL)
+        RET     NC
+
+        LD      (&FB4A),A
+        RET     
+
+L0A5D:  RES     3,(HL)
+        RES     4,(HL)
+        CP      &18
+        RET     NC
+
+        LD      (&FB4B),A
+        RET     
+
+        LD      B,A
+        LD      A,(BC)
+        EI      
+        ADD     HL,BC
+        LD      B,A
+        LD      A,(BC)
+        LD      B,A
+        LD      A,(BC)
+        RST     &08
+        EX      AF,AF'
+        LD      B,A
+        LD      A,(BC)
+        AND     (HL)
+        ADD     HL,BC
+        LD      (HL),C
+        RRCA    
+        RST     &20
+        EX      AF,AF'
+        LD      B,A
+        LD      A,(BC)
+        EXX     
+        EX      AF,AF'
+        JP      PO,L3008
+        ADD     HL,BC
+        OR      &08
+        INC     C
+        ADD     HL,BC
+        LD      D,&09
+        JP      M,L3E08
+        LD      A,(BC)
+        LD      (HL),&0A
+        LD      B,D
+        LD      A,(BC)
+        LD      A,(&700A)
+        ADD     HL,BC
+        ADD     A,A
+        ADD     HL,BC
+        LD      (&6C0A),A
+        ADD     HL,BC
+        SBC     A,(HL)
+        ADD     HL,BC
+        RET     NC
+
+        ADD     HL,BC
+        LD      B,A
+        LD      A,(BC)
+        LD      B,A
+        LD      A,(BC)
+        LD      C,B
+        LD      A,(BC)
+        CALL    P,L4708
+        LD      A,(BC)
+L0AA8:  LD      A,(&FB45)
+        BIT     2,A
+        JR      Z,L0ACB                 ; (+&1c)
+        LD      E,&20
+        JR      L0ABE                   ; (+&0b)
+L0AB3:  LD      A,(&FB45)
+        BIT     2,A
+        RRA     
+        JR      Z,L0AC6                 ; (+&0b)
+        RET     NC
+
+        LD      E,&00
+L0ABE:  LD      A,&0A
+        OUT     (&48),A
+        LD      A,E
+        OUT     (&49),A
+        RET     
+
+L0AC6:  LD      A,(&FB3F)
+        JR      C,L0ACE                 ; (+&03)
+L0ACB:  LD      A,(&FB47)
+L0ACE:  PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        LD      B,A
+        LD      A,(&FB45)
+        BIT     2,A
+        JR      NZ,L0B06                ; (+&2d)
+        LD      A,(&FB4F)
+        CP      &28
+        LD      A,B
+        JR      Z,L0B10                 ; (+&2f)
+        CALL    L0C4C
+        RST     &30
+        PUSH    HL
+        LD      HL,L0008
+        POP     BC
+        PUSH    HL
+        PUSH    DE
+        LD      D,L
+        CALL    L0D90
+        LD      B,L
+        LD      HL,&FB45
+        BIT     7,(HL)
+        JR      Z,L0B01                 ; (+&09)
+        LD      HL,&FBE0
+L0AFB:  LD      A,(HL)
+        CPL     
+        LD      (HL),A
+        INC     HL
+        DJNZ    L0AFB                   ; (-&06)
+L0B01:  POP     BC
+        POP     HL
+        JP      L0BB0
+L0B06:  LD      A,B
+        CALL    L0C13
+        CALL    L0BD9
+        JP      L0BC2
+L0B10:  LD      BC,(&FB4A)
+        LD      E,C
+        PUSH    AF
+        LD      A,C
+        AND     &03
+        SRL     C
+        SRL     C
+        EX      AF,AF'
+        LD      A,C
+        ADD     A,A
+        ADD     A,C
+        LD      C,A
+        POP     AF
+        CALL    L0C51
+        RST     &30
+        EX      AF,AF'
+        LD      BC,L0008
+        BIT     1,A
+        EX      DE,HL
+        JR      Z,L0B31                 ; (+&01)
+        ADD     HL,BC
+L0B31:  CP      &03
+        JR      Z,L0B62                 ; (+&2d)
+        PUSH    AF
+        LD      C,L
+        LD      B,H
+        PUSH    DE
+        LD      D,&10
+        CALL    L0D90
+        POP     BC
+        POP     AF
+        PUSH    HL
+        LD      HL,&FBE0
+        LD      D,&08
+        OR      A
+        JR      Z,L0B86                 ; (+&3d)
+        DEC     A
+        JR      Z,L0B9B                 ; (+&4f)
+L0B4C:  CALL    L0BC6
+        AND     &FC
+        PUSH    BC
+        LD      BC,&F03F
+        RLCA    
+        RLCA    
+        CALL    L0BFA
+        POP     BC
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0B4C                ; (-&14)
+        JR      L0BAC                   ; (+&4a)
+L0B62:  ADD     HL,BC
+        LD      B,H
+        LD      C,L
+        PUSH    DE
+        LD      D,&08
+        CALL    L0D90
+        POP     BC
+        PUSH    HL
+        LD      HL,&FBE0
+        LD      D,&08
+L0B72:  LD      A,(HL)
+        AND     &C0
+        LD      E,A
+        CALL    L0BC6
+        SRL     A
+        SRL     A
+        OR      E
+        LD      (HL),A
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0B72                ; (-&12)
+        JR      L0B96                   ; (+&10)
+L0B86:  CALL    L0BC6
+        AND     &FC
+        LD      E,A
+        LD      A,(HL)
+        AND     &03
+        OR      E
+        LD      (HL),A
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0B86                ; (-&10)
+L0B96:  LD      HL,L0008
+        JR      L0BAF                   ; (+&14)
+L0B9B:  CALL    L0BC6
+        PUSH    BC
+        LD      BC,&FC0F
+        AND     B
+        CALL    L0BFA
+        POP     BC
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0B9B                ; (-&11)
+L0BAC:  LD      HL,L0010
+L0BAF:  POP     BC
+L0BB0:  PUSH    HL
+        PUSH    BC
+        LD      D,L
+        CALL    L0DA1
+        POP     BC
+        SET     5,B
+        RST     &20
+        POP     BC
+        LD      A,(&FB38)
+        LD      E,A
+        CALL    L0CA6
+L0BC2:  POP     BC
+        POP     DE
+        POP     HL
+        RET     
+
+L0BC6:  LD      A,(&FB45)
+        BIT     7,A
+        RST     &28
+        RET     Z
+
+        CPL     
+        RET     
+
+L0BCF:  INC     B
+        RET     NZ
+
+L0BD1:  INC     C
+        RES     3,C
+        RES     4,C
+        RES     5,C
+        RET     
+
+L0BD9:  PUSH    AF
+        CALL    L0BEF
+        POP     AF
+        OUT     (C),A
+        RET     
+
+        LD      A,(&FB45)
+        BIT     2,A
+        JP      Z,L0028
+L0BE9:  CALL    L0BEF
+        IN      A,(C)
+        RET     
+
+L0BEF:  IN      A,(&4C)
+        RRA     
+        JR      NC,L0BEF                ; (-&05)
+L0BF4:  IN      A,(&4C)
+        RRA     
+        JR      C,L0BF4                 ; (-&05)
+        RET     
+
+L0BFA:  PUSH    DE
+        RLCA    
+        RLCA    
+        PUSH    AF
+        AND     &0F
+        LD      D,A
+        POP     AF
+        AND     &F0
+        LD      E,A
+        LD      A,(HL)
+        AND     B
+        OR      D
+        LD      (HL),A
+        SET     3,L
+        LD      A,(HL)
+        AND     C
+        OR      E
+        LD      (HL),A
+        RES     3,L
+        POP     DE
+        RET     
+
+L0C13:  LD      BC,(&FB4A)
+L0C17:  PUSH    AF
+        LD      H,&00
+        LD      L,B
+        LD      B,H
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        LD      D,H
+        LD      E,L
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,DE
+        ADD     HL,BC
+        LD      DE,(&FB4C)
+        ADD     HL,DE
+        LD      A,H
+        AND     &3F
+        LD      H,A
+        LD      A,&0E
+        OUT     (&48),A
+        LD      C,&49
+        OUT     (C),H
+        INC     A
+        OUT     (&48),A
+        OUT     (C),L
+        LD      A,H
+        AND     &07
+        LD      B,L
+        LD      C,A
+        SET     6,C
+        POP     AF
+        RET     
+
+        LD      HL,&FB45
+        BIT     2,(HL)
+        JR      NZ,L0C13                ; (-&39)
+L0C4C:  LD      BC,(&FB4A)
+        LD      E,C
+L0C51:  PUSH    AF
+        LD      H,&00
+        LD      L,A
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        LD      A,&18
+        ADD     A,H
+        LD      H,A
+        PUSH    HL
+        LD      H,&00
+        LD      L,B
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        PUSH    HL
+        ADD     HL,HL
+        ADD     HL,HL
+        PUSH    HL
+        LD      B,&00
+        ADD     HL,BC
+        LD      BC,&3800
+        PUSH    HL
+        ADD     HL,BC
+        EX      (SP),HL
+        POP     BC
+        RST     &28
+        LD      L,A
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        POP     BC
+        EX      (SP),HL
+        EX      DE,HL
+        LD      H,&00
+        LD      A,(&FB4F)
+        CP      &28
+        JR      NZ,L0C83                ; (+&01)
+        ADD     HL,DE
+L0C83:  ADD     HL,BC
+        LD      BC,&3C00
+        ADD     HL,BC
+        POP     DE
+        EX      (SP),HL
+        POP     BC
+        POP     AF
+        RET     
+
+L0C8D:  PUSH    AF
+        LD      A,C
+        OUT     (&09),A
+        PUSH    AF
+        POP     AF
+        LD      A,B
+        OUT     (&09),A
+        POP     AF
+        RET     
+
+L0C98:  SET     6,A
+        OUT     (&09),A
+        NOP     
+        POP     AF
+        RET     
+
+L0C9F:  LD      BC,L1800
+L0CA2:  LD      A,(&FB38)
+        LD      E,A
+L0CA6:  LD      A,E
+        OUT     (&08),A
+        DEC     BC
+        LD      A,B
+        OR      C
+        JR      NZ,L0CA6                ; (-&08)
+        RET     
+
+L0CAF:  LD      E,&00
+        JR      L0CA6                   ; (-&0d)
+L0CB3:  LD      HL,&FB45
+        BIT     2,(HL)
+        JR      NZ,L0CFD                ; (+&43)
+        LD      BC,&3800
+        RST     &28
+        PUSH    AF
+        ADD     A,&20
+        CALL    L0DB0
+        POP     AF
+        LD      H,&00
+        LD      L,A
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        LD      B,H
+        LD      C,L
+        PUSH    BC
+        CALL    L0D5D
+        RST     &20
+        LD      BC,&0100
+        CALL    L0CAF
+        POP     BC
+        SET     5,B
+        CALL    L0D5D
+        RST     &20
+        LD      BC,&0100
+        CALL    L0CA2
+        LD      HL,(&FB4F)
+        LD      H,&00
+        PUSH    HL
+        LD      DE,&3C00
+        ADD     HL,DE
+        EX      DE,HL
+        LD      B,H
+        LD      C,L
+        LD      HL,(&FB4C)
+        CALL    L0D68
+        POP     BC
+        LD      E,&20
+        JR      L0CA6                   ; (-&57)
+L0CFD:  LD      HL,(&FB4C)
+        LD      BC,&0050
+        ADD     HL,BC
+        LD      A,H
+        AND     &07
+        LD      H,A
+        CALL    L0D30
+        LD      BC,&1700
+        CALL    L0C17
+        LD      E,&50
+L0D13:  PUSH    BC
+        CALL    L0BE9
+        LD      D,A
+        LD      A,&20
+        CALL    L0BD9
+        LD      A,&50
+        ADD     A,B
+        LD      B,A
+        CALL    C,L0BD1
+        LD      A,D
+        CALL    L0BD9
+        POP     BC
+        CALL    L0BCF
+        DEC     E
+        JR      NZ,L0D13                ; (-&1c)
+        RET     
+
+L0D30:  LD      A,&0C
+        OUT     (&48),A
+        LD      C,&49
+        OUT     (C),H
+        INC     A
+        OUT     (&48),A
+        OUT     (C),L
+        LD      (&FB4C),HL
+        RET     
+
+        LD      HL,&FB45
+        BIT     2,(HL)
+        RET     Z
+
+        LD      BC,L1800
+        PUSH    DE
+        CALL    L0C17
+        POP     DE
+        LD      H,&50
+L0D51:  LD      A,(DE)
+        CALL    L0BD9
+        CALL    L0BCF
+        INC     DE
+        DEC     H
+        JR      NZ,L0D51                ; (-&0b)
+        RET     
+
+L0D5D:  CALL    L0D60
+L0D60:  LD      E,C
+        LD      A,B
+        ADD     A,&08
+        LD      D,A
+        LD      HL,&0100
+L0D68:  PUSH    DE
+L0D69:  PUSH    BC
+        LD      B,D
+        LD      C,E
+        LD      DE,L0020
+        OR      A
+        SBC     HL,DE
+        PUSH    HL
+        ADD     HL,DE
+        JR      NC,L0D77                ; (+&01)
+        LD      E,L
+L0D77:  EX      AF,AF'
+        LD      D,E
+        PUSH    DE
+        CALL    L0D90
+        POP     DE
+        POP     HL
+        EX      (SP),HL
+        PUSH    BC
+        EX      (SP),HL
+        POP     BC
+        PUSH    HL
+        CALL    L0DA1
+        POP     DE
+        POP     HL
+        EX      AF,AF'
+        JR      Z,L0D8E                 ; (+&02)
+        JR      NC,L0D69                ; (-&25)
+L0D8E:  POP     BC
+        RET     
+
+L0D90:  CALL    L0C8D
+        PUSH    HL
+        LD      HL,&FBE0
+L0D97:  IN      A,(&08)
+        LD      (HL),A
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0D97                ; (-&08)
+        POP     HL
+        RET     
+
+L0DA1:  RST     &20
+        PUSH    HL
+        LD      HL,&FBE0
+L0DA6:  LD      A,(HL)
+        OUT     (&08),A
+        INC     HL
+        INC     BC
+        DEC     D
+        JR      NZ,L0DA6                ; (-&08)
+        POP     HL
+        RET     
+
+L0DB0:  LD      BC,&3800
+        RST     &20
+        PUSH    AF
+        RLCA    
+        RLCA    
+        RLCA    
+        LD      (&FB4E),A
+        POP     AF
+        LD      B,&03
+L0DBE:  OUT     (&08),A
+        INC     A
+        INC     C
+        JR      NZ,L0DBE                ; (-&06)
+        DJNZ    L0DBE                   ; (-&08)
+        RET     
+
+        RST     &08
+        CP      L
+        LD      BC,&3B00
+        RST     &20
+        LD      BC,&0080
+        CALL    L0CAF
+        LD      BC,L1800
+        RST     &20
+        LD      B,&01
+        CALL    L0CAF
+        LD      HL,&116D
+        LD      A,&07
+        LD      BC,L0008
+L0DE4:  OUTI    
+        PUSH    AF
+        POP     AF
+        JR      NZ,L0DE4                ; (-&06)
+        DEC     A
+        JR      NZ,L0DE4                ; (-&09)
+        LD      HL,L0000
+        LD      (&FB30),HL
+        LD      (&FB32),HL
+        LD      (&FB34),HL
+        LD      HL,L24D3
+        LD      (L0038),HL
+        LD      A,&01
+        OUT     (&20),A
+        OUT     (&25),A
+        OUT     (&21),A
+L0E07:  LD      A,&0E
+        RST     &10
+        RET     
+
+        CALL    L0E31
+        JR      NZ,L0E07                ; (-&09)
+        IN      A,(&4C)
+        BIT     2,A
+        LD      HL,&0E40
+        JR      NZ,L0E1C                ; (+&03)
+        LD      HL,&0E50
+L0E1C:  LD      BC,&1049
+        XOR     A
+L0E20:  OUT     (&48),A
+        INC     A
+        OUTI    
+        JR      NZ,L0E20                ; (-&07)
+        LD      A,&10
+        RST     &10
+        IN      A,(&4C)
+        BIT     1,A
+        JR      Z,L0E07                 ; (-&29)
+        RET     
+
+L0E31:  PUSH    BC
+        LD      BC,L0040
+        IN      A,(C)
+        CPL     
+        OUT     (C),A
+        LD      D,A
+        IN      A,(C)
+        CP      D
+        POP     BC
+        RET     
+
+        LD      A,(HL)
+        LD      D,B
+        LD      H,C
+        JR      C,L0E5F                 ; (+&1a)
+        INC     DE
+        ADD     HL,DE
+        LD      A,(DE)
+        NOP     
+        EX      AF,AF'
+        JR      NZ,L0E54                ; (+&08)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      A,A
+        LD      D,B
+        LD      H,D
+        JR      C,L0E73                 ; (+&1e)
+        LD      (BC),A
+        ADD     HL,DE
+        DEC     DE
+        NOP     
+        ADD     HL,BC
+        JR      NZ,L0E65                ; (+&09)
+        NOP     
+        NOP     
+        NOP     
+L0E5F:  NOP     
+L0E60:  LD      A,B
+        LD      HL,L0000
+        LD      B,&10
+        RRA     
+        RR      C
+L0E69:  JR      NC,L0E6C                ; (+&01)
+        ADD     HL,DE
+L0E6C:  RR      H
+        RR      L
+        RRA     
+        RR      C
+L0E73:  DJNZ    L0E69                   ; (-&0c)
+        EX      DE,HL
+        LD      H,A
+        LD      L,C
+        LD      A,D
+        OR      E
+        RET     
+
+        RST     &18
+        INC     C
+        JR      NZ,L0E9F                ; (+&20)
+        JR      NZ,L0EA1                ; (+&20)
+        JR      NZ,L0EA3                ; (+&20)
+        JR      NZ,L0EA5                ; (+&20)
+        JR      NZ,L0EA7                ; (+&20)
+        JR      NZ,L0EB3                ; (+&2a)
+        LD      HL,(&202A)
+        JR      NZ,L0ED3                ; (+&45)
+        LD      C,C
+        LD      C,(HL)
+        LD      D,E
+        LD      D,H
+        LD      B,L
+        LD      C,C
+        LD      C,(HL)
+        JR      NZ,L0EB7                ; (+&20)
+        LD      HL,(&2A2A)
+        DEC     C
+        ADC     A,D
+        RET     
+
+        LD      A,H
+        RST     &08
+L0E9F:  XOR     E
+        LD      A,L
+L0EA1:  RST     &08
+        XOR     E
+L0EA3:  JR      L0F18                   ; (+&73)
+L0EA5:  PUSH    AF
+        RRCA    
+L0EA7:  RRCA    
+        RRCA    
+        RRCA    
+        CALL    L0EAE
+        POP     AF
+L0EAE:  AND     &0F
+        ADD     A,&90
+        DAA     
+L0EB3:  ADC     A,&40
+        DAA     
+        RST     &10
+L0EB7:  OR      A
+        RET     
+
+L0EB9:  EX      DE,HL
+        RST     &08
+        OR      C
+        EX      DE,HL
+        INC     DE
+        SUB     &30
+        CP      &0A
+        CCF     
+        RET     NC
+
+        ADD     A,&30
+        AND     &5F
+        SUB     &37
+        CP      &10
+        CCF     
+        RET     NC
+
+        LD      A,&00
+        RET     
+
+        PUSH    BC
+        CALL    L0EB9
+        JR      C,L0EE2                 ; (+&0b)
+        RLCA    
+        RLCA    
+        RLCA    
+        RLCA    
+        LD      C,A
+        CALL    L0EB9
+        JR      C,L0EE2                 ; (+&01)
+        OR      C
+L0EE2:  POP     BC
+        RET     
+
+        LD      A,&04
+        PUSH    BC
+        LD      B,A
+        XOR     A
+        LD      H,A
+        LD      L,A
+L0EEB:  CALL    L0EB9
+        JR      C,L0EF9                 ; (+&09)
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        OR      L
+        LD      L,A
+        DJNZ    L0EEB                   ; (-&0d)
+        INC     DE
+L0EF9:  DEC     DE
+        POP     BC
+        RET     
+
+L0EFC:  INC     DE
+        LD      A,(DE)
+        CP      &20
+        JR      Z,L0EFC                 ; (-&06)
+        CP      &2C
+        JR      Z,L0EFC                 ; (-&0a)
+        OR      A
+        RET     
+
+L0F08:  EX      DE,HL
+L0F09:  LD      E,(HL)
+        INC     HL
+        LD      D,(HL)
+        INC     HL
+        EX      DE,HL
+        RET     
+
+        LD      A,(&FB4A)
+        OR      A
+        RET     Z
+
+        RST     &18
+        DEC     C
+        ADC     A,D
+        RET     
+
+L0F18:  LD      A,&20
+L0F1A:  PUSH    HL
+        PUSH    DE
+        PUSH    BC
+        PUSH    AF
+        CALL    L0896
+        POP     AF
+        POP     BC
+        POP     DE
+        POP     HL
+        RET     
+
+        PUSH    HL
+        LD      HL,(&FB7B)
+        RST     &08
+        OR      C
+        LD      E,A
+        INC     HL
+        RST     &08
+        OR      C
+        LD      D,A
+        EX      DE,HL
+L0F32:  RST     &08
+        OR      C
+        CALL    L0F40
+        JR      Z,L0F32                 ; (-&07)
+        EX      DE,HL
+        LD      (HL),D
+        DEC     HL
+        LD      (HL),E
+        POP     HL
+        RET     
+
+L0F3F:  LD      A,(HL)
+L0F40:  BIT     7,A
+        RES     7,A
+        RST     &10
+        INC     HL
+        RET     
+
+        LD      A,C
+        PUSH    AF
+L0F49:  IN      A,(&11)
+        RRA     
+        JR      NC,L0F49                ; (-&05)
+        POP     AF
+        OUT     (&10),A
+        RET     
+
+L0F52:  IN      A,(&11)
+        RRA     
+        RRA     
+        JR      NC,L0F52                ; (-&06)
+        IN      A,(&10)
+        RET     
+
+        LD      A,C
+L0F5C:  PUSH    HL
+        LD      HL,&FB92
+L0F60:  BIT     0,(HL)
+        JR      NZ,L0F60                ; (-&04)
+        OUT     (&30),A
+        SET     0,(HL)
+        POP     HL
+        RET     
+
+        LD      A,C
+        OUT     (&02),A
+        LD      A,B
+        OUT     (&03),A
+        RET     
+
+        LD      BC,&8E00
+        RST     &08
+        OR      H
+        LD      BC,&0001
+        RST     &08
+        OR      H
+        LD      BC,&0A08
+        RST     &08
+        OR      H
+        LD      BC,&7E07
+        RST     &08
+        OR      H
+        LD      BC,&3A2E
+L0F88:  DEC     BC
+        LD      A,B
+        OR      C
+        JR      NZ,L0F88                ; (-&05)
+        LD      BC,L0008
+        RST     &08
+        OR      H
+        LD      BC,&7F07
+        RST     &08
+        OR      H
+L0F97:  LD      E,&FF
+L0F99:  LD      A,&0E
+        OUT     (&02),A
+        LD      A,E
+        CPL     
+        OUT     (&03),A
+        RET     
+
+L0FA2:  CALL    L0F99
+L0FA5:  LD      A,&0F
+        OUT     (&02),A
+        IN      A,(&02)
+        CPL     
+        OR      A
+        RET     
+
+        LD      C,&2A
+        LD      A,&3F
+        LD      B,&7D
+        CALL    L0FBC
+        INC     C
+        LD      A,&DF
+        LD      B,&7D
+L0FBC:  OUT     (C),A
+        NOP     
+        OUT     (C),B
+        RET     
+
+L0FC2:  LD      (&FB79),HL
+        POP     HL
+        PUSH    AF
+        LD      A,(HL)
+        INC     HL
+        EX      (SP),HL
+L0FCA:  PUSH    HL
+        BIT     7,A
+        RES     7,A
+        JR      Z,L0FE4                 ; (+&13)
+        LD      HL,(&FB3A)
+        ADD     A,A
+        ADD     A,L
+        LD      L,A
+        JR      NC,L0FDA                ; (+&01)
+        INC     H
+L0FDA:  LD      A,(HL)
+        INC     HL
+        LD      H,(HL)
+        LD      L,A
+        POP     AF
+        PUSH    HL
+        LD      HL,(&FB79)
+        RET     
+
+L0FE4:  LD      HL,(&FB3C)
+        JP      (HL)
+        LD      (BC),A
+        RET     NZ
+
+        LD      C,&FF
+        INC     BC
+        HALT    
+        INC     BC
+        CALL    P,LFC4E
+        LD      C,(HL)
+        CALL    M,LFC4E
+        LD      B,A
+        CALL    M,LFC4E
+        LD      C,(HL)
+        CALL    M,LFC4E
+        LD      C,(HL)
+        CALL    M,LFC84
+        LD      C,(HL)
+        CALL    M,L24D3
+        LD      A,(HL)
+        OUT     (&24),A
+        RET     
+
+        OUT     (&24),A
+        LDIR    
+        OUT     (&24),A
+        RET     
+
+        OUT     (&24),A
+        LDDR    
+        OUT     (&24),A
+        RET     
+
+        OUT     (&24),A
+        CALL    L0FCA
+        OUT     (&24),A
+        RET     
+
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      (BC),A
+        RET     NZ
+
+        RET     P
+
+        RET     P
+
+        ADD     A,D
+        LD      (BC),A
+        LD      A,L
+        NOP     
+        ADD     A,B
+        LD      A,A
+        LD      A,&20
+        AND     B
+        DJNZ    L1037                   ; (+&02)
+        LD      BC,&9ACF
+        RST     &38
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        JP      LFC22
+        LD      A,(L0038)
+        OR      A
+        RET     Z
+
+        JR      L1057                   ; (+&0f)
+        LD      A,(L0038)
+        OR      A
+        RET     NZ
+
+        JR      L1057                   ; (+&08)
+        PUSH    BC
+        LD      C,A
+        LD      A,(L0038)
+        CP      C
+        POP     BC
+        RET     Z
+
+L1057:  OUT     (&24),A
+        RET     
+
+        LD      (&FB79),HL
+        POP     HL
+        PUSH    AF
+        LD      A,(HL)
+        INC     HL
+        EX      (SP),HL
+        LD      (&FB7B),SP
+        PUSH    HL
+        OR      A
+        LD      HL,&FB00
+        SBC     HL,SP
+        POP     HL
+        JR      C,L1073                 ; (+&03)
+        LD      SP,&FCFF
+L1073:  OUT     (&24),A
+        CALL    L0FCA
+        OUT     (&24),A
+        LD      SP,(&FB7B)
+        RET     
+
+        PUSH    HL
+        PUSH    AF
+        CALL    LFC51
+        POP     AF
+        POP     HL
+L1086:  EI      
+        RETI    
+
+        LD      HL,&FB91
+        LD      A,&39
+        CALL    LFC7D
+        RET     NC
+
+        LD      A,&35
+        CALL    LFC7D
+        RET     NC
+
+        LD      A,&39
+        CALL    LFC7D
+        RET     NC
+
+        LD      A,&35
+        CALL    LFC7D
+        RET     NC
+
+        DEC     HL
+        LD      A,&32
+        CP      (HL)
+        INC     HL
+        LD      A,&39
+        JR      NZ,L10AF                ; (+&02)
+        LD      A,&33
+L10AF:  CALL    LFC7D
+        RET     NC
+
+        LD      A,&32
+        INC     (HL)
+        CP      (HL)
+        RET     NC
+
+        LD      (HL),&30
+        DEC     HL
+        RET     
+
+        PUSH    HL
+        LD      HL,&FB92
+        RES     0,(HL)
+        POP     HL
+        JR      L1086                   ; (-&3f)
+        LD      L,C
+        LD      L,A
+        LD      (HL),B
+        LD      E,E
+        LD      E,A
+        LD      A,(BC)
+        LD      A,H
+        JR      NC,L1117                ; (+&49)
+        LD      C,A
+        LD      D,B
+        LD      A,E
+        LD      H,B
+        DEC     BC
+        LD      E,H
+        LD      B,B
+        ADD     HL,BC
+        RRCA    
+        DJNZ    L10F4                   ; (+&1b)
+        RRA     
+        LD      A,(BC)
+        INC     E
+        JR      NC,L1149                ; (+&6b)
+        LD      L,H
+        DEC     SP
+        LD      A,(&045D)
+        ADD     HL,SP
+        ADD     A,L
+        LD      C,E
+        LD      C,H
+        DEC     HL
+        LD      HL,(&087D)
+        ADD     HL,HL
+        ADD     A,L
+        DEC     BC
+        INC     C
+        DEC     SP
+        LD      A,(&041D)
+        ADD     HL,SP
+L10F4:  ADD     A,L
+        INC     L
+        LD      L,&2F
+        JR      C,L1113                 ; (+&19)
+        DEC     A
+        LD      E,(HL)
+        ADD     A,H
+        INC     A
+        LD      A,&3F
+        JR      Z,L111C                 ; (+&1a)
+        DEC     L
+        LD      A,(HL)
+        ADD     A,H
+        INC     L
+        LD      L,&2F
+        JR      C,L1110                 ; (+&06)
+        DEC     A
+        LD      E,&84
+        SCF     
+        LD      (HL),&35
+L1110:  INC     (HL)
+        INC     SP
+        LD      (&8331),A
+        DAA     
+        LD      H,&25
+        INC     H
+        INC     HL
+        LD      (&8321),HL
+        SCF     
+        LD      (HL),&35
+        INC     (HL)
+        INC     SP
+        LD      (&8331),A
+        LD      (HL),L
+        LD      A,C
+        LD      (HL),H
+        LD      (HL),D
+        LD      H,L
+        LD      (HL),A
+        LD      (HL),C
+        ADD     A,D
+        LD      D,L
+        LD      E,C
+        LD      D,H
+        LD      D,D
+        LD      B,L
+        LD      D,A
+        LD      D,C
+        ADD     A,D
+        DEC     D
+        ADD     HL,DE
+        INC     D
+        LD      (DE),A
+        DEC     B
+        RLA     
+        LD      DE,&6A82
+        LD      L,B
+        LD      H,A
+        LD      H,(HL)
+        LD      H,H
+        LD      (HL),E
+        LD      H,C
+        ADD     A,C
+        LD      C,D
+        LD      C,B
+        LD      B,A
+        LD      B,(HL)
+L1149:  LD      B,H
+        LD      D,E
+        LD      B,C
+        ADD     A,C
+        LD      A,(BC)
+        EX      AF,AF'
+        RLCA    
+        LD      B,&04
+        INC     DE
+        LD      BC,&6D81
+        LD      L,(HL)
+        LD      H,D
+        HALT    
+        LD      H,E
+        LD      A,B
+        LD      A,D
+        ADD     A,(HL)
+        LD      C,L
+        LD      C,(HL)
+        LD      B,D
+        LD      D,(HL)
+        LD      B,E
+        LD      E,B
+        LD      E,D
+        ADD     A,(HL)
+        DEC     C
+        LD      C,&02
+        LD      D,&03
+        JR      L1186                   ; (+&1a)
+        ADD     A,(HL)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L1188                   ; (+&10)
+        DJNZ    L118A                   ; (+&10)
+        NOP     
+        DJNZ    L117D                   ; (+&00)
+L117D:  NOP     
+        JR      Z,L11A8                 ; (+&28)
+        JR      Z,L1182                 ; (+&00)
+L1182:  NOP     
+        NOP     
+        NOP     
+        NOP     
+L1186:  JR      Z,L1204                 ; (+&7c)
+L1188:  JR      Z,L11B2                 ; (+&28)
+L118A:  LD      A,H
+        JR      Z,L118D                 ; (+&00)
+L118D:  NOP     
+        DJNZ    L11CC                   ; (+&3c)
+        LD      D,B
+        JR      C,L11A7                 ; (+&14)
+        LD      A,B
+        DJNZ    L1196                   ; (+&00)
+L1196:  LD      H,B
+        LD      H,H
+        EX      AF,AF'
+        DJNZ    L11C7                   ; (+&2c)
+        LD      C,H
+        NOP     
+        NOP     
+        JR      NZ,L11F0                ; (+&50)
+        JR      NZ,L11F6                ; (+&54)
+        LD      C,B
+        INC     (HL)
+        NOP     
+        NOP     
+        DJNZ    L11B8                   ; (+&10)
+L11A8:  DJNZ    L11AA                   ; (+&00)
+L11AA:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        EX      AF,AF'
+        DJNZ    L11C1                   ; (+&10)
+        DJNZ    L11C3                   ; (+&10)
+        EX      AF,AF'
+        NOP     
+        NOP     
+        JR      NZ,L11C8                ; (+&10)
+L11B8:  DJNZ    L11CA                   ; (+&10)
+        DJNZ    L11DC                   ; (+&20)
+        NOP     
+        NOP     
+        DJNZ    L1214                   ; (+&54)
+        JR      C,L11D2                 ; (+&10)
+        JR      C,L1218                 ; (+&54)
+        DJNZ    L11C6                   ; (+&00)
+L11C6:  NOP     
+L11C7:  DJNZ    L11D9                   ; (+&10)
+        LD      A,H
+L11CA:  DJNZ    L11DC                   ; (+&10)
+L11CC:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L11D2:  DJNZ    L11E4                   ; (+&10)
+        JR      NZ,L11D6                ; (+&00)
+L11D6:  NOP     
+        NOP     
+        NOP     
+L11D9:  JR      C,L11DB                 ; (+&00)
+L11DB:  NOP     
+L11DC:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L11E5                   ; (+&00)
+L11E5:  NOP     
+        NOP     
+        INC     B
+        EX      AF,AF'
+        DJNZ    L120B                   ; (+&20)
+        LD      B,B
+        NOP     
+        NOP     
+        DJNZ    L1218                   ; (+&28)
+L11F0:  LD      B,H
+        LD      B,H
+        JR      Z,L1204                 ; (+&10)
+        NOP     
+        NOP     
+L11F6:  DJNZ    L1228                   ; (+&30)
+        DJNZ    L120A                   ; (+&10)
+        DJNZ    L1234                   ; (+&38)
+        NOP     
+        NOP     
+        JR      C,L1244                 ; (+&44)
+        INC     B
+        JR      C,L1243                 ; (+&40)
+        LD      A,H
+L1204:  NOP     
+        NOP     
+        JR      C,L124C                 ; (+&44)
+        JR      L120E                   ; (+&04)
+L120A:  LD      B,H
+L120B:  JR      C,L120D                 ; (+&00)
+L120D:  NOP     
+L120E:  JR      L1238                   ; (+&28)
+        LD      C,B
+        LD      A,H
+        EX      AF,AF'
+        EX      AF,AF'
+L1214:  NOP     
+        NOP     
+        LD      A,H
+        LD      B,B
+L1218:  LD      A,B
+        INC     B
+        LD      B,H
+        JR      C,L121D                 ; (+&00)
+L121D:  NOP     
+        JR      C,L1260                 ; (+&40)
+        LD      A,B
+        LD      B,H
+        LD      B,H
+        JR      C,L1225                 ; (+&00)
+L1225:  NOP     
+        LD      A,H
+        INC     B
+L1228:  EX      AF,AF'
+        DJNZ    L124B                   ; (+&20)
+        JR      NZ,L122D                ; (+&00)
+L122D:  NOP     
+        JR      C,L1274                 ; (+&44)
+        JR      C,L1276                 ; (+&44)
+        LD      B,H
+        JR      C,L1235                 ; (+&00)
+L1235:  NOP     
+        JR      C,L127C                 ; (+&44)
+L1238:  JR      C,L123E                 ; (+&04)
+        EX      AF,AF'
+        DJNZ    L123D                   ; (+&00)
+L123D:  NOP     
+L123E:  NOP     
+        NOP     
+        DJNZ    L1242                   ; (+&00)
+L1242:  DJNZ    L1244                   ; (+&00)
+L1244:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L124A                   ; (+&00)
+L124A:  DJNZ    L125C                   ; (+&10)
+L124C:  JR      NZ,L124E                ; (+&00)
+L124E:  NOP     
+        DJNZ    L1271                   ; (+&20)
+        LD      B,B
+        JR      NZ,L1264                ; (+&10)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      A,H
+        NOP     
+        LD      A,H
+        NOP     
+L125C:  NOP     
+        NOP     
+        NOP     
+        DJNZ    L1269                   ; (+&08)
+        INC     B
+        EX      AF,AF'
+        DJNZ    L1265                   ; (+&00)
+L1265:  NOP     
+        JR      C,L12AC                 ; (+&44)
+        EX      AF,AF'
+L1269:  DJNZ    L127B                   ; (+&10)
+        NOP     
+        DJNZ    L126E                   ; (+&00)
+L126E:  JR      C,L12B4                 ; (+&44)
+        LD      D,H
+L1271:  LD      E,H
+        LD      B,B
+        INC     A
+L1274:  NOP     
+        NOP     
+L1276:  DJNZ    L12A0                   ; (+&28)
+        LD      B,H
+        LD      A,H
+        LD      B,H
+L127B:  LD      B,H
+L127C:  NOP     
+        NOP     
+        LD      A,B
+        LD      B,H
+        LD      A,B
+        LD      B,H
+        LD      B,H
+        LD      A,B
+        NOP     
+        NOP     
+        JR      C,L12CC                 ; (+&44)
+        LD      B,B
+        LD      B,B
+        LD      B,H
+        JR      C,L128D                 ; (+&00)
+L128D:  NOP     
+        LD      A,B
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      A,B
+        NOP     
+        NOP     
+        LD      A,H
+        LD      B,B
+        LD      A,B
+        LD      B,B
+        LD      B,B
+        LD      A,H
+        NOP     
+        NOP     
+        LD      A,H
+        LD      B,B
+L12A0:  LD      A,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        NOP     
+        NOP     
+        JR      C,L12EC                 ; (+&44)
+        LD      B,B
+        LD      C,H
+        LD      B,H
+        JR      C,L12AD                 ; (+&00)
+L12AD:  NOP     
+        LD      B,H
+        LD      B,H
+        LD      A,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+L12B4:  NOP     
+        NOP     
+        LD      A,H
+        DJNZ    L12C9                   ; (+&10)
+        DJNZ    L12CB                   ; (+&10)
+        LD      A,H
+        NOP     
+        NOP     
+        INC     A
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        LD      C,B
+        JR      NC,L12C5                ; (+&00)
+L12C5:  NOP     
+        LD      B,H
+        LD      C,B
+        LD      D,B
+L12C9:  LD      (HL),B
+        LD      C,B
+L12CB:  LD      B,H
+L12CC:  NOP     
+        NOP     
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      A,H
+        NOP     
+        NOP     
+        LD      B,H
+        LD      L,H
+        LD      D,H
+        LD      D,H
+        LD      B,H
+        LD      B,H
+        NOP     
+        NOP     
+        LD      B,H
+        LD      H,H
+        LD      D,H
+        LD      C,H
+        LD      B,H
+        LD      B,H
+        NOP     
+        NOP     
+        JR      C,L132C                 ; (+&44)
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        JR      C,L12ED                 ; (+&00)
+L12ED:  NOP     
+        LD      A,B
+        LD      B,H
+        LD      A,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        NOP     
+        NOP     
+        JR      C,L133C                 ; (+&44)
+        LD      B,H
+        LD      D,H
+        LD      C,B
+        INC     (HL)
+        NOP     
+        NOP     
+        LD      A,B
+        LD      B,H
+        LD      A,B
+        LD      D,B
+        LD      C,B
+        LD      B,H
+        NOP     
+        NOP     
+        JR      C,L1348                 ; (+&40)
+        JR      C,L130E                 ; (+&04)
+        INC     B
+        JR      C,L130D                 ; (+&00)
+L130D:  NOP     
+L130E:  LD      A,H
+        DJNZ    L1321                   ; (+&10)
+        DJNZ    L1323                   ; (+&10)
+        DJNZ    L1315                   ; (+&00)
+L1315:  NOP     
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        JR      C,L131D                 ; (+&00)
+L131D:  NOP     
+        LD      B,H
+        LD      B,H
+        LD      B,H
+L1321:  JR      Z,L134B                 ; (+&28)
+L1323:  DJNZ    L1325                   ; (+&00)
+L1325:  NOP     
+        LD      B,H
+        LD      B,H
+        LD      D,H
+        LD      D,H
+        LD      D,H
+        JR      Z,L132D                 ; (+&00)
+L132D:  NOP     
+        LD      B,H
+        JR      Z,L1341                 ; (+&10)
+        DJNZ    L135B                   ; (+&28)
+        LD      B,H
+        NOP     
+        NOP     
+        LD      B,H
+        LD      B,H
+        JR      Z,L134A                 ; (+&10)
+        DJNZ    L134C                   ; (+&10)
+L133C:  NOP     
+        NOP     
+        LD      A,H
+        EX      AF,AF'
+        DJNZ    L1362                   ; (+&20)
+        LD      B,B
+        LD      A,H
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L1369                   ; (+&20)
+        LD      A,H
+L134A:  JR      NZ,L135C                ; (+&10)
+L134C:  NOP     
+        NOP     
+        LD      B,B
+        LD      B,B
+        LD      E,B
+        INC     B
+        JR      L1370                   ; (+&1c)
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L1361                   ; (+&08)
+        LD      A,H
+        EX      AF,AF'
+L135B:  DJNZ    L135D                   ; (+&00)
+L135D:  NOP     
+        DJNZ    L1398                   ; (+&38)
+        LD      D,H
+L1361:  DJNZ    L1373                   ; (+&10)
+        DJNZ    L1365                   ; (+&00)
+L1365:  NOP     
+        NOP     
+        NOP     
+        NOP     
+L1369:  NOP     
+        NOP     
+        NOP     
+        LD      A,H
+        NOP     
+        JR      L1394                   ; (+&24)
+L1370:  JR      NZ,L13E2                ; (+&70)
+        JR      NZ,L13F0                ; (+&7c)
+        NOP     
+        NOP     
+        NOP     
+        JR      NC,L1381                ; (+&08)
+        JR      C,L13C3                 ; (+&48)
+        INC     (HL)
+        NOP     
+        NOP     
+        LD      B,B
+        LD      B,B
+        LD      (HL),B
+L1381:  LD      C,B
+        LD      C,B
+        LD      (HL),B
+        NOP     
+        NOP     
+        NOP     
+        JR      NC,L13D1                ; (+&48)
+        LD      B,B
+        LD      C,B
+        JR      NC,L138D                ; (+&00)
+L138D:  NOP     
+        EX      AF,AF'
+        EX      AF,AF'
+        JR      C,L13DA                 ; (+&48)
+        LD      C,B
+        JR      C,L1395                 ; (+&00)
+L1395:  NOP     
+        NOP     
+        JR      NC,L13E1                ; (+&48)
+        LD      (HL),B
+        LD      B,B
+        JR      C,L139D                 ; (+&00)
+L139D:  NOP     
+        DJNZ    L13C8                   ; (+&28)
+        JR      NZ,L141A                ; (+&78)
+        JR      NZ,L13C4                ; (+&20)
+        NOP     
+        NOP     
+        NOP     
+        JR      NC,L13F1                ; (+&48)
+        JR      C,L13B3                 ; (+&08)
+        LD      C,B
+        JR      NC,L13AE                ; (+&00)
+L13AE:  LD      B,B
+        LD      B,B
+        LD      (HL),B
+        LD      C,B
+        LD      C,B
+L13B3:  LD      C,B
+        NOP     
+        NOP     
+        DJNZ    L13B8                   ; (+&00)
+L13B8:  JR      NC,L13CA                ; (+&10)
+        DJNZ    L13F4                   ; (+&38)
+        NOP     
+        NOP     
+        EX      AF,AF'
+        NOP     
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+L13C3:  LD      C,B
+L13C4:  JR      NC,L13C6                ; (+&00)
+L13C6:  LD      B,B
+        LD      C,B
+L13C8:  LD      D,B
+        LD      H,B
+L13CA:  LD      D,B
+        LD      C,B
+        NOP     
+        NOP     
+        JR      NC,L13E0                ; (+&10)
+        DJNZ    L13E2                   ; (+&10)
+        DJNZ    L140C                   ; (+&38)
+        NOP     
+        NOP     
+        NOP     
+        LD      L,B
+        LD      D,H
+        LD      D,H
+L13DA:  LD      D,H
+        LD      D,H
+        NOP     
+        NOP     
+        NOP     
+        LD      D,B
+L13E0:  LD      L,B
+L13E1:  LD      C,B
+L13E2:  LD      C,B
+        LD      C,B
+        NOP     
+        NOP     
+        NOP     
+        JR      NC,L1431                ; (+&48)
+        LD      C,B
+        LD      C,B
+        JR      NC,L13ED                ; (+&00)
+L13ED:  NOP     
+        NOP     
+        JR      NC,L1439                ; (+&48)
+L13F1:  LD      C,B
+        LD      (HL),B
+        LD      B,B
+L13F4:  LD      B,B
+        NOP     
+        NOP     
+        JR      NC,L1441                ; (+&48)
+        LD      C,B
+        JR      C,L1408                 ; (+&0c)
+        EX      AF,AF'
+        NOP     
+        NOP     
+        LD      D,B
+        LD      L,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        NOP     
+        NOP     
+        NOP     
+        JR      C,L1449                 ; (+&40)
+        JR      NC,L1413                ; (+&08)
+        LD      (HL),B
+L140C:  NOP     
+        NOP     
+        JR      NZ,L1480                ; (+&70)
+        JR      NZ,L1432                ; (+&20)
+        JR      Z,L1424                 ; (+&10)
+        NOP     
+        NOP     
+        NOP     
+        LD      C,B
+        LD      C,B
+        LD      C,B
+L141A:  LD      E,B
+        JR      Z,L141D                 ; (+&00)
+L141D:  NOP     
+        NOP     
+        LD      C,B
+        LD      C,B
+        LD      C,B
+        JR      NC,L1454                ; (+&30)
+L1424:  NOP     
+        NOP     
+        NOP     
+        LD      D,H
+        LD      D,H
+        LD      D,H
+        LD      D,H
+        JR      Z,L142D                 ; (+&00)
+L142D:  NOP     
+        NOP     
+        LD      B,H
+        JR      Z,L1442                 ; (+&10)
+L1432:  JR      Z,L1478                 ; (+&44)
+        NOP     
+        NOP     
+        NOP     
+        LD      C,B
+        LD      C,B
+L1439:  JR      C,L1443                 ; (+&08)
+        LD      C,B
+        JR      NC,L143E                ; (+&00)
+L143E:  NOP     
+        LD      A,B
+        DJNZ    L1462                   ; (+&20)
+L1442:  LD      B,B
+L1443:  LD      A,B
+        NOP     
+        NOP     
+        LD      B,B
+        LD      B,B
+        LD      C,B
+L1449:  JR      L1487                   ; (+&3c)
+        EX      AF,AF'
+        NOP     
+        NOP     
+        JR      Z,L1478                 ; (+&28)
+        JR      Z,L147A                 ; (+&28)
+L1452:  JR      Z,L147C                 ; (+&28)
+L1454:  NOP     
+        NOP     
+        LD      (HL),B
+        JR      NZ,L1469                ; (+&10)
+        LD      L,B
+        JR      L1498                   ; (+&3c)
+        EX      AF,AF'
+        NOP     
+        NOP     
+        DJNZ    L1461                   ; (+&00)
+L1461:  LD      A,H
+L1462:  NOP     
+        DJNZ    L1465                   ; (+&00)
+L1465:  LD      A,H
+        LD      A,H
+        LD      A,H
+        LD      A,H
+L1469:  LD      A,H
+        LD      A,H
+        LD      A,H
+        LD      A,H
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      H,B
+        ADD     A,B
+        LD      B,B
+L1478:  JR      NZ,L1452                ; (-&28)
+L147A:  INC     D
+        INC     D
+L147C:  JR      L147E                   ; (+&00)
+L147E:  NOP     
+        NOP     
+L1480:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L1487:  NOP     
+L1488:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        DJNZ    L1488                   ; (-&08)
+        INC     B
+        RET     M
+
+        DJNZ    L1494                   ; (+&00)
+L1494:  NOP     
+        NOP     
+        NOP     
+        NOP     
+L1498:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      B,H
+        INC     H
+        CALL    P,L4424
+        NOP     
+        NOP     
+        ADD     A,B
+        RET     PO
+
+        AND     B
+        RET     PO
+
+        DJNZ    L14BB                   ; (+&10)
+        DJNZ    L14C9                   ; (+&1c)
+        NOP     
+        JR      NZ,L152C                ; (+&7c)
+        ADD     A,B
+        LD      A,H
+        JR      NZ,L14B4                ; (+&00)
+L14B4:  NOP     
+        ADD     A,B
+        RET     NZ
+
+        AND     B
+        AND     B
+        INC     E
+        EX      AF,AF'
+L14BB:  EX      AF,AF'
+        EX      AF,AF'
+        LD      D,B
+        LD      D,B
+        LD      D,B
+        RET     C
+
+        LD      D,B
+        JR      NZ,L14C4                ; (+&00)
+L14C4:  NOP     
+        JR      NZ,L1517                ; (+&50)
+        RET     C
+
+        LD      D,B
+L14C9:  LD      D,B
+        LD      D,B
+        NOP     
+        NOP     
+        RET     PO
+
+        ADD     A,B
+        RET     NZ
+
+        ADD     A,B
+        JR      C,L14F3                 ; (+&20)
+        JR      NC,L14F5                ; (+&20)
+        RET     PO
+
+L14D6:  ADD     A,B
+        ADD     A,B
+        RET     PO
+
+        INC     E
+        INC     D
+        JR      L14F1                   ; (+&14)
+        ADD     A,B
+        RET     NZ
+
+        RET     PO
+
+        LD      B,B
+        INC     E
+        INC     D
+        INC     D
+        INC     E
+        RET     PO
+
+        JR      NZ,L1528                ; (+&40)
+        JR      NZ,L14D6                ; (-&14)
+        INC     B
+        EX      AF,AF'
+        INC     C
+        NOP     
+L14EE:  NOP     
+        NOP     
+        NOP     
+L14F1:  NOP     
+        NOP     
+L14F3:  NOP     
+        NOP     
+L14F5:  RET     PO
+
+        ADD     A,B
+        ADD     A,B
+        RET     PO
+
+        INC     E
+        INC     D
+        INC     D
+        INC     E
+        RET     PO
+
+        AND     B
+        RET     PO
+
+        ADD     A,B
+        SBC     A,H
+        INC     D
+        INC     D
+        INC     E
+        RET     PO
+
+        AND     B
+        RET     PO
+
+        ADD     A,B
+        SBC     A,H
+        DJNZ    L1524                   ; (+&18)
+        DJNZ    L14EE                   ; (-&20)
+        ADD     A,B
+        ADD     A,B
+        RET     PO
+
+        INC     E
+        DJNZ    L152C                   ; (+&18)
+        DJNZ    L14D6                   ; (-&40)
+        AND     B
+L1517:  AND     B
+        RET     NZ
+
+        DJNZ    L152B                   ; (+&10)
+        DJNZ    L1539                   ; (+&1c)
+        RET     NZ
+
+        AND     B
+        AND     B
+        CALL    Z,L0810
+        INC     B
+L1524:  JR      L1526                   ; (+&00)
+L1526:  NOP     
+        NOP     
+L1528:  NOP     
+        NOP     
+        NOP     
+L152B:  NOP     
+L152C:  NOP     
+        RET     NZ
+
+        AND     B
+        AND     B
+        RET     NZ
+
+        INC     E
+        INC     D
+        JR      L1549                   ; (+&14)
+        NOP     
+        ADC     A,B
+        SUB     B
+        CP      H
+L1539:  SUB     B
+        ADC     A,B
+        NOP     
+        NOP     
+        JR      NZ,L14E7                ; (-&58)
+        LD      (HL),B
+        JR      NZ,L1542                ; (+&00)
+L1542:  RET     C
+
+        RET     C
+
+        NOP     
+        RET     PO
+
+        ADD     A,B
+        RET     NZ
+
+        ADD     A,B
+L1549:  CALL    PE,L0808
+        INC     C
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RET     P
+
+        RET     NZ
+
+        AND     B
+        SUB     B
+        EX      AF,AF'
+        INC     B
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        LD      BC,&0101
+        LD      BC,&0101
+        LD      BC,&0201
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+L15A1:  LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        EX      AF,AF'
+        NOP     
+        NOP     
+        NOP     
+        RET     P
+
+        DJNZ    L15CB                   ; (+&10)
+        DJNZ    L15CD                   ; (+&10)
+        LD      BC,&0403
+        INC     C
+        INC     DE
+        INC     SP
+        LD      C,H
+        CALL    Z,L0000
+        NOP     
+        NOP     
+        INC     SP
+        INC     SP
+L15CB:  CALL    Z,L00CC
+        NOP     
+        NOP     
+        INC     BC
+        INC     B
+        EX      AF,AF'
+        DJNZ    L15E5                   ; (+&10)
+        RST     &38
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        DJNZ    L15EF                   ; (+&10)
+        JR      NZ,L15A1                ; (-&40)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L15E5:  EX      AF,AF'
+        EX      AF,AF'
+        INC     B
+        INC     BC
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        EX      AF,AF'
+        EX      AF,AF'
+L15EF:  EX      AF,AF'
+        RRCA    
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        JR      NZ,L1647                ; (+&20)
+        JR      NZ,L1649                ; (+&20)
+L1629:  JR      NZ,L164B                ; (+&20)
+        JR      NZ,L164D                ; (+&20)
+        DJNZ    L163F                   ; (+&10)
+        DJNZ    L1641                   ; (+&10)
+        DJNZ    L1643                   ; (+&10)
+        DJNZ    L1645                   ; (+&10)
+        DJNZ    L1647                   ; (+&10)
+        DJNZ    L1629                   ; (-&10)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        INC     SP
+        LD      (&C8CC),A
+L1641:  JR      NC,L1663                ; (+&20)
+L1643:  RET     NZ
+
+        ADD     A,B
+L1645:  INC     SP
+        INC     SP
+L1647:  CALL    Z,L00CC
+        NOP     
+L164B:  NOP     
+        NOP     
+L164D:  DJNZ    L165F                   ; (+&10)
+        EX      AF,AF'
+        INC     B
+        INC     BC
+        NOP     
+        NOP     
+        NOP     
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        RST     &38
+        NOP     
+        NOP     
+L165F:  NOP     
+        NOP     
+        RET     NZ
+
+        JR      NZ,L1674                ; (+&10)
+        DJNZ    L1666                   ; (+&00)
+L1666:  NOP     
+        NOP     
+        NOP     
+        INC     BC
+        INC     B
+        EX      AF,AF'
+        EX      AF,AF'
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RRCA    
+        EX      AF,AF'
+        EX      AF,AF'
+L1674:  EX      AF,AF'
+        INC     BC
+        INC     BC
+        INC     BC
+        INC     BC
+        INC     BC
+        INC     BC
+        INC     BC
+        INC     BC
+        ADD     A,B
+        ADD     A,B
+        LD      B,B
+        LD      B,B
+        JR      NZ,L1693                ; (+&10)
+        INC     C
+        INC     BC
+        LD      BC,&0201
+        LD      (BC),A
+        LD      (BC),A
+        INC     B
+        INC     B
+        EX      AF,AF'
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+L1693:  RRCA    
+        RRCA    
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        RLCA    
+        LD      (BC),A
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+L16A5:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RET     NZ
+
+        JR      NC,L16C4                ; (+&0c)
+        INC     BC
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+        RET     P
+
+        RET     P
+
+        RET     P
+
+L16C4:  RET     P
+
+        INC     SP
+        INC     SP
+        CALL    Z,L33CC
+        INC     SP
+        CALL    Z,L03CC
+        INC     BC
+        INC     C
+        INC     C
+        INC     BC
+        INC     BC
+        INC     C
+        INC     C
+        EX      AF,AF'
+        EX      AF,AF'
+        DJNZ    L16F9                   ; (+&20)
+        RET     NZ
+
+        NOP     
+        NOP     
+        NOP     
+L16DD:  LD      BC,&0201
+        LD      (BC),A
+        INC     B
+        EX      AF,AF'
+        JR      NC,L16A5                ; (-&40)
+        NOP     
+        LD      H,(HL)
+        LD      H,(HL)
+        JR      L1702                   ; (+&18)
+        LD      H,(HL)
+        LD      H,(HL)
+        NOP     
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        DJNZ    L1707                   ; (+&10)
+        DJNZ    L16E9                   ; (-&10)
+L16F9:  DJNZ    L170B                   ; (+&10)
+        DJNZ    L170D                   ; (+&10)
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+        LD      (BC),A
+L1702:  LD      (BC),A
+        RST     &38
+        LD      (BC),A
+        RLCA    
+        RLCA    
+L1707:  RLCA    
+        RLCA    
+        RLCA    
+        RLCA    
+L170B:  RLCA    
+        RLCA    
+L170D:  ADD     A,B
+        ADD     A,B
+        LD      B,B
+        LD      B,B
+        JR      NZ,L1733                ; (+&20)
+        DJNZ    L1725                   ; (+&10)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        INC     BC
+        INC     C
+        JR      NC,L16DD                ; (-&40)
+        EX      AF,AF'
+        EX      AF,AF'
+        INC     B
+        INC     B
+        LD      (BC),A
+        LD      (BC),A
+        LD      BC,&1001
+        DJNZ    L1738                   ; (+&10)
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RET     NZ
+
+        JR      C,L1736                 ; (+&06)
+        LD      BC,L0000
+L1733:  NOP     
+        NOP     
+        LD      BC,&0201
+L1738:  LD      (BC),A
+        INC     B
+        INC     B
+        EX      AF,AF'
+        EX      AF,AF'
+        INC     BC
+        INC     E
+        LD      H,B
+        ADD     A,B
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      B,H
+        RST     &38
+        LD      B,H
+        LD      B,H
+        LD      B,H
+        RST     &38
+        LD      B,H
+        LD      B,H
+        ADD     A,B
+        LD      B,B
+        JR      NZ,L1761                ; (+&10)
+        EX      AF,AF'
+        INC     B
+        LD      (BC),A
+        LD      BC,&3333
+        INC     C
+        INC     C
+        INC     BC
+        INC     BC
+        NOP     
+        NOP     
+        LD      BC,&0101
+        LD      BC,&0101
+        LD      BC,&11FF
+        LD      (&8844),HL
+        LD      DE,&4422
+        ADC     A,B
+        ADC     A,B
+        LD      B,H
+        LD      (&8811),HL
+        LD      B,H
+        LD      (&C011),HL
+        RET     NZ
+
+        RET     NZ
+
+        RET     NZ
+
+L1779:  RET     NZ
+
+        RET     NZ
+
+        RET     NZ
+
+        RET     NZ
+
+        INC     BC
+L177E:  INC     C
+        DJNZ    L17A1                   ; (+&20)
+        LD      B,B
+        LD      B,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        ADD     A,B
+        LD      B,B
+        LD      B,B
+        LD      B,B
+        JR      NZ,L17AC                ; (+&20)
+        DJNZ    L177E                   ; (-&10)
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        LD      (BC),A
+        RST     &38
+        LD      (BC),A
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+L17A1:  NOP     
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L17AC:  NOP     
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        INC     BC
+        INC     C
+        JR      NC,L1779                ; (-&40)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RET     P
+
+        RRCA    
+        RRCA    
+        RRCA    
+        RRCA    
+        CALL    Z,L33CC
+        INC     SP
+        CALL    Z,L33CC
+        INC     SP
+        JR      NC,L17FF                ; (+&30)
+        RET     NZ
+
+        RET     NZ
+
+        JR      NC,L1803                ; (+&30)
+        RET     NZ
+
+        RET     NZ
+
+        NOP     
+        NOP     
+        NOP     
+        RET     NZ
+
+        JR      NZ,L17EB                ; (+&10)
+        EX      AF,AF'
+        EX      AF,AF'
+        RET     NZ
+
+        JR      NC,L17E8                ; (+&08)
+        INC     B
+        LD      (BC),A
+        LD      (BC),A
+        LD      BC,&8101
+        LD      B,D
+        INC     H
+L17E8:  JR      L1802                   ; (+&18)
+        INC     H
+L17EB:  LD      B,D
+        ADD     A,C
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        RST     &38
+        NOP     
+        NOP     
+        DJNZ    L1807                   ; (+&10)
+        DJNZ    L1818                   ; (+&1f)
+        DJNZ    L180B                   ; (+&10)
+        DJNZ    L180D                   ; (+&10)
+        DJNZ    L180F                   ; (+&10)
+L17FF:  DJNZ    L1800                   ; (-&01)
+        DJNZ    L1813                   ; (+&10)
+L1803:  DJNZ    L1815                   ; (+&10)
+        RET     PO
+
+        RET     PO
+
+L1807:  RET     PO
+
+        RET     PO
+
+        RET     PO
+
+        RET     PO
+
+L180B:  RET     PO
+
+        RET     PO
+
+L180D:  DJNZ    L181F                   ; (+&10)
+L180F:  JR      NZ,L1831                ; (+&20)
+        LD      B,B
+        LD      B,B
+L1813:  ADD     A,B
+        ADD     A,B
+L1815:  NOP     
+        NOP     
+        NOP     
+L1818:  NOP     
+        RET     NZ
+
+        JR      NC,L1828                ; (+&0c)
+        INC     BC
+        DJNZ    L183F                   ; (+&20)
+L181F:  JR      NZ,L1861                ; (+&40)
+        LD      B,B
+        LD      B,B
+        ADD     A,B
+        ADD     A,B
+        NOP     
+        NOP     
+        NOP     
+L1828:  RST     &38
+        DJNZ    L183B                   ; (+&10)
+        DJNZ    L183D                   ; (+&10)
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+L1831:  LD      BC,&3806
+        RET     NZ
+
+        EX      AF,AF'
+        EX      AF,AF'
+        INC     B
+        INC     B
+        LD      (BC),A
+        LD      (BC),A
+L183B:  LD      BC,&0001
+        NOP     
+L183F:  NOP     
+        NOP     
+        ADD     A,B
+        LD      H,B
+        INC     E
+        INC     BC
+        SBC     A,C
+        LD      H,(HL)
+        LD      H,(HL)
+        SBC     A,C
+        SBC     A,C
+        LD      H,(HL)
+        LD      H,(HL)
+        SBC     A,C
+        LD      BC,&0402
+        EX      AF,AF'
+        DJNZ    L1873                   ; (+&20)
+        LD      B,B
+        ADD     A,B
+        NOP     
+        NOP     
+        RET     NZ
+
+        RET     NZ
+
+        JR      NC,L188B                ; (+&30)
+        CALL    Z,LFFCC
+        LD      BC,&0101
+L1861:  LD      BC,&0101
+        LD      BC,&FFFF
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+L186D:  PUSH    HL
+L186E:  LD      HL,&FBA8
+        LD      A,(&FBAC)
+        INC     A
+        LD      (&FBAC),A
+        CP      (HL)
+L1879:  JR      C,L188D                 ; (+&12)
+        INC     HL
+        CP      (HL)
+        JR      C,L1891                 ; (+&12)
+        INC     HL
+        CP      (HL)
+        JR      C,L188D                 ; (+&0a)
+        INC     HL
+        CP      (HL)
+        JR      C,L1891                 ; (+&0a)
+        XOR     A
+        LD      (&FBAC),A
+L188B:  JR      L186E                   ; (-&1f)
+L188D:  LD      A,&01
+        JR      L1894                   ; (+&03)
+L1891:  XOR     A
+        JR      NZ,L1879                ; (-&1b)
+L1894:  PUSH    DE
+        PUSH    BC
+        PUSH    AF
+        CALL    L18BA
+        JR      C,L18B3                 ; (+&17)
+        POP     HL
+        RES     7,A
+        INC     E
+        DEC     H
+        JR      NZ,L18A5                ; (+&02)
+        SET     7,A
+L18A5:  DEC     E
+        JR      Z,L18AB                 ; (+&03)
+        RRCA    
+        JR      L18A5                   ; (-&06)
+L18AB:  CALL    L1A45
+        POP     BC
+        POP     DE
+        POP     HL
+        XOR     A
+        RET     
+
+L18B3:  POP     AF
+        POP     BC
+        POP     DE
+        POP     HL
+        XOR     A
+        DEC     A
+        RET     
+
+L18BA:  PUSH    IX
+        POP     BC
+        PUSH    IY
+        POP     DE
+L18C0:  CALL    L18F6
+        RET     C
+
+        LD      HL,&00BF
+        SBC     HL,DE
+        RET     C
+
+        LD      A,&07
+        SUB     C
+        AND     &07
+        INC     A
+        LD      D,A
+        LD      A,C
+        AND     &F8
+        LD      C,A
+        LD      A,L
+        AND     &07
+        OR      C
+        LD      C,A
+        LD      A,L
+        RRCA    
+        RRCA    
+        RRCA    
+        AND     &1F
+        LD      B,A
+        AND     &F8
+        LD      E,A
+        LD      A,(&FB4E)
+        ADD     A,B
+        AND     &07
+        OR      E
+        LD      B,A
+        RST     &28
+        LD      E,&08
+L18EF:  RRCA    
+        DEC     E
+        DEC     D
+        JR      NZ,L18EF                ; (-&05)
+        OR      A
+        RET     
+
+L18F6:  LD      HL,(&FB9C)
+        ADD     HL,DE
+        EX      DE,HL
+        LD      HL,(&FB9A)
+        ADD     HL,BC
+        LD      B,H
+        LD      C,L
+        XOR     A
+        CP      B
+        RET     
+
+L1904:  PUSH    IX
+        POP     BC
+        PUSH    IY
+        POP     DE
+        CALL    L18C0
+        JR      C,L1916                 ; (+&07)
+        BIT     7,A
+        LD      A,&00
+        RET     Z
+
+        INC     A
+        RET     
+
+L1916:  XOR     A
+        DEC     A
+        RET     
+
+L1919:  CALL    L186D
+        PUSH    HL
+        PUSH    BC
+        LD      BC,(&FB96)
+        LD      DE,(&FB98)
+        PUSH    IY
+        POP     HL
+        CALL    L19A4
+        EXX     
+        LD      E,A
+        ADD     A,&01
+        SBC     A,A
+        LD      D,A
+        EXX     
+        PUSH    IX
+        EX      (SP),HL
+        LD      D,B
+        LD      E,C
+        CALL    L19A4
+        EXX     
+        LD      C,A
+        ADD     A,&01
+        SBC     A,A
+        LD      B,A
+        EXX     
+        POP     DE
+        OR      A
+        SBC     HL,DE
+        ADD     HL,DE
+        LD      B,H
+        LD      C,L
+        LD      HL,L0000
+        JP      M,L1978
+L194F:  PUSH    DE
+        PUSH    IX
+        EX      (SP),HL
+        LD      DE,(&FB96)
+        OR      A
+        SBC     HL,DE
+        POP     HL
+        POP     DE
+        JR      Z,L19A1                 ; (+&43)
+        EXX     
+        ADD     IX,BC
+        EXX     
+        ADD     HL,DE
+        PUSH    HL
+        ADD     HL,HL
+        JR      C,L1969                 ; (+&02)
+        SBC     HL,BC
+L1969:  POP     HL
+        JR      C,L1973                 ; (+&07)
+        EXX     
+        ADD     IY,DE
+        EXX     
+        OR      A
+        SBC     HL,BC
+L1973:  CALL    L186D
+        JR      L194F                   ; (-&29)
+L1978:  PUSH    DE
+        PUSH    IY
+        EX      (SP),HL
+        LD      DE,(&FB98)
+        OR      A
+        SBC     HL,DE
+        POP     HL
+        POP     DE
+        JR      Z,L19A1                 ; (+&1a)
+        EXX     
+        ADD     IY,DE
+        EXX     
+        ADD     HL,BC
+        PUSH    HL
+        ADD     HL,HL
+        JR      C,L1992                 ; (+&02)
+        SBC     HL,DE
+L1992:  POP     HL
+        JR      C,L199C                 ; (+&07)
+        EXX     
+        ADD     IX,BC
+        EXX     
+        OR      A
+        SBC     HL,DE
+L199C:  CALL    L186D
+        JR      L1978                   ; (-&29)
+L19A1:  POP     BC
+        POP     HL
+        RET     
+
+L19A4:  EX      DE,HL
+        XOR     A
+        SBC     HL,DE
+        RET     Z
+
+        ADD     HL,DE
+        JP      P,L19B1
+        EX      DE,HL
+        DEC     A
+        JR      L19B2                   ; (+&01)
+L19B1:  INC     A
+L19B2:  OR      A
+        SBC     HL,DE
+        RET     
+
+        LD      HL,&FFFD
+        LD      (&FBAE),HL
+        CALL    L1F99
+L19BF:  CALL    L1AEF
+        LD      (&FB98),IX
+        CALL    L19F8
+        INC     IY
+        PUSH    IX
+        CALL    L1A59
+        POP     IX
+        RET     C
+
+        DEC     IY
+        DEC     IY
+        CALL    L1A59
+        RET     C
+
+        LD      (&FB65),SP
+        LD      HL,(&FBAE)
+        LD      SP,HL
+        POP     IX
+        POP     IY
+        LD      (&FBAE),SP
+        LD      SP,(&FB65)
+        LD      DE,&FFFD
+        OR      A
+        SBC     HL,DE
+        JR      NZ,L19BF                ; (-&38)
+        RET     
+
+L19F8:  CALL    L18BA
+        CALL    L1A50
+        SET     7,A
+        INC     E
+L1A01:  DEC     E
+        JR      Z,L1A12                 ; (+&0e)
+        RRCA    
+        SET     7,A
+        DEC     IX
+        JR      NC,L1A01                ; (-&0a)
+L1A0B:  SCF     
+        DEC     E
+        JR      Z,L1A12                 ; (+&03)
+        RRCA    
+        JR      L1A0B                   ; (-&07)
+L1A12:  PUSH    AF
+        CALL    L1A42
+        POP     AF
+        JR      NC,L1A1C                ; (+&03)
+        INC     IX
+        RET     
+
+L1A1C:  LD      DE,&FFF8
+        LD      A,C
+        ADD     A,E
+        LD      C,A
+        RET     NC
+
+        CALL    L1A4F
+        JR      NZ,L1A30                ; (+&08)
+        ADD     IX,DE
+        CPL     
+        CALL    L1A42
+        JR      L1A1C                   ; (-&14)
+L1A30:  BIT     0,A
+        RET     NZ
+
+        LD      D,&00
+        INC     IX
+L1A37:  INC     D
+        SCF     
+        RRA     
+        DEC     IX
+        JR      NC,L1A37                ; (-&07)
+L1A3E:  RLCA    
+        DEC     D
+        JR      NZ,L1A3E                ; (-&04)
+L1A42:  CALL    L1A50
+L1A45:  RST     &30
+        SET     5,B
+        LD      A,(&FB39)
+        RST     &30
+        RES     5,B
+        RET     
+
+L1A4F:  RST     &28
+L1A50:  PUSH    HL
+        LD      HL,&FBAD
+        XOR     (HL)
+        XOR     &FF
+        POP     HL
+        RET     
+
+L1A59:  CALL    L1904
+        CP      &FF
+        RET     Z
+
+        DEC     A
+        CALL    L1A50
+        JR      Z,L1A6A                 ; (+&05)
+        CALL    L1AEF
+        JR      L1A6D                   ; (+&03)
+L1A6A:  CALL    L1AC6
+L1A6D:  LD      DE,(&FB98)
+        PUSH    IX
+        POP     HL
+        OR      A
+        SBC     HL,DE
+        JP      P,L1A85
+        CALL    L1A96
+        RET     C
+
+        INC     IX
+        CALL    L1AC6
+        JR      L1A6D                   ; (-&18)
+L1A85:  PUSH    DE
+        POP     IX
+        CALL    L1904
+        CP      &FF
+        RET     Z
+
+        DEC     A
+        CALL    L1A50
+        RET     Z
+
+        CALL    L1AEF
+L1A96:  PUSH    IX
+        POP     DE
+        PUSH    IY
+        POP     BC
+        LD      (&FB65),SP
+        LD      SP,(&FBAE)
+        POP     HL
+        PUSH    HL
+        OR      A
+        SBC     HL,DE
+        JR      NZ,L1AB4                ; (+&09)
+        POP     HL
+        POP     HL
+        SBC     HL,BC
+        ADD     HL,BC
+        JR      Z,L1AB4                 ; (+&02)
+        PUSH    HL
+        PUSH    DE
+L1AB4:  PUSH    BC
+        PUSH    DE
+        LD      HL,&FE08
+        OR      A
+        SBC     HL,SP
+        CCF     
+        LD      (&FBAE),SP
+        LD      SP,(&FB65)
+        RET     
+
+L1AC6:  CALL    L18BA
+L1AC9:  INC     IX
+L1ACB:  PUSH    BC
+        CALL    L1904
+        POP     HL
+        LD      DE,L0008
+        CP      &FF
+        JR      Z,L1B17                 ; (+&40)
+        DEC     A
+        CALL    L1A50
+        JR      NZ,L1AEF                ; (+&12)
+        SBC     HL,BC
+        ADD     HL,BC
+        JR      Z,L1AC9                 ; (-&19)
+L1AE2:  CALL    L1A4F
+        INC     A
+        JR      NZ,L1ACB                ; (-&1d)
+        ADD     IX,DE
+        LD      A,C
+        ADD     A,E
+        LD      C,A
+        JR      NC,L1AE2                ; (-&0d)
+L1AEF:  CALL    L18BA
+L1AF2:  INC     IX
+L1AF4:  PUSH    BC
+        CALL    L1904
+        POP     HL
+        LD      DE,L0008
+        CP      &FF
+        JR      Z,L1B17                 ; (+&17)
+        DEC     A
+        CALL    L1A50
+        JR      Z,L1B17                 ; (+&11)
+        SBC     HL,BC
+        ADD     HL,BC
+        JR      Z,L1AF2                 ; (-&19)
+L1B0B:  CALL    L1A4F
+        JR      NZ,L1AF4                ; (-&1c)
+        ADD     IX,DE
+        LD      A,C
+        ADD     A,E
+        LD      C,A
+        JR      NC,L1B0B                ; (-&0c)
+L1B17:  DEC     IX
+        RET     
+
+        DEC     BC
+        DEC     BC
+        PUSH    AF
+        CALL    L1B53
+        XOR     A
+        LD      (&FBAC),A
+        EX      DE,HL
+        CALL    L1B73
+        POP     AF
+        PUSH    AF
+        CALL    C,L1B48
+L1B2D:  LD      IX,(&FB96)
+        LD      IY,(&FB98)
+        LD      DE,(&FBA6)
+        ADD     HL,DE
+        CALL    L1B73
+        CALL    L1919
+        OR      A
+        SBC     HL,BC
+        ADD     HL,BC
+        JR      C,L1B2D                 ; (-&19)
+        POP     AF
+        RET     NC
+
+L1B48:  LD      IX,(&FB9E)
+        LD      IY,(&FBA0)
+        JP      L1919
+L1B53:  BIT     7,D
+        JR      Z,L1B5D                 ; (+&06)
+        INC     D
+        INC     D
+        INC     D
+        INC     D
+        JR      L1B53                   ; (-&0a)
+L1B5D:  BIT     7,B
+        JR      Z,L1B67                 ; (+&06)
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        JR      L1B5D                   ; (-&0a)
+L1B67:  LD      H,B
+        LD      L,C
+        OR      A
+        SBC     HL,DE
+        RET     NC
+
+        INC     B
+        INC     B
+        INC     B
+        INC     B
+        JR      L1B67                   ; (-&0c)
+L1B73:  PUSH    HL
+        PUSH    BC
+        LD      DE,&0400
+        OR      A
+L1B79:  SBC     HL,DE
+        JR      NC,L1B79                ; (-&04)
+        ADD     HL,DE
+        LD      DE,&0200
+        CALL    L19A4
+        PUSH    AF
+        EX      DE,HL
+        LD      HL,&0100
+        CALL    L19A4
+        POP     BC
+        LD      C,A
+        EX      DE,HL
+        LD      HL,&0100
+        OR      A
+        SBC     HL,DE
+        EX      DE,HL
+        PUSH    DE
+        PUSH    BC
+        LD      A,C
+        LD      DE,(&FB9E)
+        LD      BC,(&FBA2)
+        CALL    L1BBB
+        LD      (&FB96),HL
+        POP     BC
+        POP     HL
+        LD      A,B
+        LD      DE,(&FBA0)
+        LD      BC,(&FBA4)
+        CALL    L1BBB
+        LD      (&FB98),HL
+        POP     BC
+        POP     HL
+        RET     
+
+L1BBB:  PUSH    DE
+        PUSH    AF
+        INC     H
+        DEC     H
+        JR      NZ,L1BE7                ; (+&26)
+        INC     L
+        DEC     L
+        LD      DE,L0000
+        JR      Z,L1BDC                 ; (+&14)
+        EX      DE,HL
+        LD      HL,&1BEB
+        ADD     HL,DE
+        LD      E,&00
+        LD      D,(HL)
+        INC     D
+        DEC     D
+        JR      Z,L1BE7                 ; (+&13)
+        CALL    L0E60
+        BIT     7,H
+        JR      Z,L1BDC                 ; (+&01)
+        INC     DE
+L1BDC:  POP     AF
+        OR      A
+        POP     HL
+        JP      M,L1BE4
+        ADD     HL,DE
+        RET     
+
+L1BE4:  SBC     HL,DE
+        RET     
+
+L1BE7:  LD      D,B
+        LD      E,C
+        JR      L1BDC                   ; (-&0f)
+        NOP     
+        LD      (BC),A
+        INC     BC
+        DEC     B
+        LD      B,&08
+        ADD     HL,BC
+        DEC     BC
+        DEC     C
+        LD      C,&10
+        LD      DE,L1413
+        LD      D,&18
+        ADD     HL,DE
+        DEC     DE
+        INC     E
+        LD      E,&1F
+        LD      HL,&2422
+        LD      H,&27
+        ADD     HL,HL
+        LD      HL,(&2D2C)
+        CPL     
+        JR      NC,L1C3E                ; (+&32)
+        INC     SP
+        DEC     (HL)
+        SCF     
+        JR      C,L1C4B                 ; (+&3a)
+        DEC     SP
+        DEC     A
+        LD      A,&40
+        LD      B,C
+        LD      B,E
+        LD      B,H
+        LD      B,(HL)
+        LD      B,A
+        LD      C,C
+        LD      C,D
+        LD      C,H
+        LD      C,L
+        LD      C,A
+        LD      D,B
+        LD      D,D
+        LD      D,E
+        LD      D,L
+        LD      D,(HL)
+        LD      E,B
+        LD      E,C
+        LD      E,E
+        LD      E,H
+        LD      E,(HL)
+        LD      E,A
+        LD      H,C
+        LD      H,D
+        LD      H,E
+        LD      H,L
+        LD      H,(HL)
+        LD      L,B
+        LD      L,C
+        LD      L,E
+        LD      L,H
+        LD      L,L
+        LD      L,A
+        LD      (HL),B
+        LD      (HL),D
+        LD      (HL),E
+        LD      (HL),L
+        HALT    
+        LD      (HL),A
+        LD      A,C
+        LD      A,D
+        LD      A,E
+L1C3E:  LD      A,L
+        LD      A,(HL)
+        ADD     A,B
+        ADD     A,C
+        ADD     A,D
+        ADD     A,H
+        ADD     A,L
+        ADD     A,(HL)
+        ADC     A,B
+        ADC     A,C
+        ADC     A,D
+        ADC     A,H
+        ADC     A,L
+L1C4B:  ADC     A,(HL)
+        SUB     B
+        SUB     C
+        SUB     D
+        SUB     E
+        SUB     L
+        SUB     (HL)
+        SUB     A
+        SBC     A,B
+        SBC     A,D
+        SBC     A,E
+        SBC     A,H
+        SBC     A,L
+        SBC     A,A
+        AND     B
+        AND     C
+        AND     D
+        AND     H
+        AND     L
+        AND     (HL)
+        AND     A
+        XOR     B
+        XOR     D
+        XOR     E
+        XOR     H
+        XOR     L
+        XOR     (HL)
+        XOR     A
+        OR      C
+        OR      D
+        OR      E
+        OR      H
+        OR      L
+        OR      (HL)
+        OR      A
+        CP      B
+        CP      C
+        CP      D
+        CP      H
+        CP      L
+        CP      (HL)
+        CP      A
+        RET     NZ
+
+        POP     BC
+        JP      NZ,LC4C3
+        PUSH    BC
+        ADD     A,&C7
+        RET     Z
+
+        RET     
+
+        JP      Z,LCCCB
+        CALL    LCFCE
+        RST     &08
+        RET     NC
+
+        POP     DE
+        JP      NC,LD4D3
+        PUSH    DE
+        SUB     &D7
+        RST     &10
+        RET     C
+
+        EXX     
+        JP      C,LDCDB
+        CALL    C,LDEDD
+        RST     &18
+        RET     PO
+
+        RET     PO
+
+        POP     HL
+        JP      PO,LE3E3
+        CALL    PO,LE5E5
+        AND     &E7
+        RST     &20
+        RET     PE
+
+        JP      (HL)
+        JP      (HL)
+        JP      PE,LEBEB
+        CALL    PE,LEDED
+        XOR     &EE
+        RST     &28
+        RST     &28
+        RET     P
+
+        POP     AF
+        POP     AF
+        JP      P,LF3F2
+        DI      
+        CALL    P,LF5F4
+        PUSH    AF
+        PUSH    AF
+        OR      &F6
+        RST     &30
+        RST     &30
+        RET     M
+
+        RET     M
+
+        RET     M
+
+        LD      SP,HL
+        LD      SP,HL
+        LD      SP,HL
+        JP      M,LFAFA
+        EI      
+        EI      
+        EI      
+        CALL    M,LFCFC
+        CALL    M,LFDFD
+        CP      &FE
+        CP      &FE
+        CP      &FF
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        NOP     
+        XOR     A
+        JR      L1CF0                   ; (+&02)
+        LD      A,&01
+L1CF0:  LD      (&FB55),A
+        LD      A,&0A
+        LD      (&FB57),A
+L1CF8:  CALL    L1DAD
+        OUT     (&23),A
+        CALL    L1DD7
+        JP      NZ,L1D8A
+        CALL    L1E82
+        LD      A,(HL)
+        OUT     (&19),A
+        LD      A,(&FB51)
+        CP      (HL)
+        JR      Z,L1D22                 ; (+&13)
+        LD      (HL),A
+        OUT     (&1B),A
+        LD      A,&10
+        CALL    L1E15
+        CALL    Z,L1E2E
+        LD      DE,&A0B9
+        CALL    Z,L1E49
+        JR      NZ,L1D8A                ; (+&68)
+L1D22:  LD      A,(&FB52)
+        OUT     (&1A),A
+        LD      A,(&FB44)
+        LD      D,A
+        LD      C,&1B
+        LD      HL,(&FB53)
+        LD      A,(&FB55)
+        OR      A
+        DI      
+        JR      NZ,L1D5D                ; (+&26)
+        LD      A,&80
+        LD      B,&00
+        CALL    L1E1B
+        JR      NZ,L1D54                ; (+&14)
+L1D40:  IN      A,(&18)
+        RRCA    
+        JR      NC,L1D51                ; (+&0c)
+        RRCA    
+        JR      NC,L1D40                ; (-&08)
+        INI     
+        JP      NZ,L1D40
+        DEC     D
+        JP      NZ,L1D40
+L1D51:  CALL    L1E2E
+L1D54:  EI      
+        JR      NZ,L1D8A                ; (+&33)
+        IN      A,(&18)
+        AND     &BF
+        JR      L1D87                   ; (+&2a)
+L1D5D:  LD      A,&A0
+        LD      B,&00
+        CALL    L1E1B
+        JR      NZ,L1D82                ; (+&1c)
+        CALL    LFB14
+        LD      E,A
+L1D6A:  IN      A,(&18)
+        RRCA    
+        JR      NC,L1D7F                ; (+&10)
+        RRCA    
+        JR      NC,L1D6A                ; (-&08)
+        OUT     (C),E
+        INC     HL
+        CALL    LFB14
+        LD      E,A
+        DJNZ    L1D6A                   ; (-&11)
+        DEC     D
+        JP      NZ,L1D6A
+L1D7F:  CALL    L1E2E
+L1D82:  EI      
+        JR      NZ,L1D8A                ; (+&05)
+        IN      A,(&18)
+L1D87:  CP      &80
+        RET     Z
+
+L1D8A:  CALL    L1DF7
+        LD      HL,&FB57
+        CP      &04
+        JR      NC,L1D98                ; (+&04)
+        CP      &02
+        JR      NZ,L1D9A                ; (+&02)
+L1D98:  LD      (HL),&01
+L1D9A:  LD      A,&D0
+        OUT     (&18),A
+        DEC     (HL)
+        JR      Z,L1DA6                 ; (+&05)
+        RST     &08
+        XOR     A
+        JP      Z,L1CF8
+L1DA6:  RST     &08
+        CP      L
+        LD      A,(&FB56)
+        OR      A
+        RET     
+
+L1DAD:  PUSH    HL
+        CALL    L1DCC
+        LD      L,(HL)
+        LD      A,(&FB52)
+        SUB     &0A
+        JR      C,L1DBB                 ; (+&02)
+        SET     4,L
+L1DBB:  LD      A,L
+        POP     HL
+        RET     
+
+L1DBE:  PUSH    HL
+        CALL    L1DCC
+        LD      A,(&FBB1)
+        AND     (HL)
+        POP     HL
+        LD      A,&0A
+        RET     Z
+
+        ADD     A,A
+        RET     
+
+L1DCC:  LD      A,(&FB50)
+        LD      HL,&0034
+        AND     &03
+        ADD     A,L
+        LD      L,A
+        RET     
+
+L1DD7:  XOR     A
+        IN      A,(&18)
+        RLA     
+        RET     C
+
+        LD      A,&04
+        CALL    L1E15
+        CALL    Z,L1E58
+        CALL    Z,L1E2E
+        LD      DE,&A4BD
+        CALL    Z,L1E49
+        JR      NZ,L1DF7                ; (+&08)
+        CALL    L1E82
+        XOR     A
+        OUT     (&19),A
+        LD      (HL),A
+        RET     
+
+L1DF7:  PUSH    DE
+        CP      &FE
+        LD      E,&05
+        JR      Z,L1E0E                 ; (+&10)
+        DEC     E
+        CP      &FF
+        JR      Z,L1E0E                 ; (+&0b)
+        DEC     E
+        BIT     4,A
+        JR      NZ,L1E0E                ; (+&06)
+        DEC     E
+        BIT     6,A
+        JR      NZ,L1E0E                ; (+&01)
+        DEC     E
+L1E0E:  LD      A,E
+        POP     DE
+        LD      (&FB56),A
+        OR      A
+        RET     
+
+L1E15:  PUSH    HL
+        LD      HL,&FBB0
+        OR      (HL)
+        POP     HL
+L1E1B:  OUT     (&18),A
+        PUSH    BC
+        LD      B,&80
+L1E20:  IN      A,(&18)
+        RRCA    
+        JR      C,L1E2B                 ; (+&06)
+        DJNZ    L1E20                   ; (-&07)
+L1E27:  POP     BC
+        XOR     A
+        DEC     A
+        RET     
+
+L1E2B:  POP     BC
+        XOR     A
+        RET     
+
+L1E2E:  PUSH    BC
+        PUSH    DE
+        LD      D,&03
+        LD      BC,L0000
+L1E35:  IN      A,(&18)
+        RRCA    
+        JR      NC,L1E45                ; (+&0b)
+        DEC     BC
+        LD      A,B
+        OR      C
+        JR      NZ,L1E35                ; (-&0a)
+        DEC     D
+        JR      NZ,L1E35                ; (-&0d)
+        POP     DE
+        JR      L1E27                   ; (-&1e)
+L1E45:  POP     DE
+        POP     BC
+        XOR     A
+        RET     
+
+L1E49:  PUSH    DE
+        LD      DE,&1100
+L1E4D:  DEC     DE
+        LD      A,D
+        OR      E
+        JR      NZ,L1E4D                ; (-&05)
+        POP     DE
+        IN      A,(&18)
+        AND     E
+        CP      D
+        RET     
+
+L1E58:  PUSH    BC
+        LD      BC,L0000
+L1E5C:  DEC     BC
+        LD      A,B
+        OR      C
+        JR      Z,L1E69                 ; (+&08)
+        IN      A,(&18)
+        BIT     1,A
+        JR      Z,L1E5C                 ; (-&0b)
+        JR      L1E2B                   ; (-&3e)
+L1E69:  IN      A,(&18)
+        RLA     
+        RLA     
+        CCF     
+        SBC     A,A
+        DEC     A
+        POP     BC
+        RET     
+
+        XOR     A
+        OUT     (&23),A
+        PUSH    BC
+        LD      B,&20
+L1E78:  OUT     (&00),A
+        EX      (SP),HL
+        EX      (SP),HL
+        DJNZ    L1E78                   ; (-&06)
+        RST     &08
+        RET     NZ
+
+        POP     BC
+        RET     
+
+L1E82:  LD      A,(&FB50)
+        LD      HL,&FB58
+        ADD     A,L
+        LD      L,A
+        RET     NC
+
+        INC     H
+        RET     
+
+        LD      HL,L0000
+        LD      A,C
+        LD      (&FB7D),A
+        CP      &04
+        RET     NC
+
+        LD      L,A
+        LD      BC,(&FBB3)
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,HL
+        ADD     HL,BC
+        RET     
+
+        LD      A,C
+        LD      (&FB7E),A
+        RET     
+
+        LD      A,C
+        LD      (&FB7F),A
+        RET     
+
+        LD      (&FB80),BC
+        RET     
+
+        LD      HL,&FE00
+        LD      (&FB53),HL
+        XOR     A
+        LD      (&FB87),A
+        INC     A
+        LD      (&FB8A),A
+        INC     A
+        LD      (&FB8B),A
+        CALL    L1FB4
+        LD      A,C
+        CP      &01
+        JR      Z,L1F31                 ; (+&66)
+        JR      L1F1D                   ; (+&50)
+        LD      HL,&FE00
+        LD      (&FB53),HL
+        XOR     A
+        CALL    L1FB4
+        LD      A,C
+        LD      (&FB8B),A
+        CP      &02
+        JR      NZ,L1EF0                ; (+&11)
+        LD      A,&10
+        LD      (&FB87),A
+        LD      HL,(&FB7D)
+        LD      (&FB83),HL
+        LD      A,(&FB7F)
+        LD      (&FB85),A
+L1EF0:  LD      A,(&FB87)
+        OR      A
+        JR      Z,L1F15                 ; (+&1f)
+        DEC     A
+        LD      (&FB87),A
+        LD      A,(&FB7F)
+        LD      HL,&FB83
+        CALL    L1FC2
+        JR      NZ,L1F15                ; (+&10)
+        INC     (HL)
+        CALL    L1DBE
+        ADD     A,A
+        ADD     A,A
+        CP      (HL)
+        JR      NZ,L1F12                ; (+&04)
+        LD      (HL),&00
+        DEC     HL
+        INC     (HL)
+L1F12:  XOR     A
+        JR      L1F1A                   ; (+&05)
+L1F15:  XOR     A
+        LD      (&FB87),A
+        INC     A
+L1F1A:  LD      (&FB8A),A
+L1F1D:  LD      HL,&FB86
+        LD      A,(HL)
+        LD      (HL),&01
+        OR      A
+        JR      Z,L1F3B                 ; (+&15)
+        LD      A,(&FB82)
+        LD      HL,&FB50
+        CALL    L1FC2
+        JR      Z,L1F64                 ; (+&33)
+L1F31:  LD      A,(&FB88)
+        OR      A
+        JR      Z,L1F3B                 ; (+&04)
+        RST     &08
+        AND     E
+        JR      NZ,L1FAA                ; (+&6f)
+L1F3B:  LD      HL,(&FB7D)
+        LD      A,(&FB50)
+        CP      L
+        LD      (&FB50),HL
+        JR      Z,L1F50                 ; (+&09)
+        CALL    L1DAD
+        OUT     (&23),A
+        RST     &08
+        XOR     A
+        JR      NZ,L1FAA                ; (+&5a)
+L1F50:  LD      A,(&FB82)
+        LD      (&FB52),A
+        LD      A,(&FB8A)
+        OR      A
+        JR      Z,L1F60                 ; (+&04)
+        RST     &08
+        AND     D
+        JR      NZ,L1FAA                ; (+&4a)
+L1F60:  XOR     A
+        LD      (&FB88),A
+L1F64:  LD      A,(&FB7F)
+        LD      C,&00
+        AND     &03
+        RRA     
+        RR      C
+        LD      B,A
+        LD      HL,&FE00
+        ADD     HL,BC
+        LD      BC,&0080
+        LD      DE,(&FB80)
+        LD      A,(&FB89)
+        OR      A
+        JR      NZ,L1F86                ; (+&06)
+        EX      DE,HL
+        LD      A,&01
+        LD      (&FB88),A
+L1F86:  RST     &08
+        OR      D
+        LD      A,(&FB8B)
+        CP      &01
+        JR      NZ,L1F97                ; (+&08)
+        XOR     A
+        LD      (&FB88),A
+        RST     &08
+        AND     E
+        JR      NZ,L1FAA                ; (+&13)
+L1F97:  XOR     A
+        RET     
+
+L1F99:  LD      A,(&FB88)
+        OR      A
+        RET     Z
+
+        XOR     A
+        LD      (&FB88),A
+        LD      HL,&FE00
+        LD      (&FB53),HL
+        RST     &08
+        AND     E
+L1FAA:  PUSH    AF
+        XOR     A
+        LD      (&FB86),A
+        LD      (&FB87),A
+        POP     AF
+        RET     
+
+L1FB4:  LD      (&FB89),A
+        LD      A,(&FB7F)
+        SRL     A
+        SRL     A
+        LD      (&FB82),A
+        RET     
+
+L1FC2:  LD      C,A
+        LD      A,(&FB7D)
+        CP      (HL)
+        RET     NZ
+
+        LD      A,(&FB7E)
+        INC     HL
+        CP      (HL)
+        RET     NZ
+
+        LD      A,C
+        INC     HL
+        CP      (HL)
+        RET     
+
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        RST     &38
+        LD      HL,L0000

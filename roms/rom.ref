@@ -1,0 +1,1187 @@
+dZ80 1.50 Reference file from the disassembly of "A:\rom.bin".
+
+Input Port Reference (23 entries)
+---------------------------------
+
+Input Port &0002. 1 references:
+-------------------------------
+
+    &0fa9: in      a,(&02)
+
+Input Port &0008. 2 references:
+-------------------------------
+
+    &002b: in      a,(&08)
+    &0d97: in      a,(&08)
+
+Input Port &0010. 1 references:
+-------------------------------
+
+    &0f58: in      a,(&10)
+
+Input Port &0011. 2 references:
+-------------------------------
+
+    &0f49: in      a,(&11)
+    &0f52: in      a,(&11)
+
+Input Port &0018. 10 references:
+--------------------------------
+
+    &1d40: in      a,(&18)
+    &1d57: in      a,(&18)
+    &1d6a: in      a,(&18)
+    &1d85: in      a,(&18)
+    &1dd8: in      a,(&18)
+    &1e20: in      a,(&18)
+    &1e35: in      a,(&18)
+    &1e53: in      a,(&18)
+    &1e61: in      a,(&18)
+    &1e69: in      a,(&18)
+
+Input Port &0020. 2 references:
+-------------------------------
+
+    &0789: in      a,(&20)
+    &07a0: in      a,(&20)
+
+Input Port &0022. 1 references:
+-------------------------------
+
+    &07be: in      a,(&22)
+
+Input Port &004c. 4 references:
+-------------------------------
+
+    &0bef: in      a,(&4c)
+    &0bf4: in      a,(&4c)
+    &0e10: in      a,(&4c)
+    &0e2a: in      a,(&4c)
+
+
+Output Port Reference (57 entries)
+----------------------------------
+
+Output Port &0000. 1 references:
+--------------------------------
+
+    &1e78: out     (&00),a
+
+Output Port &0002. 3 references:
+--------------------------------
+
+    &0f6b: out     (&02),a
+    &0f9b: out     (&02),a
+    &0fa7: out     (&02),a
+
+Output Port &0003. 2 references:
+--------------------------------
+
+    &0f6e: out     (&03),a
+    &0f9f: out     (&03),a
+
+Output Port &0008. 4 references:
+--------------------------------
+
+    &0031: out     (&08),a
+    &0ca7: out     (&08),a
+    &0da7: out     (&08),a
+    &0dbe: out     (&08),a
+
+Output Port &0009. 4 references:
+--------------------------------
+
+    &0022: out     (&09),a
+    &0c8f: out     (&09),a
+    &0c94: out     (&09),a
+    &0c9a: out     (&09),a
+
+Output Port &0010. 1 references:
+--------------------------------
+
+    &0f4f: out     (&10),a
+
+Output Port &0011. 5 references:
+--------------------------------
+
+    &0099: out     (&11),a
+    &009d: out     (&11),a
+    &036e: out     (&11),a
+    &0371: out     (&11),a
+    &0374: out     (&11),a
+
+Output Port &0018. 2 references:
+--------------------------------
+
+    &1d9c: out     (&18),a
+    &1e1b: out     (&18),a
+
+Output Port &0019. 2 references:
+--------------------------------
+
+    &1d07: out     (&19),a
+    &1df3: out     (&19),a
+
+Output Port &001a. 1 references:
+--------------------------------
+
+    &1d25: out     (&1a),a
+
+Output Port &001b. 1 references:
+--------------------------------
+
+    &1d10: out     (&1b),a
+
+Output Port &0020. 1 references:
+--------------------------------
+
+    &0e01: out     (&20),a
+
+Output Port &0021. 1 references:
+--------------------------------
+
+    &0e05: out     (&21),a
+
+Output Port &0023. 4 references:
+--------------------------------
+
+    &00e1: out     (&23),a
+    &1cfb: out     (&23),a
+    &1e73: out     (&23),a
+    &1f4a: out     (&23),a
+
+Output Port &0024. 10 references:
+---------------------------------
+
+    &1007: out     (&24),a
+    &100a: out     (&24),a
+    &100e: out     (&24),a
+    &1011: out     (&24),a
+    &1015: out     (&24),a
+    &1018: out     (&24),a
+    &101d: out     (&24),a
+    &1057: out     (&24),a
+    &1073: out     (&24),a
+    &1078: out     (&24),a
+
+Output Port &0025. 1 references:
+--------------------------------
+
+    &0e03: out     (&25),a
+
+Output Port &0028. 1 references:
+--------------------------------
+
+    &0093: out     (&28),a
+
+Output Port &0030. 1 references:
+--------------------------------
+
+    &0f64: out     (&30),a
+
+Output Port &0031. 3 references:
+--------------------------------
+
+    &00a8: out     (&31),a
+    &00b0: out     (&31),a
+    &00b4: out     (&31),a
+
+Output Port &0033. 1 references:
+--------------------------------
+
+    &00ac: out     (&33),a
+
+Output Port &0048. 6 references:
+--------------------------------
+
+    &0ac0: out     (&48),a
+    &0c31: out     (&48),a
+    &0c38: out     (&48),a
+    &0d32: out     (&48),a
+    &0d39: out     (&48),a
+    &0e20: out     (&48),a
+
+Output Port &0049. 1 references:
+--------------------------------
+
+    &0ac3: out     (&49),a
+
+Output Port &00cf. 1 references:
+--------------------------------
+
+    &00d4: out     (&cf),a
+
+
+Direct address Reference (146 entries)
+--------------------------------------
+
+Direct address &2422. 1 references:
+-----------------------------------
+
+    &1c00: ld      hl,&2422
+
+Direct address &24d3. 1 references:
+-----------------------------------
+
+    &0df9: ld      hl,&24d3
+
+Direct address &2710. 1 references:
+-----------------------------------
+
+    &03bb: ld      bc,&2710
+
+Direct address &3333. 1 references:
+-----------------------------------
+
+    &1754: ld      bc,&3333
+
+Direct address &3800. 3 references:
+-----------------------------------
+
+    &0c6a: ld      bc,&3800
+    &0cba: ld      bc,&3800
+    &0db0: ld      bc,&3800
+
+Direct address &3806. 1 references:
+-----------------------------------
+
+    &1831: ld      bc,&3806
+
+Direct address &3a2e. 1 references:
+-----------------------------------
+
+    &0f85: ld      bc,&3a2e
+
+Direct address &3b00. 1 references:
+-----------------------------------
+
+    &0dc9: ld      bc,&3b00
+
+Direct address &3b80. 2 references:
+-----------------------------------
+
+    &00c6: ld      bc,&3b80
+    &072f: ld      bc,&3b80
+
+Direct address &3c00. 3 references:
+-----------------------------------
+
+    &0934: ld      bc,&3c00
+    &0c84: ld      bc,&3c00
+    &0ceb: ld      de,&3c00
+
+Direct address &42cd. 1 references:
+-----------------------------------
+
+    &04e7: ld      bc,&42cd
+
+Direct address &4422. 1 references:
+-----------------------------------
+
+    &1769: ld      de,&4422
+
+Direct address &6a82. 1 references:
+-----------------------------------
+
+    &113b: ld      de,&6a82
+
+Direct address &6afb. 1 references:
+-----------------------------------
+
+    &02e8: ld      hl,&6afb
+
+Direct address &6d81. 1 references:
+-----------------------------------
+
+    &1153: ld      bc,&6d81
+
+Direct address &7e07. 1 references:
+-----------------------------------
+
+    &0f80: ld      bc,&7e07
+
+Direct address &7f07. 1 references:
+-----------------------------------
+
+    &0f92: ld      bc,&7f07
+
+Direct address &7fff. 1 references:
+-----------------------------------
+
+    &0040: ld      bc,&7fff
+
+Direct address &8000. 2 references:
+-----------------------------------
+
+    &0000: ld      hl,&8000
+    &0046: ld      hl,&8000
+
+Direct address &8001. 1 references:
+-----------------------------------
+
+    &0003: ld      de,&8001
+
+Direct address &8101. 1 references:
+-----------------------------------
+
+    &17e3: ld      bc,&8101
+
+Direct address &8e00. 1 references:
+-----------------------------------
+
+    &0f71: ld      bc,&8e00
+
+Direct address &9acf. 1 references:
+-----------------------------------
+
+    &1035: ld      bc,&9acf
+
+Direct address &a0b9. 1 references:
+-----------------------------------
+
+    &1d1a: ld      de,&a0b9
+
+Direct address &a4bd. 1 references:
+-----------------------------------
+
+    &1de7: ld      de,&a4bd
+
+Direct address &f03f. 1 references:
+-----------------------------------
+
+    &0b52: ld      bc,&f03f
+
+Direct address &fb00. 3 references:
+-----------------------------------
+
+    &004c: ld      hl,&fb00
+    &005b: ld      de,&fb00
+    &1068: ld      hl,&fb00
+
+Direct address &fb01. 1 references:
+-----------------------------------
+
+    &004f: ld      de,&fb01
+
+Direct address &fb30. 1 references:
+-----------------------------------
+
+    &078f: ld      de,(&fb30)
+
+Direct address &fb3e. 10 references:
+------------------------------------
+
+    &06d3: ld      hl,&fb3e
+    &06e9: ld      hl,&fb3e
+    &071c: ld      hl,&fb3e
+    &0725: ld      hl,&fb3e
+    &0755: ld      hl,&fb3e
+    &079d: ld      hl,&fb3e
+    &07ef: ld      hl,&fb3e
+    &081c: ld      hl,&fb3e
+    &086a: ld      hl,&fb3e
+    &0883: ld      hl,&fb3e
+
+Direct address &fb40. 1 references:
+-----------------------------------
+
+    &064f: ld      hl,&fb40
+
+Direct address &fb45. 8 references:
+-----------------------------------
+
+    &01dd: ld      hl,&fb45
+    &0896: ld      hl,&fb45
+    &08a7: ld      hl,&fb45
+    &0a48: ld      hl,&fb45
+    &0af1: ld      hl,&fb45
+    &0c45: ld      hl,&fb45
+    &0cb3: ld      hl,&fb45
+    &0d41: ld      hl,&fb45
+
+Direct address &fb46. 2 references:
+-----------------------------------
+
+    &06ee: ld      hl,&fb46
+    &088f: ld      hl,&fb46
+
+Direct address &fb4a. 4 references:
+-----------------------------------
+
+    &0a05: ld      (&fb4a),bc
+    &0b10: ld      bc,(&fb4a)
+    &0c13: ld      bc,(&fb4a)
+    &0c4c: ld      bc,(&fb4a)
+
+Direct address &fb4b. 3 references:
+-----------------------------------
+
+    &08b4: ld      hl,&fb4b
+    &08c8: ld      hl,&fb4b
+    &0967: ld      hl,&fb4b
+
+Direct address &fb4c. 2 references:
+-----------------------------------
+
+    &092c: ld      (&fb4c),de
+    &0c26: ld      de,(&fb4c)
+
+Direct address &fb4f. 3 references:
+-----------------------------------
+
+    &0928: ld      hl,&fb4f
+    &0a11: ld      de,(&fb4f)
+    &0a54: ld      hl,&fb4f
+
+Direct address &fb50. 1 references:
+-----------------------------------
+
+    &1f29: ld      hl,&fb50
+
+Direct address &fb51. 1 references:
+-----------------------------------
+
+    &0548: ld      (&fb51),bc
+
+Direct address &fb52. 1 references:
+-----------------------------------
+
+    &050b: ld      hl,&fb52
+
+Direct address &fb57. 1 references:
+-----------------------------------
+
+    &1d8d: ld      hl,&fb57
+
+Direct address &fb58. 1 references:
+-----------------------------------
+
+    &1e85: ld      hl,&fb58
+
+Direct address &fb5f. 2 references:
+-----------------------------------
+
+    &0411: ld      sp,&fb5f
+    &05e3: ld      de,&fb5f
+
+Direct address &fb65. 8 references:
+-----------------------------------
+
+    &0087: ld      (&fb65),sp
+    &0204: ld      (&fb65),sp
+    &0229: ld      sp,&fb65
+    &0425: ld      sp,(&fb65)
+    &19db: ld      (&fb65),sp
+    &19eb: ld      sp,(&fb65)
+    &1a9c: ld      (&fb65),sp
+    &1ac1: ld      sp,(&fb65)
+
+Direct address &fb67. 1 references:
+-----------------------------------
+
+    &05a2: ld      de,&fb67
+
+Direct address &fb6f. 1 references:
+-----------------------------------
+
+    &059b: ld      de,&fb6f
+
+Direct address &fb77. 2 references:
+-----------------------------------
+
+    &0209: ld      sp,&fb77
+    &021f: ld      (&fb77),de
+
+Direct address &fb7b. 2 references:
+-----------------------------------
+
+    &1062: ld      (&fb7b),sp
+    &107a: ld      sp,(&fb7b)
+
+Direct address &fb80. 2 references:
+-----------------------------------
+
+    &1eac: ld      (&fb80),bc
+    &1f76: ld      de,(&fb80)
+
+Direct address &fb83. 1 references:
+-----------------------------------
+
+    &1efd: ld      hl,&fb83
+
+Direct address &fb86. 1 references:
+-----------------------------------
+
+    &1f1d: ld      hl,&fb86
+
+Direct address &fb8c. 1 references:
+-----------------------------------
+
+    &0073: ld      hl,&fb8c
+
+Direct address &fb91. 1 references:
+-----------------------------------
+
+    &1089: ld      hl,&fb91
+
+Direct address &fb92. 2 references:
+-----------------------------------
+
+    &0f5d: ld      hl,&fb92
+    &10bd: ld      hl,&fb92
+
+Direct address &fb93. 1 references:
+-----------------------------------
+
+    &074f: ld      hl,&fb93
+
+Direct address &fb94. 3 references:
+-----------------------------------
+
+    &0665: ld      bc,(&fb94)
+    &066f: ld      (&fb94),bc
+    &0749: ld      (&fb94),bc
+
+Direct address &fb96. 2 references:
+-----------------------------------
+
+    &191e: ld      bc,(&fb96)
+    &1953: ld      de,(&fb96)
+
+Direct address &fb98. 3 references:
+-----------------------------------
+
+    &1922: ld      de,(&fb98)
+    &197c: ld      de,(&fb98)
+    &1a6d: ld      de,(&fb98)
+
+Direct address &fb9e. 1 references:
+-----------------------------------
+
+    &1b99: ld      de,(&fb9e)
+
+Direct address &fba0. 1 references:
+-----------------------------------
+
+    &1baa: ld      de,(&fba0)
+
+Direct address &fba2. 1 references:
+-----------------------------------
+
+    &1b9d: ld      bc,(&fba2)
+
+Direct address &fba4. 1 references:
+-----------------------------------
+
+    &1bae: ld      bc,(&fba4)
+
+Direct address &fba6. 1 references:
+-----------------------------------
+
+    &1b35: ld      de,(&fba6)
+
+Direct address &fba8. 1 references:
+-----------------------------------
+
+    &186e: ld      hl,&fba8
+
+Direct address &fbad. 1 references:
+-----------------------------------
+
+    &1a51: ld      hl,&fbad
+
+Direct address &fbae. 3 references:
+-----------------------------------
+
+    &19e7: ld      (&fbae),sp
+    &1aa0: ld      sp,(&fbae)
+    &1abd: ld      (&fbae),sp
+
+Direct address &fbb0. 1 references:
+-----------------------------------
+
+    &1e16: ld      hl,&fbb0
+
+Direct address &fbb3. 1 references:
+-----------------------------------
+
+    &1e98: ld      bc,(&fbb3)
+
+Direct address &fbb5. 1 references:
+-----------------------------------
+
+    &0708: ld      hl,&fbb5
+
+Direct address &fbb8. 3 references:
+-----------------------------------
+
+    &017b: ld      de,&fbb8
+    &01e6: ld      hl,&fbb8
+    &0465: ld      de,&fbb8
+
+Direct address &fbe0. 5 references:
+-----------------------------------
+
+    &0af8: ld      hl,&fbe0
+    &0b41: ld      hl,&fbe0
+    &0b6d: ld      hl,&fbe0
+    &0d94: ld      hl,&fbe0
+    &0da3: ld      hl,&fbe0
+
+Direct address &fc09. 1 references:
+-----------------------------------
+
+    &006c: ld      de,&fc09
+
+Direct address &fc0f. 1 references:
+-----------------------------------
+
+    &0b9f: ld      bc,&fc0f
+
+Direct address &fcff. 5 references:
+-----------------------------------
+
+    &007d: ld      sp,&fcff
+    &0171: ld      sp,&fcff
+    &023a: ld      sp,&fcff
+    &0250: ld      sp,&fcff
+    &1070: ld      sp,&fcff
+
+Direct address &fe00. 5 references:
+-----------------------------------
+
+    &025c: ld      hl,&fe00
+    &1eb1: ld      hl,&fe00
+    &1ecd: ld      hl,&fe00
+    &1f6f: ld      hl,&fe00
+    &1fa2: ld      hl,&fe00
+
+Direct address &fe08. 1 references:
+-----------------------------------
+
+    &1ab6: ld      hl,&fe08
+
+Direct address &fff8. 1 references:
+-----------------------------------
+
+    &1a1c: ld      de,&fff8
+
+Direct address &fffd. 2 references:
+-----------------------------------
+
+    &19b6: ld      hl,&fffd
+    &19ef: ld      de,&fffd
+
+Direct address &ffff. 1 references:
+-----------------------------------
+
+    &1864: ld      bc,&ffff
+
+
+Indirect address Reference (189 entries)
+----------------------------------------
+
+Indirect address &202a. 1 references:
+-------------------------------------
+
+    &0e89: ld      hl,(&202a)
+
+Indirect address &2a2a. 1 references:
+-------------------------------------
+
+    &0e97: ld      hl,(&2a2a)
+
+Indirect address &2d2c. 1 references:
+-------------------------------------
+
+    &1c06: ld      hl,(&2d2c)
+
+Indirect address &3aa0. 1 references:
+-------------------------------------
+
+    &049c: ld      a,(&3aa0)
+
+Indirect address &4000. 1 references:
+-------------------------------------
+
+    &00d8: ld      a,(&4000)
+
+Indirect address &6c0a. 1 references:
+-------------------------------------
+
+    &0a96: ld      (&6c0a),a
+
+Indirect address &700a. 1 references:
+-------------------------------------
+
+    &0a90: ld      a,(&700a)
+
+Indirect address &8321. 1 references:
+-------------------------------------
+
+    &111a: ld      (&8321),hl
+
+Indirect address &8331. 2 references:
+-------------------------------------
+
+    &1112: ld      (&8331),a
+    &1122: ld      (&8331),a
+
+Indirect address &8811. 1 references:
+-------------------------------------
+
+    &176f: ld      (&8811),hl
+
+Indirect address &8844. 1 references:
+-------------------------------------
+
+    &1766: ld      (&8844),hl
+
+Indirect address &c011. 1 references:
+-------------------------------------
+
+    &1773: ld      (&c011),hl
+
+Indirect address &c8cc. 1 references:
+-------------------------------------
+
+    &163e: ld      (&c8cc),a
+
+Indirect address &fb30. 1 references:
+-------------------------------------
+
+    &0df0: ld      (&fb30),hl
+
+Indirect address &fb32. 2 references:
+-------------------------------------
+
+    &0587: ld      hl,(&fb32)
+    &0df3: ld      (&fb32),hl
+
+Indirect address &fb34. 2 references:
+-------------------------------------
+
+    &058c: ld      hl,(&fb34)
+    &0df6: ld      (&fb34),hl
+
+Indirect address &fb38. 2 references:
+-------------------------------------
+
+    &0bbb: ld      a,(&fb38)
+    &0ca2: ld      a,(&fb38)
+
+Indirect address &fb39. 1 references:
+-------------------------------------
+
+    &1a48: ld      a,(&fb39)
+
+Indirect address &fb3a. 1 references:
+-------------------------------------
+
+    &0fd1: ld      hl,(&fb3a)
+
+Indirect address &fb3c. 1 references:
+-------------------------------------
+
+    &0fe4: ld      hl,(&fb3c)
+
+Indirect address &fb3e. 8 references:
+-------------------------------------
+
+    &076f: ld      a,(&fb3e)
+    &0774: ld      (&fb3e),a
+    &0807: ld      a,(&fb3e)
+    &0824: ld      a,(&fb3e)
+    &0830: ld      a,(&fb3e)
+    &0840: ld      a,(&fb3e)
+    &084f: ld      a,(&fb3e)
+    &0854: ld      (&fb3e),a
+
+Indirect address &fb3f. 1 references:
+-------------------------------------
+
+    &0ac6: ld      a,(&fb3f)
+
+Indirect address &fb40. 1 references:
+-------------------------------------
+
+    &0177: ld      a,(&fb40)
+
+Indirect address &fb41. 1 references:
+-------------------------------------
+
+    &06c4: ld      a,(&fb41)
+
+Indirect address &fb42. 2 references:
+-------------------------------------
+
+    &06ff: ld      a,(&fb42)
+    &0925: ld      (&fb42),hl
+
+Indirect address &fb43. 1 references:
+-------------------------------------
+
+    &0712: ld      a,(&fb43)
+
+Indirect address &fb44. 1 references:
+-------------------------------------
+
+    &1d27: ld      a,(&fb44)
+
+Indirect address &fb45. 12 references:
+--------------------------------------
+
+    &0623: ld      a,(&fb45)
+    &06a8: ld      a,(&fb45)
+    &08cb: ld      a,(&fb45)
+    &0922: ld      (&fb45),a
+    &09b6: ld      a,(&fb45)
+    &09de: ld      a,(&fb45)
+    &0a44: ld      (&fb45),a
+    &0aa8: ld      a,(&fb45)
+    &0ab3: ld      a,(&fb45)
+    &0ad2: ld      a,(&fb45)
+    &0bc6: ld      a,(&fb45)
+    &0be1: ld      a,(&fb45)
+
+Indirect address &fb46. 2 references:
+-------------------------------------
+
+    &070f: ld      (&fb46),a
+    &076b: ld      (&fb46),a
+
+Indirect address &fb47. 1 references:
+-------------------------------------
+
+    &0acb: ld      a,(&fb47)
+
+Indirect address &fb48. 4 references:
+-------------------------------------
+
+    &07ea: ld      (&fb48),a
+    &0845: ld      a,(&fb48)
+    &084c: ld      (&fb48),a
+    &085b: ld      a,(&fb48)
+
+Indirect address &fb49. 2 references:
+-------------------------------------
+
+    &01b3: ld      (&fb49),a
+    &01be: ld      a,(&fb49)
+
+Indirect address &fb4a. 8 references:
+-------------------------------------
+
+    &0972: ld      hl,(&fb4a)
+    &0983: ld      (&fb4a),hl
+    &09aa: ld      hl,(&fb4a)
+    &09d4: ld      hl,(&fb4a)
+    &09fb: ld      hl,(&fb4a)
+    &0a24: ld      (&fb4a),hl
+    &0a59: ld      (&fb4a),a
+    &0f0f: ld      a,(&fb4a)
+
+Indirect address &fb4b. 1 references:
+-------------------------------------
+
+    &0a64: ld      (&fb4b),a
+
+Indirect address &fb4c. 3 references:
+-------------------------------------
+
+    &0cf2: ld      hl,(&fb4c)
+    &0cfd: ld      hl,(&fb4c)
+    &0d3d: ld      (&fb4c),hl
+
+Indirect address &fb4e. 2 references:
+-------------------------------------
+
+    &0db8: ld      (&fb4e),a
+    &18e4: ld      a,(&fb4e)
+
+Indirect address &fb4f. 9 references:
+-------------------------------------
+
+    &0628: ld      a,(&fb4f)
+    &08d1: ld      a,(&fb4f)
+    &08ec: ld      a,(&fb4f)
+    &097b: ld      a,(&fb4f)
+    &09ae: ld      a,(&fb4f)
+    &09e9: ld      a,(&fb4f)
+    &0ad9: ld      a,(&fb4f)
+    &0c7b: ld      a,(&fb4f)
+    &0ce5: ld      hl,(&fb4f)
+
+Indirect address &fb50. 6 references:
+-------------------------------------
+
+    &0256: ld      (&fb50),a
+    &0542: ld      (&fb50),a
+    &1dcc: ld      a,(&fb50)
+    &1e82: ld      a,(&fb50)
+    &1f3e: ld      a,(&fb50)
+    &1f42: ld      (&fb50),hl
+
+Indirect address &fb51. 2 references:
+-------------------------------------
+
+    &0259: ld      (&fb51),hl
+    &1d09: ld      a,(&fb51)
+
+Indirect address &fb52. 3 references:
+-------------------------------------
+
+    &1d22: ld      a,(&fb52)
+    &1db2: ld      a,(&fb52)
+    &1f53: ld      (&fb52),a
+
+Indirect address &fb53. 8 references:
+-------------------------------------
+
+    &025f: ld      (&fb53),hl
+    &0525: ld      hl,(&fb53)
+    &052c: ld      (&fb53),hl
+    &0545: ld      (&fb53),hl
+    &1d2d: ld      hl,(&fb53)
+    &1eb4: ld      (&fb53),hl
+    &1ed0: ld      (&fb53),hl
+    &1fa5: ld      (&fb53),hl
+
+Indirect address &fb55. 2 references:
+-------------------------------------
+
+    &1cf0: ld      (&fb55),a
+    &1d30: ld      a,(&fb55)
+
+Indirect address &fb56. 4 references:
+-------------------------------------
+
+    &0506: ld      a,(&fb56)
+    &0532: ld      (&fb56),a
+    &1da8: ld      a,(&fb56)
+    &1e10: ld      (&fb56),a
+
+Indirect address &fb57. 1 references:
+-------------------------------------
+
+    &1cf5: ld      (&fb57),a
+
+Indirect address &fb5c. 2 references:
+-------------------------------------
+
+    &0242: ld      a,(&fb5c)
+    &040c: ld      (&fb5c),a
+
+Indirect address &fb5d. 2 references:
+-------------------------------------
+
+    &023d: ld      hl,(&fb5d)
+    &0409: ld      (&fb5d),hl
+
+Indirect address &fb5f. 2 references:
+-------------------------------------
+
+    &0230: ld      hl,(&fb5f)
+    &0237: ld      (&fb5f),a
+
+Indirect address &fb60. 1 references:
+-------------------------------------
+
+    &0084: ld      (&fb60),a
+
+Indirect address &fb65. 2 references:
+-------------------------------------
+
+    &0210: ld      hl,(&fb65)
+    &021b: ld      (&fb65),hl
+
+Indirect address &fb75. 1 references:
+-------------------------------------
+
+    &042d: ld      hl,(&fb75)
+
+Indirect address &fb77. 3 references:
+-------------------------------------
+
+    &03fe: ld      (&fb77),hl
+    &0429: ld      hl,(&fb77)
+    &060d: ld      hl,(&fb77)
+
+Indirect address &fb79. 3 references:
+-------------------------------------
+
+    &0fc2: ld      (&fb79),hl
+    &0fe0: ld      hl,(&fb79)
+    &105a: ld      (&fb79),hl
+
+Indirect address &fb7b. 1 references:
+-------------------------------------
+
+    &0f27: ld      hl,(&fb7b)
+
+Indirect address &fb7d. 4 references:
+-------------------------------------
+
+    &1e91: ld      (&fb7d),a
+    &1ee4: ld      hl,(&fb7d)
+    &1f3b: ld      hl,(&fb7d)
+    &1fc3: ld      a,(&fb7d)
+
+Indirect address &fb7e. 2 references:
+-------------------------------------
+
+    &1ea3: ld      (&fb7e),a
+    &1fc8: ld      a,(&fb7e)
+
+Indirect address &fb7f. 5 references:
+-------------------------------------
+
+    &1ea8: ld      (&fb7f),a
+    &1eea: ld      a,(&fb7f)
+    &1efa: ld      a,(&fb7f)
+    &1f64: ld      a,(&fb7f)
+    &1fb7: ld      a,(&fb7f)
+
+Indirect address &fb82. 3 references:
+-------------------------------------
+
+    &1f26: ld      a,(&fb82)
+    &1f50: ld      a,(&fb82)
+    &1fbe: ld      (&fb82),a
+
+Indirect address &fb83. 1 references:
+-------------------------------------
+
+    &1ee7: ld      (&fb83),hl
+
+Indirect address &fb85. 1 references:
+-------------------------------------
+
+    &1eed: ld      (&fb85),a
+
+Indirect address &fb86. 1 references:
+-------------------------------------
+
+    &1fac: ld      (&fb86),a
+
+Indirect address &fb87. 6 references:
+-------------------------------------
+
+    &1eb8: ld      (&fb87),a
+    &1ee1: ld      (&fb87),a
+    &1ef0: ld      a,(&fb87)
+    &1ef7: ld      (&fb87),a
+    &1f16: ld      (&fb87),a
+    &1faf: ld      (&fb87),a
+
+Indirect address &fb88. 6 references:
+-------------------------------------
+
+    &1f31: ld      a,(&fb88)
+    &1f61: ld      (&fb88),a
+    &1f83: ld      (&fb88),a
+    &1f90: ld      (&fb88),a
+    &1f99: ld      a,(&fb88)
+    &1f9f: ld      (&fb88),a
+
+Indirect address &fb89. 2 references:
+-------------------------------------
+
+    &1f7a: ld      a,(&fb89)
+    &1fb4: ld      (&fb89),a
+
+Indirect address &fb8a. 3 references:
+-------------------------------------
+
+    &1ebc: ld      (&fb8a),a
+    &1f1a: ld      (&fb8a),a
+    &1f56: ld      a,(&fb8a)
+
+Indirect address &fb8b. 3 references:
+-------------------------------------
+
+    &1ec0: ld      (&fb8b),a
+    &1ed8: ld      (&fb8b),a
+    &1f88: ld      a,(&fb8b)
+
+Indirect address &fb93. 2 references:
+-------------------------------------
+
+    &065e: ld      a,(&fb93)
+    &0677: ld      (&fb93),a
+
+Indirect address &fb96. 2 references:
+-------------------------------------
+
+    &1b2d: ld      ix,(&fb96)
+    &1ba4: ld      (&fb96),hl
+
+Indirect address &fb98. 3 references:
+-------------------------------------
+
+    &19c2: ld      (&fb98),ix
+    &1b31: ld      iy,(&fb98)
+    &1bb5: ld      (&fb98),hl
+
+Indirect address &fb9a. 1 references:
+-------------------------------------
+
+    &18fb: ld      hl,(&fb9a)
+
+Indirect address &fb9c. 1 references:
+-------------------------------------
+
+    &18f6: ld      hl,(&fb9c)
+
+Indirect address &fb9e. 1 references:
+-------------------------------------
+
+    &1b48: ld      ix,(&fb9e)
+
+Indirect address &fba0. 1 references:
+-------------------------------------
+
+    &1b4c: ld      iy,(&fba0)
+
+Indirect address &fbac. 4 references:
+-------------------------------------
+
+    &1871: ld      a,(&fbac)
+    &1875: ld      (&fbac),a
+    &1888: ld      (&fbac),a
+    &1b21: ld      (&fbac),a
+
+Indirect address &fbae. 2 references:
+-------------------------------------
+
+    &19b9: ld      (&fbae),hl
+    &19df: ld      hl,(&fbae)
+
+Indirect address &fbb0. 1 references:
+-------------------------------------
+
+    &008d: ld      (&fbb0),a
+
+Indirect address &fbb1. 2 references:
+-------------------------------------
+
+    &0274: ld      (&fbb1),a
+    &1dc2: ld      a,(&fbb1)
+
+Indirect address &fbb2. 4 references:
+-------------------------------------
+
+    &067a: ld      (&fbb2),a
+    &0682: ld      a,(&fbb2)
+    &06bc: ld      (&fbb2),a
+    &075c: ld      (&fbb2),a
+
+Indirect address &fbb5. 2 references:
+-------------------------------------
+
+    &0702: ld      (&fbb5),a
+    &0715: ld      (&fbb5),a
+
+
+End of reference file for "A:\rom.bin"
+

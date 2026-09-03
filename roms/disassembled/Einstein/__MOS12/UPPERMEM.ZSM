@@ -1,0 +1,163 @@
+;8000 - FFFF set to FF
+;0000 - 7FFF set to FF
+;FB00 - FFFF set to 00
+
+;***********************************************************************
+;loaded from MOS@L1036	COPY &1036/&1040 TO &0/&B, qty 11
+	ORG	0000H
+L0000:	RST 08H
+        DEFB	9AH	;MCAL ZINIT
+        DEFB	0FFH
+        DEFB	00
+        DEFB	00
+        DEFB	0FFH
+        DEFB	0FFH
+        DEFB	0FFH
+L0008:  JP	LFC22
+
+;***********************************************************************
+; loaded from MOS@L0FF0	;COPY &FF0/&1035 TO &FB00/FB45, qty 46
+; interrupt vectors
+	ORG 0FB00H
+ICTCO:  DEFW	LFC4E	;ctc0
+ICTC1:  DEFW	LFC4E	;ctc1
+ICTC2:  DEFW	LFC4E	;ctc2
+ICTC3:  DEFW	LFC47	;ctc3 real time clock
+IKBD:   DEFW	LFC4E	;keyboard
+IADC:   DEFW	LFC4E	;adc
+IFIRE:  DEFW	LFC4E	;fire button
+IUSR:   DEFW	LFC4E	;external interrupt
+IPRT:   DEFW	LFC84	;pia_a printer
+IPIA:   DEFW	LFC4E	;pia_b
+;
+LFB14:	OUT	(24H), A
+        LD	A, (HL)
+LFB17:	OUT	(24H), A
+        RET
+;
+LFB1A:	OUT	(24H), A
+        LDIR
+        OUT	(24H), A
+        RET
+;
+LFB21:	OUT	(24H), A
+        LDDR
+        OUT	(24H), A
+        RET
+;
+LFB28:	OUT	(24H), A
+	CALL	0FCAH
+	OUT	(24H), A
+	RET
+;
+;LFB30:
+BRKVCT:	DEFW	0	;break vector
+CLDVCT:	DEFW	0	;cold start vector
+WRMVCT:	DEFW	0	;warm start vector
+VMODE:	DEFW	0C002H	;VDP MODE - DEPENDANT ON SCREEN SIZE
+TCOLR:	DEFB	0F0H	;TEXT COLOUR 	- <0:3>BACK,<4:7>FOREGROUND
+GCOLR:	DEFB	0F0H	;GRAPHICS COLOUR 	- DITTO
+MOSITP:	DEFW	0282H	;LOCATION OF MOS VECTORS
+MOSLOW:	DEFW	007DH	;MOS COMMAND OUT OF RANGE - TOO LOW
+KFLAG:	DEFB	80h	;KEY FLAGS
+CUSCDE:	DEFB	7FH	;CURSOR CODE
+;LFB40:
+PROMPT:	DEFB	3EH	;prompt code '>'
+BLINK:	DEFB	20H	;blink rate
+KDEL:	DEFB	0A0H	;KEYBOARD REPEAT DELAY
+KSCAN:	DEFB	10H	;KEYBOARD SCAN RATE
+SCTSIZE:	DEFB	02H	;SECTOR SIZE IN 256 BYTE BLOCKS
+PCFLGS:		DEFB	01H	;HARDEFWARE FLAGS
+;
+; rest of area preset to Zero
+
+;***********************************************************************
+;loaded from MOS@L1041	COPY &1041/&10C4 TO &FC09/&FC8B, qty 84
+	ORG	0FC09H
+LFC09:  LD	A,(0038H)
+	OR	A, A
+	RET Z
+	JR	LFC1F
+;***********************************************************************
+LFC10:  LD	A, (0038H)
+	OR	A, A
+	RET NZ
+	JR	LFC1F
+	PUSH	BC
+	LD	C, A
+	LD	A, (0038H)
+	CP	A, C
+	POP	BC
+	RET Z
+LFC1F:  OUT	(24H), A
+	RET
+;***********************************************************************
+;rst 08 redirected here
+LFC22:  LD	(TEMPHL), HL
+	POP	HL
+	PUSH	AF
+	LD	A, (HL)
+	INC	HL
+	EX	(SP), HL
+	LD	(TEMPPC), SP
+	PUSH	HL
+	OR	A, A
+LFC30:  LD	HL, ICTC0
+	SBC	HL, SP
+	POP	HL
+	JR C   LFC3B
+	LD	SP, 0FCFFH
+LFC3B:  OUT	(24H), A
+	CALL	0FCAH
+LFC40:  OUT	(24H), A
+	LD	SP, (TEMPPC)
+	RET
+;***********************************************************************
+;ctc3 real time clock interrupt vector
+LFC47:  PUSH	HL
+	PUSH	AF
+	CALL	LFC51
+	POP	AF
+	POP	HL
+;
+;default inerrupt vector
+LFC4E:  EI	
+	RETI
+;***********************************************************************
+LFC51:  LD	HL, RTCS+1
+	LD	A, 39H
+	CALL	LFC7D
+	RET NC
+	LD	A, 35H
+	CALL	LFC7D
+	RET NC
+	LD	A, 39H
+LFC62:  CALL	LFC7D
+	RET NC
+	LD	A, 35H
+	CALL	LFC7D
+	RET NC
+	DEC	HL
+	LD	A, 32H
+	CP	A, (HL)
+LFC70:  INC	HL
+	LD	A, 39H
+	JR NZ  LFC77
+	LD	A, 33H
+LFC77:  CALL	LFC7D
+	RET NC
+	LD	A, 32H
+LFC7D:  INC	(HL)
+	CP	A, (HL)
+	RET NC
+LFC80:  LD	(HL), 30H
+	DEC	HL
+	RET
+;***********************************************************************
+;pia_a printer interrupt vector
+LFC84:  PUSH	HL
+	LD	HL, IFLAG
+	RES	0, (HL)
+	POP	HL
+	JR	LFC4E
+;***********************************************************************

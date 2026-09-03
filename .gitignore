@@ -1,0 +1,20 @@
+# Build trees. build/ is the app (SDL3 and Dear ImGui are fetched into
+# _deps at configure time, so it is large); build-core/ is the
+# dependency-free core + tests build that build.cmd core produces.
+build/
+build-core/
+out/
+
+# Written by Albert next to the executable on first run, and personal to
+# whoever ran it -- albert.cfg carries the recent-files list.
+albert.cfg
+albert-layout-*.ini
+albert.state
+imgui.ini
+
+# Tooling leftovers.
+__pycache__/
+*.pyc
+*.user
+.vs/
+.vscode/

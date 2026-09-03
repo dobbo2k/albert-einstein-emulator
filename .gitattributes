@@ -1,0 +1,6 @@
+# This tree is a byte-exact archive as much as it is a source tree: the ROM
+# images, the Hohne disassemblies and the dZ80 output matter as bytes, and the
+# emulator sources are a mix of CRLF and LF file by file with no convention
+# behind it. The global core.autocrlf=true would rewrite both on checkout, so
+# all end-of-line conversion is turned off here.
+* -text

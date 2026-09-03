@@ -1,0 +1,9 @@
+Z80A CPU
+Z80A CTC
+Z80A PIO
+8251 PCI
+ADC0844			http://www.national.com/pf/DC/ADC0844.html	ADC0844.pdf	March 2006
+AY-3-8910 PSG		http://www.xs4all.nl/~ronholst/map/resources/sound/generalinstrument_ay-3-8910.pdf
+TMS9129 VDP		http://www.xs4all.nl/~ronholst/map/resources/video/texasinstruments_tms9918.pdf
+			http://www.msxarchive.nl/pub/msx/mirrors/hanso/datasheets/chipstms9918.pdf
+FD1770 FDC		http://www.astro.livjm.ac.uk/~bbcdocs/hardware/datasheets/WD177x.zip
