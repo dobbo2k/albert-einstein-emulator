@@ -268,24 +268,6 @@ is resident (M5), so for now the semantics rest on the derivation plus unit test
 Kept here deliberately: everything below is either unfinished or unverified,
 and none of it is hidden in a commit message.
 
-- **Some graphics do not render correctly.** Reported against a side-by-side
-  comparison with fMSX, which drives the same TMS9918-family VDP, so the
-  comparison is a fair one. Not yet diagnosed -- the screenshots were not to
-  hand before this session ended. This is the most substantial open item, and
-  the VDP is the place to start: `tms9129.cpp`, particularly the Graphics II
-  colour-table banking and the sprite path.
-- **Machine > Boot disc has not been watched working.** The Ctrl-BREAK sequence
-  it performs is proven -- headlessly it reads 46 sectors and boots Oh Mummy --
-  but the menu item driving it was never clicked by the author, because
-  synthesised input cannot take foreground focus on Windows. If it does not
-  work, the gesture timing in `input.cpp` is where to look, not the firmware.
-- **Double Dragon's controls are unknown.** It loads and reaches its title
-  screen, but a sweep of every input the machine has -- all 64 matrix keys, four
-  ADC channels, eight port 20 bits, both PIO ports -- moved nothing. The sweep
-  holds each input steady; the untested hypothesis is an input that registers on
-  a press-and-release edge, which is how COBRA's fire turned out to behave.
-- **ISLAND.dsk cannot be run.** It holds five `.XBS` Xtal BASIC programs and no
-  `.COM`, and there is no BASIC in this archive to load them with.
 - **Joystick 2 has no known place on the PIO.** Its fire bit is assumed to be
   port 20 bit 1 by symmetry with joystick 1, and its digital directions are not
   mapped at all; five bits do not fit in the three left over. Only the analogue
